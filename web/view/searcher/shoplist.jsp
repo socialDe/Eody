@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- explorer_europe start  -->
 <script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey="></script>
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=개인키 "></script>
 <div class="explorer_europe list_wrap">
 	<div class="container">
 	<div class="bradcam_text text-center">  <h1>Choose the shop</h1></br></br>  </div>
