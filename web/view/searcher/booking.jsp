@@ -18,7 +18,7 @@
                         </div>
                         <c:forEach var="b" items="${books}">
                                 <div class="table-row">
-                                        <div class="country"><img src="web/img/${b.shop_img}" alt="flag"><span class="num">${b.booking_no}</span></div>
+                                        <div class="country"><img src="img/${b.shop_img}" alt="flag"><span class="num">${b.booking_no}</span></div>
                                         <div class="visit"><span>${b.shop_name}</span></div>
                                         <div class="visit"><span>${b.booking_date }</span></div>
                                         <div class="visit"><span>${b.booking_pp }</span></div>
