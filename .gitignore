@@ -1,3 +1,8 @@
+# Local IP change
+web/WEB-INF/config/spring.xml
+src/myspring.xml
+web/view/searcher/shoplist.jsp
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,windows,eclipse,java-web
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,eclipse,java-web
