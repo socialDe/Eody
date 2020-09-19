@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.BookingDao">
+        <insert id="insert" parameterType="booking">
+                INSERT INTO BOOKING VALUES (BOOKING_SEQ.NEXTVAL,#{searcher_name},#{searcher_id},#{shop_name},#{booking_date},#{booking_pp},#{booking_msg},#{searcher_phone},#{booking_stat},#{review_stat},#{shop_img})
+        </insert>
+        
+        <update id="update" parameterType="booking">
+        </update> 
+        
+        <delete id="delete1" parameterType="String">
+        </delete>
+        
+        <select id="select1" parameterType="String" resultType="booking">
+        </select>
+        
+        <select id="selectall" resultType="booking">
+                SELECT * FROM BOOKING
+        </select>
+        
+        <select id="bookingselect_shop" parameterType="String" resultType="booking">
+                SELECT * FROM BOOKING WHERE SHOP_NAME=#{shop_name}
+        </select>
+        <select id="bookingget_searcher" parameterType="String" resultType="booking">
+                SELECT * FROM BOOKING WHERE SEARCHER_ID=#{searcher_id}
+        </select>
+</mapper>
+
+
+
+

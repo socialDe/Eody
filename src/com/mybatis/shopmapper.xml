@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ShopDao">
+        
+        <insert id="insert" parameterType="shop">
+                INSERT INTO SHOP (shop_no,manager_id,shop_number,h_name,shop_name,shop_type,shop_time,shop_address,shop_info,shop_img,shop_booking,shop_park,shop_phone)
+                VALUES 
+                (SHOP_SEQ.NEXTVAL,
+                #{manager_id},
+                #{shop_number},
+                #{h_name},
+                #{shop_name},
+                #{shop_type},
+                #{shop_time},
+                #{shop_address},
+                #{shop_info},
+                #{shop_img},
+                #{shop_booking},
+                #{shop_park},
+                #{shop_phone}
+                )
+        </insert>
+        
+        <update id="update" parameterType="shop" >
+                UPDATE SHOP SET shop_name=#{shop_name},
+                shop_number=#{shop_number},
+                shop_address=#{shop_address},
+                shop_time=#{shop_time},
+                shop_phone=#{shop_phone},
+                h_name=#{h_name},
+                shop_type=#{shop_type},
+                shop_park=#{shop_park},
+                shop_booking=#{shop_booking},
+                shop_img1=#{shop_img1},
+                shop_img2=#{shop_img2},
+                shop_img3=#{shop_img3},
+                shop_img4=#{shop_img4},
+                shop_info=#{shop_info}
+                WHERE SHOP_NAME=#{origin_shop_name}
+        </update>
+        
+        <delete id="delete2" parameterType="Integer">
+                DELETE FROM SHOP WHERE SHOP_NO=#{shop_no}
+        </delete>
+        
+        <select id="select2" parameterType="Integer" resultType="shop">
+                SELECT * FROM SHOP WHERE SHOP_NO=#{shop_no}
+        </select>
+        <select id="select1" parameterType="String" resultType="shop">
+                SELECT * FROM SHOP WHERE SHOP_NAME=#{shop_name}
+        </select>
+        
+        <select id="shop_select" parameterType="String" resultType="shop">
+                SELECT * FROM SHOP WHERE MANAGER_ID = #{manager_id}
+        </select>
+        
+        <select id="selectall" resultType="shop">
+                                SELECT * FROM SHOP
+                </select>
+        <select id="shop_hotplace_select" parameterType="String" resultType="shop">
+                SELECT * FROM SHOP WHERE H_NAME = #{h_name}
+        </select>
+        
+        <update id="shop_hitcnt" parameterType="String">
+                        UPDATE SHOP SET SHOP_HITS = SHOP_HITS+1 WHERE SHOP_NAME=#{shop_name}
+        </update>
+        <update id="shop_score_avg" parameterType="String">
+                        UPDATE SHOP SET SHOP_SCORE_AVG=(SELECT AVG(SHOP_SCORE) FROM REVIEW WHERE SHOP_NAME=#{shop_name}) WHERE SHOP_NAME=#{shop_name}
+        </update>
+        
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

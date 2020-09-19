@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ReviewDao">
+        
+        <insert id="insert" parameterType="review">
+                INSERT INTO REVIEW VALUES (REVIEW_SEQ.NEXTVAL, SYSDATE, #{review_contents}, #{review_image1}, #{review_image2}, #{review_image3}, null, #{review_name}, #{review_score})
+        </insert>
+        
+        <update id="update" parameterType="review">
+                SELECT * FROM REVIEW
+        </update> 
+        
+        <delete id="delete1" parameterType="String">
+                SELECT * FROM REVIEW
+        </delete>
+        
+        <select id="select1" parameterType="String" resultType="review">
+                SELECT * FROM REVIEW WHERE SHOP_NAME=#{shop_name}
+        </select>
+        
+        <select id="selectall" resultType="review">
+                SELECT * FROM REVIEW
+        </select>
+        
+         <select id="review_select" parameterType="String" resultType="review">
+        SELECT * FROM REVIEW WHERE SHOP_NAME = #{shop_name} ORDER BY REVIEW_DATE DESC
+     </select>
+        
+        
+</mapper>
