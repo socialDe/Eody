@@ -44,13 +44,16 @@ table tbody tr{
 	margin: 0 auto;
 	
 }
-.aa{
-	width:220px;
-
+.register_area{
+	margin-top: 20px;
 }
-.move{
+.register_div{
 	margin-left: 150px;
 	margin-top: 50px;
+}
+.check_bnt_space{
+	width:220px;
+
 }
 #register_btn{
 	margin-top: 35px;
@@ -122,7 +125,9 @@ table tbody tr{
 
 
 
-                <!-- register start  -->
+        <!-- register start  -->
+<div class="register_area">
+	<div class="register_div">
         <form action="searcheraddimpl.mc" method="post" name="regi_form" onsubmit="return nullCheck();">
 			<table class="mb-20" style="margin-left: auto; margin-right: auto;">
 				<tr>
@@ -136,7 +141,7 @@ table tbody tr{
 						<button id="id_check_btn" class="genric-btn info small" type="button">중복확인</button>
 					</td>
 					<td style="padding-bottom:22px">
-						<div class="aa">
+						<div class="check_bnt_space">
 							<span id="id_check_result"></span>
 						</div>
 					</td>
@@ -157,8 +162,8 @@ table tbody tr{
 						</div>
 					</td>
 					<td colspan="2" style="padding-bottom:20px">
-						<div class="aa">
-							<span id="check_text"></span>
+						<div class="check_bnt_space">
+							<span id="pwd_check_result"></span>
 						</div>
 					</td>
 				</tr>
@@ -283,7 +288,8 @@ table tbody tr{
 				<button id="register_btn" class="boxed-btn2 mb-30" type="submit">Register</button>
 			</div>
 		</form>
-
+	</div>
+</div>
         <!-- register end  -->
 
 
