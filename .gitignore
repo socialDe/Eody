@@ -1,6 +1,6 @@
 # Local IP change
-web/WEB-INF/config/spring.xml
-src/myspring.xml
+web/WEB-INF/config/spring*
+src/myspring*
 web/view/searcher/shoplist.jsp
 
 
