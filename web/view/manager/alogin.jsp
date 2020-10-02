@@ -126,7 +126,7 @@
                                                         <div style="text-align: center">
                                                                 <div>
                                                                         <input type="text" name="id" placeholder="ID"
-                                                                                style="width: 300px;" value="id01">
+                                                                                style="width: 300px;" value="m01">
                                                                 </div>
                                                                 <div>
                                                                         <input type="password" name="pwd" placeholder="PWD"
