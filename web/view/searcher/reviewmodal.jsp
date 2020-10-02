@@ -21,6 +21,7 @@
                                 <div class="explorer_info">
 
                                         <form enctype="multipart/form-data" action="reviewadd.mc" method="post">
+                                        <input type="hidden" name="shop_name">
                                         <input type="hidden" name="review_name" value="${loginuser.searcher_nickname}">
                                         <div>별점</div>
                                         <div class="starRev mb-20">

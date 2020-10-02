@@ -388,6 +388,12 @@ body {
 
                                   });//forEach
                         });
+                        
+                        $('#writeReview').click(function(){
+                        	console.log($(this).data('id'));
+                        	$("input[name='shop_name']").val($(this).data('id'));
+
+                        });
                 });
         </script>
 

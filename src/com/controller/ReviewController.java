@@ -32,7 +32,8 @@ public class ReviewController {
         @RequestMapping("/reviewadd.mc")
         public ModelAndView reviewadd(ModelAndView mv, ReviewVO review, SearcherVO searcher,
                         @RequestParam("files") MultipartFile[] files) {
-
+        		System.out.println("가게이름 : " +review.getShop_name());
+        		// 가게 이름은 hidden 값으로 넘겨받았음
                 // 리뷰에 매긴 평점은 hidden 값으로 넘겨받았음
                 // 리뷰를 작성한 searcher의 nickname값을 hidden으로 넘겨받았음
 
