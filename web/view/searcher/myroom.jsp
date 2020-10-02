@@ -147,7 +147,7 @@ body {
                                                         <div class="col-xl-6 col-lg-3 d-none d-lg-block">
                                                                 <div class="Appointment">
                                                                         <div class="book_btn d-none d-lg-block">
-                                                                                <a href="#">Logout</a> <a href="myroom.mc">${loginuser.searcher_nickname }'s Myroom</a>
+                                                                                <a href="logout.mc">Logout</a> <a href="myroom.mc">${loginuser.searcher_nickname }'s Myroom</a>
                                                                         </div>
                                                                 </div>
                                                         </div>
