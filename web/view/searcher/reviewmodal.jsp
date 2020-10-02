@@ -31,7 +31,7 @@
                                                 <span class="starR" value="4">별4</span> 
                                                 <span class="starR" value="5">별5</span>
                                         </div>
-                                        <input type="hidden" name="review_score" id="review_score">
+                                        <input type="hidden" name="shop_score" id="shop_score">
 
                                         <div>사진</div>
                                         <div class="mb-20">

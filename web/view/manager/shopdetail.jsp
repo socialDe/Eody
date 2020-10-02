@@ -110,15 +110,19 @@
                  review_strings += '<div class="review-item">';
                  
                  // 사진
+                 review_strings += '<div class="img-container">';
                  if(reviewlist[i].review_image1 != 'default.jpg'){
-                	 review_strings += '<div class="img-container"><img src="img/'+reviewlist[i].review_image1+'" style="width:120px; height:120px; border-radius:10px;">';
-                     review_strings += '<img src="img/'+reviewlist[i].review_image2 +'" style="width:120px; height:120px; border-radius:10px;">';
-                      review_strings += '<img src="img/'+reviewlist[i].review_image3 +'" style="width:120px; height:120px; border-radius:10px;"></div>';
+                	 review_strings += '<img src="./img/'+reviewlist[i].review_image1+'" style="width:120px; height:120px; border-radius:10px;">';
                  }
-                 
-                  
+                 if(reviewlist[i].review_image2 != 'default.jpg'){
+                	 review_strings += '<img src="./img/'+reviewlist[i].review_image2 +'" style="width:120px; height:120px; border-radius:10px;">';
+                 }
+                 if(reviewlist[i].review_image3 != 'default.jpg'){
+                 	review_strings += '<img src="./img/'+reviewlist[i].review_image3 +'" style="width:120px; height:120px; border-radius:10px;">';
+                 }
+                 review_strings += '</div>';
+                	 
                  // 별점
-                 console.log('별점 : ' + reviewlist[i].shop_score);
                  if(Number(reviewlist[i].review_score)  == 1){
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR"></span>';

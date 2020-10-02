@@ -350,7 +350,7 @@ body {
                                 $(this).parent().children('span').removeClass('on');
                                 $(this).addClass('on').prevAll('span').addClass('on');
                                 var rate = $(this).attr("value");
-                                $('#review_score').val(rate);
+                                $('#shop_score').val(rate);
                                 return false;
                         });
 
