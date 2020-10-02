@@ -23,8 +23,8 @@ public class ManagerController {
         @Resource(name = "mbiz")
         Biz<String, Integer, ManagerVO> biz;
         @Resource(name = "shopbiz")                                                        
-        Biz<String, Integer, ShopVO> biz_shop;                                        // ê°€ê²Œ ì…ë‹ˆë‹¤.
-        // ë©”ì¸í˜ì´ì§€ë¡œ ì´ë™
+        Biz<String, Integer, ShopVO> biz_shop;  // °¡°Ô ÀÔ´Ï´Ù.
+        // ¸ŞÀÎÆäÀÌÁö·Î ÀÌµ¿ 
         @RequestMapping("/amain.mc")
         public ModelAndView amain() {
                 ModelAndView mv = new ModelAndView();
@@ -32,21 +32,21 @@ public class ManagerController {
                 return mv;
         }
 
-        // mainí˜ì´ì§€ì˜ login ë²„íŠ¼ ì‹¤í–‰ ì‹œ ë¡œê·¸ì¸ í˜ì´ì§€ë¡œ ì´ë™
+        // mainÆäÀÌÁöÀÇ login ¹öÆ° ½ÇÇà ½Ã ·Î±×ÀÎ ÆäÀÌÁö·Î ÀÌµ¿ 
         @RequestMapping("/alogin.mc")
         public ModelAndView alogin() {
                 ModelAndView mv = new ModelAndView();
                 mv.setViewName("manager/alogin");
                 return mv;
         }
-        // ë¡œê·¸ì¸ í›„ì— ìš°ì¸¡ ìƒë‹¨ì˜ logout ë²„íŠ¼ ì‹¤í–‰ ì‹œ ë©”ì¸ í˜ì´ì§€ë¡œ ì´ë™
+        // ·Î±×ÀÎ ÈÄ¿¡ ¿ìÃø »ó´ÜÀÇ logout ¹öÆ° ½ÇÇà ½Ã ¸ŞÀÎ ÆäÀÌÁö·Î ÀÌµ¿
         @RequestMapping("/alogout.mc")
         public ModelAndView alogout() {
         	ModelAndView mv = new ModelAndView();
         	mv.setViewName("manager/amain");
         	return mv;
         }
-        // center í˜ì´ì§€ ì´ë™: Chart
+        // center ÆäÀÌÁö ÀÌµ¿: Chart
         @RequestMapping("/chart.mc")
         public ModelAndView chart() {
         	ModelAndView mv = new ModelAndView();
@@ -63,7 +63,7 @@ public class ManagerController {
         	return mv;
         }
 
-        // ë¡œê·¸ì¸ ë²„íŠ¼ ì‹¤í–‰ ì„œë¸”ë¦¿
+        // ·Î±×ÀÎ ¹öÆ° ½ÇÇà ¼­ºí¸´
         @RequestMapping("/aloginimpl.mc")
         public ModelAndView aloginimpl(HttpServletRequest request) {
                 ModelAndView mv = new ModelAndView();
@@ -76,17 +76,17 @@ public class ManagerController {
                                 HttpSession session = request.getSession();
                                 session.setAttribute("aloginuser", dbmanager);
                               
-                                //ë¡œê·¸ì¸ í†µê³¼ì™€ ë™ì‹œ ê°€ê²Œ ë¦¬ìŠ¤íŠ¸ ë½‘ì•„ë‚´ê¸°
+                                //·Î±×ÀÎ Åë°ú¿Í µ¿½Ã °¡°Ô ¸®½ºÆ® »Ì¾Æ³»±â
                                 ArrayList<ShopVO> shoplist = null;                        
                                 try{
-                                        shoplist = biz_shop.shop_get(id);                                        //selectall í•¨ìˆ˜ì…ë‹ˆë‹¤. í•´ë‹¹ ì•„ì´ë””ê°€ ê°–ê³ ìˆëŠ” shop í…Œì´ë¸”ì„ ì „ë¶€ ê°€ì ¸ì˜µë‹ˆë‹¤.
+                                        shoplist = biz_shop.shop_get(id);                                        //selectall ÇÔ¼öÀÔ´Ï´Ù. ÇØ´ç ¾ÆÀÌµğ°¡ °®°íÀÖ´Â shop Å×ÀÌºíÀ» ÀüºÎ °¡Á®¿É´Ï´Ù.
                                 }catch (Exception e) {
                                         e.printStackTrace();
                                 }
-                                mv.addObject("centerpage", "center1");                                // centerpageì— center1.jsp íŒŒì¼ì„ ì–¹ìŠµë‹ˆë‹¤. centerpageëŠ” myroom.jspì— ìˆìŠµë‹ˆë‹¤.
-                                session.setAttribute("shoplist", shoplist);                        // ê·¸ shop í…Œì´ë¸”ì„ sessionì— ë‹´ì•˜ìŠµë‹ˆë‹¤.
+                                mv.addObject("centerpage", "center1");                                // centerpage¿¡ center1.jsp ÆÄÀÏÀ» ¾ñ½À´Ï´Ù. centerpage´Â myroom.jsp¿¡ ÀÖ½À´Ï´Ù.
+                                session.setAttribute("shoplist", shoplist);                        //  ±× shop Å×ÀÌºíÀ» session¿¡ ´ã¾Ò½À´Ï´Ù.
                                 System.out.println(shoplist);
-                                mv.setViewName("manager/amyroom");                                        // myroom í˜ì´ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤.
+                                mv.setViewName("manager/amyroom");                                        // myroom ÆäÀÌÁö·Î ÀÌµ¿ÇÕ´Ï´Ù.
                         } else {
                                 mv.setViewName("redirect:alogin.mc");
                         }
@@ -98,19 +98,19 @@ public class ManagerController {
                 return mv;
         }
 
-        // Sign Up ë²„íŠ¼ ì‹¤í–‰ ì‹œ íšŒì›ê°€ì… í˜ì´ì§€ë¡œ ì´ë™
+        //Sign Up ¹öÆ° ½ÇÇà ½Ã È¸¿ø°¡ÀÔ ÆäÀÌÁö·Î ÀÌµ¿
         @RequestMapping("/manageradd.mc")
         public ModelAndView manageradd(ModelAndView mv) {
                 mv.setViewName("manager/aregister");
                 return mv;
         }
 
-        // íšŒì›ê°€ì… ë²„íŠ¼ ì‹¤í–‰ ì„œë¸”ë¦¿
+        // È¸¿ø°¡ÀÔ ¹öÆ° ½ÇÇà ¼­ºí¸´
         @RequestMapping("/manageraddimpl.mc")
         public ModelAndView manageraddimpl(ModelAndView mv, ManagerVO manager, String user_birth_year,
                         String user_birth_month, String user_birth_day) {
                 try {
-                        // search_birthday ê°’ ì…‹íŒ…
+                        // search_birthday  °ª ¼ÂÆÃ
                         manager.setManager_birthday(user_birth_year + "-" + user_birth_month + "-" + user_birth_day);
                         biz.register(manager);
                         mv.setViewName("manager/aregisterok");
@@ -121,7 +121,7 @@ public class ManagerController {
                 return mv;
         }
 
-       // ì•„ì´ë”” ì¤‘ë³µ ì²´í¬ í™•ì¸
+       //¾ÆÀÌµğ Áßº¹ Ã¼Å© È®ÀÎ
                 @RequestMapping("/aidcheckimpl.mc")
                 public void id_check_impl(HttpServletResponse res, String id) {
                         int result = 0;

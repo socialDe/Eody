@@ -28,15 +28,15 @@ public class ReviewController {
         @Resource(name = "rbiz")
         Biz<String, Integer, ReviewVO> rbiz;
 
-        // ë¦¬ë·° ë“±ë¡ ì„œë¸”ë¦¿
+        // ¸®ºä µî·Ï ¼­ºí¸´
         @RequestMapping("/reviewadd.mc")
         public ModelAndView reviewadd(ModelAndView mv, ReviewVO review, SearcherVO searcher,
                         @RequestParam("files") MultipartFile[] files) {
 
-                // ë¦¬ë·°ì— ë§¤ê¸´ í‰ì ì€ hidden ê°’ìœ¼ë¡œ ë„˜ê²¨ë°›ì•˜ìŒ
-                // ë¦¬ë·°ë¥¼ ì‘ì„±í•œ searcherì˜ nicknameê°’ì„ hiddenìœ¼ë¡œ ë„˜ê²¨ë°›ì•˜ìŒ
+                // ¸®ºä¿¡ ¸Å±ä ÆòÁ¡Àº hidden °ªÀ¸·Î ³Ñ°Ü¹Ş¾ÒÀ½
+                // ¸®ºä¸¦ ÀÛ¼ºÇÑ searcherÀÇ nickname°ªÀ» hiddenÀ¸·Î ³Ñ°Ü¹Ş¾ÒÀ½
 
-                // ë¦¬ë·°ì— ì—…ë¡œë“œí•œ ì‚¬ì§„ì´ë¦„ ì €ì¥
+                // ¸®ºä¿¡ ¾÷·ÎµåÇÑ »çÁøÀÌ¸§ ÀúÀå
                 System.out.println("size : " + files.length);
                 int len = files.length;
                 if (len == 1) {
@@ -55,7 +55,7 @@ public class ReviewController {
 
                 try {
                         rbiz.register(review);
-                        // ì‚¬ì§„íŒŒì¼ í´ë”ì— ì €ì¥
+                        // »çÁøÆÄÀÏ Æú´õ¿¡ ÀúÀå
                         for (MultipartFile f : files) {
                                 if (f.getOriginalFilename() == "defualt.jpg") {
                                         continue;
@@ -67,16 +67,16 @@ public class ReviewController {
                         e.printStackTrace();
                 }
 
-                // redirectìœ¼ë¡œ í•´ì•¼ submit ì¤‘ë³µì„ ë§‰ìŒ
+                // redirectÀ¸·Î ÇØ¾ß submit Áßº¹À» ¸·À½
                 mv.setViewName("redirect:myroom.mc");
                 return mv;
         }
 
-        // ë¦¬ë·°ë¦¬ìŠ¤íŠ¸ í™”ë©´ ì²˜ë¦¬
+        // ¸®ºä¸®½ºÆ® È­¸é Ã³¸®
         @ResponseBody
         @RequestMapping("/getReview.mc")
         public void getReview(HttpServletResponse res, String ashop) throws IOException {
-                System.out.println("shop ì´ë¦„ : " + ashop);
+                System.out.println("shop ÀÌ¸§ : " + ashop);
                 JSONArray ja = new JSONArray();
                 ArrayList<ReviewVO> list = new ArrayList<>();
                 try {

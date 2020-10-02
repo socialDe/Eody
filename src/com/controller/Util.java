@@ -4,10 +4,10 @@ import java.io.FileOutputStream;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Util {
-        // ë°›ì•„ì˜¨ ë°ì´í„°ë¥¼ ì„œë²„ì— ì´ë¯¸ì§€ë¥¼ ì˜¬ë¦°ë‹¤.
+        // ¹Ş¾Æ¿Â µ¥ÀÌÅÍ¸¦ ¼­¹ö¿¡ ÀÌ¹ÌÁö¸¦ ¿Ã¸°´Ù.
         public static void saveFile(MultipartFile mf, String review_name) {
-        	//ë””ë ‰í† ë¦¬ ì–´ë””ë¡œë°›ì•„ì•¼í• ê²ƒì¸ì§€ ì„ íƒí•´ì•¼í•¨.
-        	//Shopadd, Reviewaddì—ì„œ ì‚¬ìš©ë˜ê³  ìˆìŒ. ì¶”í›„ ë¶„ê¸°ì²˜ë¦¬
+        	//µğ·ºÅä¸® ¾îµğ·Î¹Ş¾Æ¾ßÇÒ°ÍÀÎÁö ¼±ÅÃÇØ¾ßÇÔ.
+        	//Shopadd, Reviewadd¿¡¼­ »ç¿ëµÇ°í ÀÖÀ½. ÃßÈÄ ºĞ±âÃ³¸®
                 String dir = "/Users/jaeuk/Desktop/web/eody/web/view/img/";
         		byte [] data;
         		String imgname = mf.getOriginalFilename();

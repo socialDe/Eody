@@ -13,16 +13,16 @@ import com.vo.HotPlaceVO;
 public class RegionSearch {
 
 	public ArrayList<HotPlaceVO> DistanceFirstSearch(String[] keys){
-			
+
 			System.out.println("App Start .....");
-			AbstractApplicationContext factory = 
+			AbstractApplicationContext factory =
 					new GenericXmlApplicationContext("myspring.xml");
 			System.out.println("Spring Started .......");
-					
-			Biz<String,Integer,HotPlaceVO> biz = 
+
+			Biz<String,Integer,HotPlaceVO> biz =
 					(Biz)factory.getBean("hbiz");
-	
-			
+
+
 			//rawdata set up
 			ArrayList<HotPlaceVO> rawdata = null;
 			try {
@@ -34,46 +34,46 @@ public class RegionSearch {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			//rawdata, ì¶œë°œì§€ê°„ ê±°ë¦¬ë¥¼ ë‹´ì•„ë‘ê¸° ìœ„í•œ 2ì°¨ì› ë°°ì—´ 
+			//rawdata, Ãâ¹ßÁö°£ °Å¸®¸¦ ´ã¾ÆµÎ±â À§ÇÑ 2Â÷¿ø ¹è¿­ 
 	        double[][] dists = new double[keys.length][rawdata.size()];
-	        
+
 	        for(int j=0; j<rawdata.size();j++) {
-	        	/* lat_raw = rawdataì˜ ê²½ë„ 
-	        	 * lng_raw = rawdataì˜ ìœ„ë„ 
-	        	 * lat_key = ì¶œë°œì§€ì˜ ê²½ë„ 
-	        	 * lng_key = ì¶œë°œì§€ì˜ ìœ„ë„ 
+	        	/* lat_raw = rawdataÀÇ °æµµ 
+	        	 * lng_raw = rawdataÀÇ À§µµ 
+	        	 * lat_key = Ãâ¹ßÁöÀÇ °æµµ 
+	        	 * lng_key = Ãâ¹ßÁöÀÇ À§µµ 
 	        	 */
 	        	double lat_raw=0.0;
 	        	double lng_raw=0.0;
 	        	double lat_key=0.0;
 	        	double lng_key=0.0;
-	        	
-	        	//rawdataì˜ ê²½ë„, ìœ„ë„ ì…ë ¥ 
+
+	        	//rawdataÀÇ °æµµ, À§µµ ÀÔ·Â 
 	        	lat_raw = Double.parseDouble(rawdata.get(j).getH_lat());
 	        	lng_raw = Double.parseDouble(rawdata.get(j).getH_lng());
-	        	
-	        	//ì…ë ¥ë°›ì€ ìœ„ì¹˜ì˜ ê°œìˆ˜ë§Œí¼ ì¶œë°œì§€ lat, lng ì…ë ¥  
+
+	        	//ÀÔ·Â¹ŞÀº À§Ä¡ÀÇ °³¼ö¸¸Å­ Ãâ¹ßÁö lat, lng ÀÔ·Â  
 	        	for(int i=0;i<keys.length;i++) {
-	        		//ì…ë ¥ ë°›ì€ ìœ„ì¹˜ì˜ lat ì…ë ¥ 
+	        		//ÀÔ·Â ¹ŞÀº À§Ä¡ÀÇ lat ÀÔ·Â 
 	        		try {
 						lat_key = Double.parseDouble(biz.get1(keys[i]).getH_lat());
-	//					System.out.println("lat_key: "+lat_key+"ì…ë ¥ ì™„ë£Œ.");
+	//					System.out.println("lat_key: "+lat_key+"ÀÔ·Â ¿Ï·á.");
 					} catch (NumberFormatException e) {
 						e.printStackTrace();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-	        		//ì…ë ¥ ë°›ì€ ìœ„ì¹˜ì˜ lng ì…ë ¥ 
+	        		//ÀÔ·Â ¹ŞÀº À§Ä¡ÀÇ lng ÀÔ·Â 
 	        		try {
 						lng_key = Double.parseDouble(biz.get1(keys[i]).getH_lng());
-	//					System.out.println("lng_key: "+lng_key+"ì…ë ¥ ì™„ë£Œ.");
+	//					System.out.println("lng_key: "+lng_key+"ÀÔ·Â ¿Ï·á.");
 					} catch (NumberFormatException e) {
 						e.printStackTrace();
 					} catch (Exception e) {
 						e.printStackTrace();
 						}
 	        		
-		        	//ì…ë ¥ë°›ì€ ì¶œë°œì§€ì™€ ê°–ê³  ìˆëŠ” rawdata ê±°ë¦¬ ê³„ì‚° 
+		        	//ÀÔ·Â¹ŞÀº Ãâ¹ßÁö¿Í °®°í ÀÖ´Â rawdata °Å¸® °è»ê 
 		        	double theta = lng_key - lng_raw;
 		            double dist = Math.sin(deg2rad(lat_key)) * Math.sin(deg2rad(lat_raw)) + Math.cos(deg2rad(lat_key)) * Math.cos(deg2rad(lat_raw)) * Math.cos(deg2rad(theta));
 		            try {
@@ -81,14 +81,14 @@ public class RegionSearch {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-	//	            System.out.println("dist 1ì°¨ ê³„ì‚°: "+dist+"ì…ë ¥ ì™„ë£Œ.");
+	//	            System.out.println("dist 1Â÷ °è»ê: "+dist+"ÀÔ·Â ¿Ï·á.");
 		            dist = Math.acos(dist);
-	//	            System.out.println("dist 2ì°¨ ê³„ì‚°: "+dist+"ì…ë ¥ ì™„ë£Œ.");
+	//	            System.out.println("dist 2Â÷ °è»ê: "+dist+"ÀÔ·Â ¿Ï·á.");
 		            dist = rad2deg(dist);
-	//	            System.out.println("dist 3ì°¨ ê³„ì‚°: "+dist+"ì…ë ¥ ì™„ë£Œ.");
+	//	            System.out.println("dist 3Â÷ °è»ê: "+dist+"ÀÔ·Â ¿Ï·á.");
 		            dist = dist * 60 * 1.1515;
 		            
-		            //killometer ë‹¨ìœ„ ë³€í™˜ 
+		            //killometer ´ÜÀ§ º¯È¯ 
 		            dist = dist * 1.609344;
 		            dists[i][j] = dist;
 	        	}
@@ -109,13 +109,13 @@ public class RegionSearch {
 	        	System.out.println();
 	        }
 	        
-	    	//rawdataë³„ ê° ì¶œë°œì§€ì™€ ê±°ë¦¬ ê³„ì‚°
+	    	//rawdataº° °¢ Ãâ¹ßÁö¿Í °Å¸® °è»ê
 	        DistanceVO[] distances = new DistanceVO[rawdata.size()];
 	        //ArrayList<DistanceVO> distances = null;
 	        
 	        double[] sumarr = new double[rawdata.size()];
 	        
-	        System.out.println("rawdataë³„ avg distance");
+	        System.out.println("rawdataº° avg distance");
 	    	for(int i =0; i<rawdata.size();i++) {
 	    		double sum=0.0;
 	    		for(int j=0; j<keys.length;j++) {
@@ -128,7 +128,7 @@ public class RegionSearch {
 	    		System.out.print(distances[i].getAvg_distance()+" ");
 	    	}
 	    	
-	    	//ì •ë ¬
+	    	//Á¤·Ä
 	    	System.out.println("@@@@@@@@@@@@@@@@@@@@Before sort@@@@@@@@@@@@@@@@@@@@@@@");
 	    	print(distances);
 	    	System.out.println("");
@@ -137,16 +137,16 @@ public class RegionSearch {
 	    	print(distances);
 	    	System.out.println("");
 	    	
-	    	//ë°˜í™˜í•  3ê°œ ê°ì²´ ë‹´ì„ ë°°ì—´ ì„ ì–¸ 
+	    	//¹İÈ¯ÇÒ 3°³ °´Ã¼ ´ãÀ» ¹è¿­ ¼±¾ğ 
 	    	DistanceVO[] result = new DistanceVO[3];
-	    	System.out.println("@@@@@@@@@@@@@@@ì¶”ì²œ 3ì§€ì—­@@@@@@@@@@@@@@@");
+	    	System.out.println("@@@@@@@@@@@@@@@ÃßÃµ 3Áö¿ª@@@@@@@@@@@@@@@");
 	    	
 	    	
 			int temp = 0;
 	    	for(int i =0; i<3; i++) {
 	    		result[i] = new DistanceVO();
 	    			for(int j =0; j<keys.length;j++) {
-	    				//ì…ë ¥ë°›ì€ ì¶œë°œì§€ì˜ ì´ë¦„ê³¼ ì¶”ì²œë°›ì„ ë„ì°©ì§€ì˜ ì´ë¦„ì´ ê°™ìœ¼ë©´ ê²°ê³¼ ë°°ì—´ì— ë„£ì§€ ì•Šê³  ë‹¤ìŒ ê²ƒ íƒìƒ‰
+	    				//ÀÔ·Â¹ŞÀº Ãâ¹ßÁöÀÇ ÀÌ¸§°ú ÃßÃµ¹ŞÀ» µµÂøÁöÀÇ ÀÌ¸§ÀÌ °°À¸¸é °á°ú ¹è¿­¿¡ ³ÖÁö ¾Ê°í ´ÙÀ½ °Í Å½»ö
 	    				if(keys[j].equals(distances[temp].getHp().getH_name())) {
 	    					temp++;
 	    				}
@@ -177,7 +177,7 @@ public class RegionSearch {
 	    private static double rad2deg(double rad) {
 	        return (rad * 180 / Math.PI);
 	    }
-	    //testì‹œ ê°ì²´ ë°°ì—´ì„ printí•´ì£¼ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤.
+	    //test½Ã °´Ã¼ ¹è¿­À» printÇØÁÖ´Â ÇÔ¼öÀÔ´Ï´Ù.
 	    public static void print(DistanceVO[] distances) {
 			for (int i = 0; i < distances.length; i++) {
 				System.out.println(distances[i]);

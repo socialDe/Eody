@@ -37,16 +37,16 @@ public class WeatherController {
         public static String getRequest(String url, String parameter) {
                 try {
                         String param = "{\"param\":\"" + parameter + "\"} ";
-                        // urlë¥¼ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
+                        // url¸¦ ÀÎ½ºÅÏ½º¸¦ ¸¸µç´Ù.
                         URL uri = new URL(url);
-                        // HttpURLConnection ì¸ìŠ¤í„´ìŠ¤ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+                        // HttpURLConnection ÀÎ½ºÅÏ½º¸¦ °¡Á®¿Â´Ù.
                         HttpURLConnection connection = (HttpURLConnection) uri.openConnection();
-                        // Web MethodëŠ” Post íƒ€ì…
+                        // Web Method´Â Post Å¸ÀÔ
                         connection.setRequestMethod("GET");
-                        // ìš”ì²­í•œë‹¤. 200ì´ë©´ ì •ìƒì´ë‹¤.
+                        // ¿äÃ»ÇÑ´Ù. 200ÀÌ¸é Á¤»óÀÌ´Ù.
                         int code = connection.getResponseCode();
                         if (code == 200) {
-                                // ì‘ë‹µ ì˜¨ body ë‚´ìš©ì˜ streamì„ ë°›ëŠ”ë‹¤.
+                                // ÀÀ´ä ¿Â body ³»¿ëÀÇ streamÀ» ¹Ş´Â´Ù.
                                 try (BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
                                         String line;
                                         StringBuffer buffer = new StringBuffer();
