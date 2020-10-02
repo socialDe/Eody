@@ -108,36 +108,42 @@
          for(var i in reviewlist){
                  
                  review_strings += '<div class="review-item">';
-                 review_strings += '<div class="img-container"><img src="img/'+reviewlist[i].review_image1+'" style="width:120px; height:120px; border-radius:10px;">';
-                 review_strings += '<img src="img/'+reviewlist[i].review_image2 +'" style="width:120px; height:120px; border-radius:10px;">';
-                  review_strings += '<img src="img/'+reviewlist[i].review_image3 +'" style="width:120px; height:120px; border-radius:10px;"></div>';
+                 
+                 // 사진
+                 if(reviewlist[i].review_image1 != 'default.jpg'){
+                	 review_strings += '<div class="img-container"><img src="img/'+reviewlist[i].review_image1+'" style="width:120px; height:120px; border-radius:10px;">';
+                     review_strings += '<img src="img/'+reviewlist[i].review_image2 +'" style="width:120px; height:120px; border-radius:10px;">';
+                      review_strings += '<img src="img/'+reviewlist[i].review_image3 +'" style="width:120px; height:120px; border-radius:10px;"></div>';
+                 }
+                 
                   
-                 //별점
+                 // 별점
+                 console.log('별점 : ' + reviewlist[i].shop_score);
                  if(Number(reviewlist[i].review_score)  == 1){
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR"></span>';
                          review_strings +='<span class="starR"></span>';
                          review_strings +='<span class="starR"></span>';
                          review_strings +='<span class="starR"></span>';
-                 } else if(Number(reviewlist[i].review_score)  == 2){
+                 } else if(Number(reviewlist[i].shop_score)  == 2){
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR"></span>';
                          review_strings +='<span class="starR"></span>';
                          review_strings +='<span class="starR"></span>';
-                 } else if(Number(reviewlist[i].review_score) == 3){
+                 } else if(Number(reviewlist[i].shop_score) == 3){
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR"></span>';
                          review_strings +='<span class="starR"></span>';
-                 } else if(Number(reviewlist[i].review_score) == 4){
+                 } else if(Number(reviewlist[i].shop_score) == 4){
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR"></span>';
-                 } else if(Number(reviewlist[i].review_score) == 5){
+                 } else if(Number(reviewlist[i].shop_score) == 5){
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR on"></span>';
@@ -145,8 +151,10 @@
                          review_strings +='<span class="starR on"></span>';
                  }
                           
-                         // 이미지
+                 // 날짜
                  review_strings += '<div class="ri-text"><span>'+reviewlist[i].review_date+'</span>';
+                 
+                 // 내용
                  review_strings += '<h5>'+reviewlist[i].review_name+'</h5><p>'+reviewlist[i].review_contents+'</p></div></div>';
                  review_strings += '<hr style="border: solid 1px #dfa974;">';
     }

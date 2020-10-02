@@ -389,6 +389,7 @@ body {
                                   });//forEach
                         });
                         
+                        // 리뷰 모달에 shop_name 값 전달
                         $('#writeReview').click(function(){
                         	console.log($(this).data('id'));
                         	$("input[name='shop_name']").val($(this).data('id'));
