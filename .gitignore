@@ -70,6 +70,10 @@ local.properties
 #.project
 
 ### Eclipse Patch ###
+# Eclipse Core
+.classpath
+.project
+
 # Spring Boot Tooling
 .sts4-cache/
 
