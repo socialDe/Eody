@@ -105,7 +105,7 @@
 						<div>
 							<form action="loginimpl.mc" method="post">
 								<div class="input_field mb-20">
-									<input type="text" name="id" placeholder="ID" value="id01"><br>
+									<input type="text" name="id" placeholder="ID" value="s01"><br>
 								</div>
 								<div class="input_field mb-30">
 									<input type="password" name="pwd" placeholder="Password" value="pwd01">

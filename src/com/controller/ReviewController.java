@@ -32,21 +32,28 @@ public class ReviewController {
         @RequestMapping("/reviewadd.mc")
         public ModelAndView reviewadd(ModelAndView mv, ReviewVO review, SearcherVO searcher,
                         @RequestParam("files") MultipartFile[] files) {
-
+        	
+        		// 가게 이름은 hidden 값으로 넘겨받았음
                 // 리뷰에 매긴 평점은 hidden 값으로 넘겨받았음
                 // 리뷰를 작성한 searcher의 nickname값을 hidden으로 넘겨받았음
 
                 // 리뷰에 업로드한 사진이름 저장
                 System.out.println("size : " + files.length);
                 int len = files.length;
-                if (len == 1) {
+                System.out.println("사진 길이 : " + len);
+                if(files[0].getOriginalFilename() == "") {
+                	review.setReview_image1("default.jpg");
+                    review.setReview_image2("default.jpg");
+                    review.setReview_image3("default.jpg");
+                }
+                else if (len == 1) {
                         review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
-                        review.setReview_image2("defualt.jpg");
-                        review.setReview_image3("defualt.jpg");
+                        review.setReview_image2("default.jpg");
+                        review.setReview_image3("default.jpg");
                 } else if (len == 2) {
                         review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
                         review.setReview_image2(review.getReview_name() + files[1].getOriginalFilename());
-                        review.setReview_image3("defualt.jpg");
+                        review.setReview_image3("default.jpg");
                 } else {
                         review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
                         review.setReview_image2(review.getReview_name() + files[1].getOriginalFilename());
@@ -57,7 +64,7 @@ public class ReviewController {
                         rbiz.register(review);
                         // 사진파일 폴더에 저장
                         for (MultipartFile f : files) {
-                                if (f.getOriginalFilename() == "defualt.jpg") {
+                                if (f.getOriginalFilename() == "") {
                                         continue;
                                 }
                                 Util.saveFile(f, review.getReview_name());
@@ -87,7 +94,7 @@ public class ReviewController {
                 }
                 //System.out.println("list: " + list.toString());
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
+                System.out.println("사이즈 : " + list.size());
                 for (int i = 0; i < list.size(); i++) {
                         JSONObject data = new JSONObject();
                         data.put("review_date", format.format(list.get(i).getReview_date()));
@@ -97,7 +104,7 @@ public class ReviewController {
                         data.put("review_image3", list.get(i).getReview_image3());
                         data.put("shop_name", list.get(i).getShop_name());
                         data.put("review_name", list.get(i).getReview_name());
-                        data.put("review_score", list.get(i).getReview_score()+ "");
+                        data.put("shop_score", list.get(i).getShop_score()+ "");
                         ja.add(data);
                         //System.out.println(ja.toString());
                         
