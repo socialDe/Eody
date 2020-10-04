@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 <mapper namespace="com.dao.ReviewDao">
         
         <insert id="insert" parameterType="review">
-                INSERT INTO REVIEW VALUES (REVIEW_SEQ.NEXTVAL, SYSDATE, #{review_contents}, #{review_image1}, #{review_image2}, #{review_image3}, null, #{review_name}, #{review_score})
+                INSERT INTO REVIEW VALUES (REVIEW_SEQ.NEXTVAL, SYSDATE, #{review_contents}, #{review_image1}, #{review_image2}, #{review_image3}, #{shop_name}, #{review_name}, #{shop_score})
         </insert>
         
         <update id="update" parameterType="review">

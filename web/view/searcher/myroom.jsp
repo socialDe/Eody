@@ -141,33 +141,13 @@ body {
                                                                         </a>
                                                                 </div>
                                                         </div>
-                                                        <div class="col-xl-6 col-lg-7">
-                                                                <div class="main-menu  d-none d-lg-block">
-                                                                        <nav>
-                                                                                <ul id="navigation">
-                                                                                        <li><a href="index.html">home</a></li>
-                                                                                        <li><a href="Listings.html">Listings</a></li>
-                                                                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                                                                                <ul class="submenu">
-
-                                                                                                        <li><a href="elements.html">elements</a></li>
-                                                                                                        <li><a href="single_listings.html">Single listing</a></li>
-                                                                                                </ul></li>
-                                                                                        <li><a href="about.html">about</a></li>
-                                                                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                                                                                <ul class="submenu">
-                                                                                                        <li><a href="blog.html">blog</a></li>
-                                                                                                        <li><a href="single-blog.html">single-blog</a></li>
-                                                                                                </ul></li>
-                                                                                        <li><a href="contact.html">Contact</a></li>
-                                                                                </ul>
-                                                                        </nav>
-                                                                </div>
+                                                        <div class="col-xl-3 col-lg-7">
+                                                                
                                                         </div>
-                                                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                                                        <div class="col-xl-6 col-lg-3 d-none d-lg-block">
                                                                 <div class="Appointment">
                                                                         <div class="book_btn d-none d-lg-block">
-                                                                                <a href="#">Logout</a> <a href="myroom.mc">${loginuser.searcher_nickname }'s Myroom</a>
+                                                                                <a href="logout.mc">Logout</a> <a href="myroom.mc">${loginuser.searcher_nickname }'s Myroom</a>
                                                                         </div>
                                                                 </div>
                                                         </div>
@@ -370,7 +350,7 @@ body {
                                 $(this).parent().children('span').removeClass('on');
                                 $(this).addClass('on').prevAll('span').addClass('on');
                                 var rate = $(this).attr("value");
-                                $('#review_score').val(rate);
+                                $('#shop_score').val(rate);
                                 return false;
                         });
 
@@ -407,6 +387,13 @@ body {
                                     }
 
                                   });//forEach
+                        });
+                        
+                        // 리뷰 모달에 shop_name 값 전달
+                        $('#writeReview').click(function(){
+                        	console.log($(this).data('id'));
+                        	$("input[name='shop_name']").val($(this).data('id'));
+
                         });
                 });
         </script>

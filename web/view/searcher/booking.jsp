@@ -34,7 +34,7 @@
                                                                 <c:set var="r_stat" value="${b.review_stat}"/>
                                                                         <c:choose>
                                                                                 <c:when test="${r_stat ==0 }">
-                                                                                        <div class="country" id="sp"><a data-toggle="modal" href="#reviewmodal" class="genric-btn primary circle">리뷰 작성하기</a></div>
+                                                                                        <div class="country" id="sp"><a href="#" data-toggle="modal" data-target="#reviewmodal" data-id="${b.shop_name}" class="genric-btn primary circle" id="writeReview">리뷰 작성하기</a></div>
                                                                                 </c:when>
                                                                                 <c:otherwise>
                                                                                         <div class="country" id="sp"><a href="#" class="genric-btn info circle rbtn">리뷰 수정</a>
@@ -72,3 +72,6 @@ margin-left: 10px;
 margin-right: 10px;
 }
 </style>
+<script>
+
+</script>

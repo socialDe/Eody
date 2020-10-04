@@ -28,25 +28,32 @@ public class ReviewController {
         @Resource(name = "rbiz")
         Biz<String, Integer, ReviewVO> rbiz;
 
-        // ë¦¬ë·° ë“±ë¡ ì„œë¸”ë¦¿
+        // ¸®ºä µî·Ï ¼­ºí¸´
         @RequestMapping("/reviewadd.mc")
         public ModelAndView reviewadd(ModelAndView mv, ReviewVO review, SearcherVO searcher,
                         @RequestParam("files") MultipartFile[] files) {
+        	
+        		// °¡°Ô ÀÌ¸§Àº hidden °ªÀ¸·Î ³Ñ°Ü¹Ş¾ÒÀ½
+                // ¸®ºä¿¡ ¸Å±ä ÆòÁ¡Àº hidden °ªÀ¸·Î ³Ñ°Ü¹Ş¾ÒÀ½
+                // ¸®ºä¸¦ ÀÛ¼ºÇÑ searcherÀÇ nickname°ªÀ» hiddenÀ¸·Î ³Ñ°Ü¹Ş¾ÒÀ½
 
-                // ë¦¬ë·°ì— ë§¤ê¸´ í‰ì ì€ hidden ê°’ìœ¼ë¡œ ë„˜ê²¨ë°›ì•˜ìŒ
-                // ë¦¬ë·°ë¥¼ ì‘ì„±í•œ searcherì˜ nicknameê°’ì„ hiddenìœ¼ë¡œ ë„˜ê²¨ë°›ì•˜ìŒ
-
-                // ë¦¬ë·°ì— ì—…ë¡œë“œí•œ ì‚¬ì§„ì´ë¦„ ì €ì¥
+                // ¸®ºä¿¡ ¾÷·ÎµåÇÑ »çÁøÀÌ¸§ ÀúÀå
                 System.out.println("size : " + files.length);
                 int len = files.length;
-                if (len == 1) {
+                System.out.println("»çÁø ±æÀÌ : " + len);
+                if(files[0].getOriginalFilename() == "") {
+                	review.setReview_image1("default.jpg");
+                    review.setReview_image2("default.jpg");
+                    review.setReview_image3("default.jpg");
+                }
+                else if (len == 1) {
                         review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
-                        review.setReview_image2("defualt.jpg");
-                        review.setReview_image3("defualt.jpg");
+                        review.setReview_image2("default.jpg");
+                        review.setReview_image3("default.jpg");
                 } else if (len == 2) {
                         review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
                         review.setReview_image2(review.getReview_name() + files[1].getOriginalFilename());
-                        review.setReview_image3("defualt.jpg");
+                        review.setReview_image3("default.jpg");
                 } else {
                         review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
                         review.setReview_image2(review.getReview_name() + files[1].getOriginalFilename());
@@ -55,9 +62,9 @@ public class ReviewController {
 
                 try {
                         rbiz.register(review);
-                        // ì‚¬ì§„íŒŒì¼ í´ë”ì— ì €ì¥
+                        // »çÁøÆÄÀÏ Æú´õ¿¡ ÀúÀå
                         for (MultipartFile f : files) {
-                                if (f.getOriginalFilename() == "defualt.jpg") {
+                                if (f.getOriginalFilename() == "") {
                                         continue;
                                 }
                                 Util.saveReviewFile(f, review.getReview_name());
@@ -67,16 +74,16 @@ public class ReviewController {
                         e.printStackTrace();
                 }
 
-                // redirectìœ¼ë¡œ í•´ì•¼ submit ì¤‘ë³µì„ ë§‰ìŒ
+                // redirectÀ¸·Î ÇØ¾ß submit Áßº¹À» ¸·À½
                 mv.setViewName("redirect:myroom.mc");
                 return mv;
         }
 
-        // ë¦¬ë·°ë¦¬ìŠ¤íŠ¸ í™”ë©´ ì²˜ë¦¬
+        // ¸®ºä¸®½ºÆ® È­¸é Ã³¸®
         @ResponseBody
         @RequestMapping("/getReview.mc")
         public void getReview(HttpServletResponse res, String ashop) throws IOException {
-                System.out.println("shop ì´ë¦„ : " + ashop);
+                System.out.println("shop ÀÌ¸§ : " + ashop);
                 JSONArray ja = new JSONArray();
                 ArrayList<ReviewVO> list = new ArrayList<>();
                 try {
@@ -87,7 +94,7 @@ public class ReviewController {
                 }
                 //System.out.println("list: " + list.toString());
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
+                System.out.println("»çÀÌÁî : " + list.size());
                 for (int i = 0; i < list.size(); i++) {
                         JSONObject data = new JSONObject();
                         data.put("review_date", format.format(list.get(i).getReview_date()));
@@ -97,7 +104,7 @@ public class ReviewController {
                         data.put("review_image3", list.get(i).getReview_image3());
                         data.put("shop_name", list.get(i).getShop_name());
                         data.put("review_name", list.get(i).getReview_name());
-                        data.put("review_score", list.get(i).getReview_score()+ "");
+                        data.put("shop_score", list.get(i).getShop_score()+ "");
                         ja.add(data);
                         //System.out.println(ja.toString());
                         

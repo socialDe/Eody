@@ -12,11 +12,11 @@ public class ReviewVO implements Serializable {
         private String review_image3;
         private String shop_name;
         private String review_name;
-        private double review_score;
+        private double shop_score;
         public ReviewVO() {
         }
         public ReviewVO(int review_no, Date review_date, String review_contents, String review_image1, String review_image2,
-                        String review_image3, String shop_name, String review_name, double review_score) {
+                        String review_image3, String shop_name, String review_name, double shop_score) {
                 this.review_no = review_no;
                 this.review_date = review_date;
                 this.review_contents = review_contents;
@@ -25,26 +25,26 @@ public class ReviewVO implements Serializable {
                 this.review_image3 = review_image3;
                 this.shop_name = shop_name;
                 this.review_name = review_name;
-                this.review_score = review_score;
+                this.shop_score = shop_score;
         }
         public ReviewVO(String review_contents, String review_image1, String review_image2, String review_image3,
-                        String shop_name, String review_name, double review_score) {
+                        String shop_name, String review_name, double shop_score) {
                 this.review_contents = review_contents;
                 this.review_image1 = review_image1;
                 this.review_image2 = review_image2;
                 this.review_image3 = review_image3;
                 this.shop_name = shop_name;
                 this.review_name = review_name;
-                this.review_score = review_score;
+                this.shop_score = shop_score;
         }
         public ReviewVO(String review_contents, String review_image1, String review_image2, String review_image3,
-                        String review_name, double review_score) {
+                        String review_name, double shop_score) {
                 this.review_contents = review_contents;
                 this.review_image1 = review_image1;
                 this.review_image2 = review_image2;
                 this.review_image3 = review_image3;
                 this.review_name = review_name;
-                this.review_score = review_score;
+                this.shop_score = shop_score;
         }
         
         public int getReview_no() {
@@ -95,18 +95,18 @@ public class ReviewVO implements Serializable {
         public void setReview_name(String review_name) {
                 this.review_name = review_name;
         }
-        public double getReview_score() {
-                return review_score;
+        public double getShop_score() {
+                return shop_score;
         }
-        public void setReview_score(double review_score) {
-                this.review_score = review_score;
+        public void setShop_score(double shop_score) {
+                this.shop_score = shop_score;
         }
         @Override
         public String toString() {
                 return "ReviewVO [review_no=" + review_no + ", review_date=" + review_date + ", review_contents="
                                 + review_contents + ", review_image1=" + review_image1 + ", review_image2=" + review_image2
                                 + ", review_image3=" + review_image3 + ", shop_name=" + shop_name + ", review_name=" + review_name
-                                + ", review_score=" + review_score + "]";
+                                + ", shop_score=" + shop_score + "]";
         }
         
         

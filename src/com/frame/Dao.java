@@ -11,10 +11,10 @@ public interface Dao<K1, K2, V> { //K1: STRING, K2: INTEGER
         public V select2(K2 k) throws Exception;
         public ArrayList<V> selectall() throws Exception;
         public ArrayList<V> shop_select(K1 k) throws Exception;
-        public ArrayList<V> bookingselect_shop(K1 k) throws Exception;                 // ê°€ê²Œ ì´ë¦„ ì¤‘ì‹¬ìœ¼ë¡œ ì˜ˆì•½ë¦¬ìŠ¤íŠ¸ ì¶œë ¥
-        public ArrayList<V> bookingget_searcher(K1 k) throws Exception;			//searcher idë¡œ ì˜ˆì•½ ë¦¬ìŠ¤íŠ¸ ì¶œë ¥
+        public ArrayList<V> bookingselect_shop(K1 k) throws Exception;          // °¡°Ô ÀÌ¸§ Áß½ÉÀ¸·Î ¿¹¾à¸®šÀÆ® Ãâ·Â 
+        public ArrayList<V> bookingget_searcher(K1 k) throws Exception;			//searcher id·Î ¿¹¾à ¸®½ºÆ® Ãâ·Â 
         public ArrayList<V> review_select(K1 k) throws Exception;
-        public ArrayList<V> shop_hotplace_select(K1 k) throws Exception;                                //í•«í”Œ ê¸°ì¤€ìœ¼ë¡œ ê°€ê²Œì¶œë ¥
-        public void shop_hitcnt(K1 k) throws Exception;                                                                //ê°€ê²Œ ì¡°íšŒìˆ˜
+        public ArrayList<V> shop_hotplace_select(K1 k) throws Exception;        //ÇÖÇÃ ±âÁØÀ¸·Î °¡°Ô Ãâ·Â
+        public void shop_hitcnt(K1 k) throws Exception;                         //°¡°Ô Á¶È¸¼ö
         public int shop_score_avg(K1 k) throws Exception;
 }
