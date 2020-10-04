@@ -7,7 +7,7 @@
                 <div class="row">
             	<c:forEach var="s" items="${shoplist}">
                     <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="img/${s.shop_img1}">
+                        <div class="hp-room-item set-bg" data-setbg="img/shopImg/${s.shop_img1}">
                             <div class="hr-text">
                                 <h3>${s.shop_name}</h3>			<!--가게이름  -->
                                 <h2>${s.h_name}<span>${s.shop_type}</span></h2>

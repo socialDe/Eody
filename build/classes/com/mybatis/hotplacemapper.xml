@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.HotPlaceDao">
+        
+        <insert id="insert" parameterType="hot_place">
+                INSERT INTO HOT_PLACE VALUES (HOT_PLACE_SEQ.NEXTVAL, #{h_name}, #{h_lat}, #{h_lng}, #{h_img})
+        </insert>
+        
+        <update id="update" parameterType="hot_place">
+                UPDATE HOT_PLACE SET H_NAME=#{h_name}, H_LAT=#{h_lat}, H_LNG=#{h_lng}, H_IMG=#{h_img} WHERE H_NO=#{h_no}
+        </update> 
+        
+        <delete id="delete1" parameterType="String">
+                DELETE FROM HOT_PLACE WHERE H_NAME=#{h_name}
+        </delete>
+        
+        <select id="select1" parameterType="String" resultType="hot_place">
+                SELECT * FROM HOT_PLACE WHERE H_NAME=#{h_name}
+        </select>
+        
+        <select id="selectall" resultType="hot_place">
+                SELECT * FROM HOT_PLACE
+        </select>
+        
+</mapper>

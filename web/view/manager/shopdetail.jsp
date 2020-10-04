@@ -399,7 +399,7 @@ body {
 	    <div class="jumbotron jumbotron-fluid">
 			<div class="container">
 				<div class="image">
-					<img src="img/${singleshop.shop_img1}">
+					<img src="img/shopImg/${singleshop.shop_img1}">
 				</div>
 				<div class="contact-form">
 					<span id="shopname"> 가게명: ${singleshop.shop_name}</span>

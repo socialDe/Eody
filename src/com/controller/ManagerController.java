@@ -23,8 +23,8 @@ public class ManagerController {
         @Resource(name = "mbiz")
         Biz<String, Integer, ManagerVO> biz;
         @Resource(name = "shopbiz")                                                        
-        Biz<String, Integer, ShopVO> biz_shop;                                        // 가게 입니다.
-        // 메인페이지로 이동
+        Biz<String, Integer, ShopVO> biz_shop;                                        // 媛�寃� �엯�땲�떎.
+        // 硫붿씤�럹�씠吏�濡� �씠�룞
         @RequestMapping("/amain.mc")
         public ModelAndView amain() {
                 ModelAndView mv = new ModelAndView();
@@ -32,21 +32,21 @@ public class ManagerController {
                 return mv;
         }
 
-        // main페이지의 login 버튼 실행 시 로그인 페이지로 이동
+        // main�럹�씠吏��쓽 login 踰꾪듉 �떎�뻾 �떆 濡쒓렇�씤 �럹�씠吏�濡� �씠�룞
         @RequestMapping("/alogin.mc")
         public ModelAndView alogin() {
                 ModelAndView mv = new ModelAndView();
                 mv.setViewName("manager/alogin");
                 return mv;
         }
-        // 로그인 후에 우측 상단의 logout 버튼 실행 시 메인 페이지로 이동
+        // 濡쒓렇�씤 �썑�뿉 �슦痢� �긽�떒�쓽 logout 踰꾪듉 �떎�뻾 �떆 硫붿씤 �럹�씠吏�濡� �씠�룞
         @RequestMapping("/alogout.mc")
         public ModelAndView alogout() {
         	ModelAndView mv = new ModelAndView();
         	mv.setViewName("manager/amain");
         	return mv;
         }
-        // center 페이지 이동: Chart
+        // center �럹�씠吏� �씠�룞: Chart
         @RequestMapping("/chart.mc")
         public ModelAndView chart() {
         	ModelAndView mv = new ModelAndView();
@@ -63,7 +63,7 @@ public class ManagerController {
         	return mv;
         }
 
-        // 로그인 버튼 실행 서블릿
+        // 濡쒓렇�씤 踰꾪듉 �떎�뻾 �꽌釉붾┸
         @RequestMapping("/aloginimpl.mc")
         public ModelAndView aloginimpl(HttpServletRequest request) {
                 ModelAndView mv = new ModelAndView();
@@ -76,17 +76,17 @@ public class ManagerController {
                                 HttpSession session = request.getSession();
                                 session.setAttribute("aloginuser", dbmanager);
                               
-                                //로그인 통과와 동시 가게 리스트 뽑아내기
+                                //濡쒓렇�씤 �넻怨쇱� �룞�떆 媛�寃� 由ъ뒪�듃 戮묒븘�궡湲�
                                 ArrayList<ShopVO> shoplist = null;                        
                                 try{
-                                        shoplist = biz_shop.shop_get(id);                                        //selectall 함수입니다. 해당 아이디가 갖고있는 shop 테이블을 전부 가져옵니다.
+                                        shoplist = biz_shop.shop_get(id);                                        //selectall �븿�닔�엯�땲�떎. �빐�떦 �븘�씠�뵒媛� 媛뽮퀬�엳�뒗 shop �뀒�씠釉붿쓣 �쟾遺� 媛��졇�샃�땲�떎.
                                 }catch (Exception e) {
                                         e.printStackTrace();
                                 }
-                                mv.addObject("centerpage", "center1");                                // centerpage에 center1.jsp 파일을 얹습니다. centerpage는 myroom.jsp에 있습니다.
-                                session.setAttribute("shoplist", shoplist);                        // 그 shop 테이블을 session에 담았습니다.
+                                mv.addObject("centerpage", "center1");                                // centerpage�뿉 center1.jsp �뙆�씪�쓣 �뼶�뒿�땲�떎. centerpage�뒗 myroom.jsp�뿉 �엳�뒿�땲�떎.
+                                session.setAttribute("shoplist", shoplist);                        // 洹� shop �뀒�씠釉붿쓣 session�뿉 �떞�븯�뒿�땲�떎.
                                 System.out.println(shoplist);
-                                mv.setViewName("manager/amyroom");                                        // myroom 페이지로 이동합니다.
+                                mv.setViewName("manager/amyroom");                                        // myroom �럹�씠吏�濡� �씠�룞�빀�땲�떎.
                         } else {
                                 mv.setViewName("redirect:alogin.mc");
                         }
@@ -98,19 +98,19 @@ public class ManagerController {
                 return mv;
         }
 
-        // Sign Up 버튼 실행 시 회원가입 페이지로 이동
+        // Sign Up 踰꾪듉 �떎�뻾 �떆 �쉶�썝媛��엯 �럹�씠吏�濡� �씠�룞
         @RequestMapping("/manageradd.mc")
         public ModelAndView manageradd(ModelAndView mv) {
                 mv.setViewName("manager/aregister");
                 return mv;
         }
 
-        // 회원가입 버튼 실행 서블릿
+        // �쉶�썝媛��엯 踰꾪듉 �떎�뻾 �꽌釉붾┸
         @RequestMapping("/manageraddimpl.mc")
         public ModelAndView manageraddimpl(ModelAndView mv, ManagerVO manager, String user_birth_year,
                         String user_birth_month, String user_birth_day) {
                 try {
-                        // search_birthday 값 셋팅
+                        // search_birthday 媛� �뀑�똿
                         manager.setManager_birthday(user_birth_year + "-" + user_birth_month + "-" + user_birth_day);
                         biz.register(manager);
                         mv.setViewName("manager/aregisterok");
@@ -121,7 +121,7 @@ public class ManagerController {
                 return mv;
         }
 
-       // 아이디 중복 체크 확인
+      
                 @RequestMapping("/aidcheckimpl.mc")
                 public void id_check_impl(HttpServletResponse res, String id) {
                         int result = 0;

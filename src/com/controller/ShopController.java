@@ -119,7 +119,7 @@ public class ShopController {
                                         if(f.getOriginalFilename()=="default.png") {
                                                 continue;
                                         }
-                                        Util.saveFile(f,shoplist.getH_name());                                        //뒤에 H_name은 상관없습니다.
+                                        Util.saveShopFile(request, f, shoplist.getH_name());                                        //뒤에 H_name은 상관없습니다.
                         }
                                 biz_shop.register(shoplist);
                                 System.out.println("Complete Add");
@@ -177,7 +177,7 @@ public class ShopController {
                                 if(f.getOriginalFilename()=="default.png") {
                                         continue;
                                 }
-                                Util.saveFile(f,shoplist.getH_name());                                        //뒤에 H_name은 상관없습니다.
+                                Util.saveShopFile(request,f,shoplist.getH_name());                                        //뒤에 H_name은 상관없습니다.
                         }
                         System.out.println(shoplist);
                         biz_shop.modify(shoplist);

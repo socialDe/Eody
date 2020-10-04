@@ -60,7 +60,7 @@ public class ReviewController {
                                 if (f.getOriginalFilename() == "defualt.jpg") {
                                         continue;
                                 }
-                                Util.saveFile(f, review.getReview_name());
+                                Util.saveReviewFile(f, review.getReview_name());
                         }
 
                 } catch (Exception e) {
