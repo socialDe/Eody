@@ -34,10 +34,10 @@
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 <style>
- .center{
+ /*.center{
   margin-top: 50px;
   padding-top: 50px;]
- }
+ }*/
  
 .mg {
 	text-align: center;
@@ -47,8 +47,9 @@
 	padding-left: 150px;
 }
 
-.subwayblank {
-	margin-bottom: 30px;
+.subwayblank, .subwayblank1 {
+	margin-top: 15px;
+	margin-bottom: 15px;
 	height: 50px;
 }
 
@@ -73,7 +74,25 @@
 	border-radius: 10px;
 	margin-left: 10px;
 	margin-right: 10px;
-	colot: black;
+	colot: black;	
+}
+
+.slider_text {
+	background-color: white;
+}
+.mr-20{
+	margin-right: 20px;
+}
+.chooseShop{
+	display:table;
+	margin: auto;
+}
+.selectShop{
+	display:table-cell;
+	vertical-align: middle;	
+}
+.nice-select{
+	margin: 10px
 }
 </style>
  
@@ -144,36 +163,35 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-xl-10">
                         <div class="slider_text text-center justify-content-center">
-                         <div class="jumbotron">
-                                                <ul class="nav justify-content-center">
-                                                  <li class="nav-item">
-                                                    <a class="nav-link active" href="centerposition.mc"> 중간 지점으로 찾기</a>
-                                                          </li>
-                                                          <!-- 추후 https 환경 구축하여 Geolocation API 활용 -->
-                                                <!--        
-                                                                  <li class="nav-item">
-                                                            <a class="nav-link" href="myposition.mc">내 위치에서 찾기</a>
-                                                          </li> 
-                                                -->
-                                                          <li class="nav-item">
-                                                            <a class="nav-link" href="areaposition.mc">지역으로 검색하기</a>
-                                                          </li>
-                                                        </ul>
-                                                 <c:choose>
-                                                  <c:when test="${centerpage == null }">
-                                                     <jsp:include page="centerposition.jsp"></jsp:include>
-                                                  </c:when>
-                                                  <c:otherwise>
-                                                     <jsp:include page="${centerpage}.jsp"></jsp:include>
-                                                  </c:otherwise>
-                                                 </c:choose>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        	<div class="jumbotron">
+	                            <ul class="nav justify-content-center">
+		                            <li class="nav-item">
+		                            	<a class="nav-link active genric-btn info radius mr-20" href="centerposition.mc"> 중간 지점으로 찾기</a>
+		                            </li>
+		                            <!-- 추후 https 환경 구축하여 Geolocation API 활용 -->
+		                            <!--        
+		                            <li class="nav-item">
+		                            	<a class="nav-link" href="myposition.mc">내 위치에서 찾기</a>
+		                            </li> 
+		                            -->
+		                            <li class="nav-item">
+		                            	<a class="nav-link genric-btn info radius mb-20" href="areaposition.mc">지역으로 검색하기</a>
+		                            </li>
+	                            </ul>
+	                            <c:choose>
+		                            <c:when test="${centerpage == null }">
+		                            	<jsp:include page="centerposition.jsp"></jsp:include>
+		                            </c:when>
+		                            <c:otherwise>
+		                            	<jsp:include page="${centerpage}.jsp"></jsp:include>
+		                            </c:otherwise>
+	                            </c:choose>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+       		</div>
+    	</div>
     </div>
     <!-- slider_area_end -->
     
@@ -210,6 +228,6 @@
     <script src="view/searcher/js/jquery.form.js"></script>
     <script src="view/searcher/js/jquery.validate.min.js"></script>
     <script src="view/searcher/js/mail-script.js"></script>
- <script src="view/searcher/js/search.js?ver=1"></script>
+ <script src="view/searcher/js/search.js"></script>
     <script src="view/searcher/js/main.js"></script>
 </body>
