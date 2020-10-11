@@ -110,6 +110,12 @@ public class HotPlaceBiz implements Biz<String,Integer,HotPlaceVO> {
 		return null;
 	}
 
+	@Override
+	public ArrayList<HotPlaceVO> bookingupdate_reviewstat(String k) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }
