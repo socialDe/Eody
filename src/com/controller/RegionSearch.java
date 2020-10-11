@@ -54,61 +54,78 @@ public class RegionSearch {
 					minLat = Double.parseDouble(hotKey.getH_lat());
 				}
 				if(maxLng < Double.parseDouble(hotKey.getH_lng())) {
-					maxLat = Double.parseDouble(hotKey.getH_lng());
+					maxLng = Double.parseDouble(hotKey.getH_lng());
 				}
 				if(minLng > Double.parseDouble(hotKey.getH_lng())) {
-					minLat = Double.parseDouble(hotKey.getH_lng());
+					minLng = Double.parseDouble(hotKey.getH_lng());
 				}
 			}
 			
 			//출발지와 거리 계산에 불필요한 rawdata를 제거한 ArrayList
 			ArrayList<HotPlaceVO> filteredData = new ArrayList<>();
 			for(HotPlaceVO hp : rawdata) {
-				hp.getH_lat();
-				hp.getH_lng();
+				double lat = Double.parseDouble(hp.getH_lat());
+				double lng = Double.parseDouble(hp.getH_lng());
+				
+				if(lat <= maxLat && lat >= minLat) {
+					if(lng <= maxLng && lng >= minLng) {
+						filteredData.add(hp);
+					}
+				}
 			}
-			//rawdata, 출발지간 거리를 담아두기 위한 2차원 배열 
-	        double[][] dists = new double[keys.length][rawdata.size()];
+			
+			//optdata: 거리 연산을 실행할 데이터(filter or raw)
+			ArrayList<HotPlaceVO> optData = new ArrayList<>();
+			
+			//외접사각형 영역 내 데이터가 출발지 제외 3개 미만일 경우 rawdata
+			if(filteredData.size()<keys.length+3) {
+				optData = rawdata;
+				System.out.println("rawData 비교연산 수행 ");
+			}else {
+				optData = filteredData;
+				System.out.println("filteredData 비교연산 수행 ");
+			}
+			
+			for(int i=0; i<keys.length; i++) {
+				System.out.println("출발지: " + keys[i]);
+			}
+			
+			//dists: optData, 출발지간 거리를 담아두기 위한 2차원 배열 
+	        double[][] dists = new double[keys.length][optData.size()];
 
-	        for(int j=0; j<rawdata.size();j++) {
+	        for(int j=0; j<optData.size();j++) {
 	        	/* lat_raw = rawdata의 경도 
 	        	 * lng_raw = rawdata의 위도 
 	        	 * lat_key = 출발지의 경도 
 	        	 * lng_key = 출발지의 위도 
 	        	 */
-	        	double lat_raw=0.0;
-	        	double lng_raw=0.0;
+	        	double lat_opt=0.0;
+	        	double lng_opt=0.0;
 	        	double lat_key=0.0;
 	        	double lng_key=0.0;
 
-	        	//rawdata의 경도, 위도 입력 
-	        	lat_raw = Double.parseDouble(rawdata.get(j).getH_lat());
-	        	lng_raw = Double.parseDouble(rawdata.get(j).getH_lng());
+	        	//optData의 경도, 위도 입력
+	        	HotPlaceVO oData = optData.get(j);
+	        	lat_opt = Double.parseDouble(oData.getH_lat());
+	        	lng_opt = Double.parseDouble(oData.getH_lng());
 
 	        	//입력받은 위치의 개수만큼 출발지 lat, lng 입력  
 	        	for(int i=0;i<keys.length;i++) {
-	        		//입력 받은 위치의 lat 입력 
 	        		try {
-						lat_key = Double.parseDouble(biz.get1(keys[i]).getH_lat());
+	        			HotPlaceVO kData = biz.get1(keys[i]);
+						lat_key = Double.parseDouble(kData.getH_lat());
+						lng_key = Double.parseDouble(kData.getH_lng());
 						//System.out.println("lat_key: "+lat_key+"입력 완료.");
+						//System.out.println("lng_key: "+lng_key+"입력 완료.");
 					} catch (NumberFormatException e) {
 						e.printStackTrace();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-	        		//입력 받은 위치의 lng 입력 
-	        		try {
-						lng_key = Double.parseDouble(biz.get1(keys[i]).getH_lng());
-	//					System.out.println("lng_key: "+lng_key+"입력 완료.");
-					} catch (NumberFormatException e) {
-						e.printStackTrace();
-					} catch (Exception e) {
-						e.printStackTrace();
-						}
 	        		
 		        	//입력받은 출발지와 갖고 있는 rawdata 거리 계산 
-		        	double theta = lng_key - lng_raw;
-		            double dist = Math.sin(deg2rad(lat_key)) * Math.sin(deg2rad(lat_raw)) + Math.cos(deg2rad(lat_key)) * Math.cos(deg2rad(lat_raw)) * Math.cos(deg2rad(theta));
+		        	double theta = lng_key - lng_opt;
+		            double dist = Math.sin(deg2rad(lat_key)) * Math.sin(deg2rad(lat_opt)) + Math.cos(deg2rad(lat_key)) * Math.cos(deg2rad(lat_opt)) * Math.cos(deg2rad(theta));
 		            try {
 	//					System.out.print(biz.get(keys[i]).getH_name());
 					} catch (Exception e) {
@@ -127,7 +144,7 @@ public class RegionSearch {
 	        	}
 	        }
 	        //거리 결과 값이 NaN값 나오는 오류(자기 위치에서 자기 위치 거리 계산 케이스) 0으로 처리
-	        for(int j=0; j<rawdata.size();j++) {
+	        for(int j=0; j<optData.size();j++) {
 	        	for(int i=0;i<keys.length;i++) {
 	        		if(Double.isNaN(dists[i][j])) {
 	        			dists[i][j]=0.0;
@@ -136,31 +153,30 @@ public class RegionSearch {
 	        }
 	        
 	        //dist 배열(출발지별 rawdata 거리) 입력 값 확인 
-	        for(int i=0;i<keys.length;i++) {
-	        	for(int j=0;j<rawdata.size(); j++) {
-	        		System.out.print(dists[i][j]+ " ");
-	        	}
-	        	System.out.println();
-	        }
+//	        for(int i=0;i<keys.length;i++) {
+//	        	for(int j=0;j<optData.size(); j++) {
+//	        		System.out.print(dists[i][j]+ " ");
+//	        	}
+//	        	System.out.println();
+//	        }
 	        
-	    	//rawdata별 각 출발지와 거리 계산
-	        //DistanceVO[] distances = new DistanceVO[rawdata.size()];
+	    	//optData 요소별 각 출발지와 거리 계산
 	        ArrayList<DistanceVO> distances = new ArrayList<>();
 	        
-	        double[] sumarr = new double[rawdata.size()];
+	        double[] sumarr = new double[optData.size()];
 	        
-	        System.out.println("rawdata별 avg distance");
-	    	for(int i =0; i<rawdata.size();i++) {
+	        //System.out.println("optData별 avg distance");
+	    	for(int i =0; i<optData.size();i++) {
 	    		double sum=0.0;
 	    		for(int j=0; j<keys.length;j++) {
 	    			sum += dists[j][i];
 	    		}
 	    		DistanceVO distance = new DistanceVO();
-	    		distance.setHp(rawdata.get(i));
+	    		distance.setHp(optData.get(i));
 	    		distance.setSum_distance(sum);
 	    		distance.setAvg_distance(sum/keys.length);
 	    		distances.add(distance);
-	    		System.out.println(distances.get(i).getAvg_distance()+" ");
+	    		//System.out.println(distances.get(i).getAvg_distance()+" ");
 
 	    	}
 	    
@@ -180,27 +196,29 @@ public class RegionSearch {
 	    	
 	    	//i: 결과 반환 배열 인덱스, j: 출발지 인덱스, temp: 거리계산 ArrayList 인덱스
 			int temp = 0;
+			//입력받은 출발지를 ArrayList에서 찾아 제거합니다.
+			for(int i =0; i<keys.length; i++) {
+				//입력받은 출발지의 이름과 추천받을 도착지의 이름이 같으면 ArrayList에서 제거합니다.
+				while(true) {
+					if(keys[i].equals(distances.get(temp).getHp().getH_name())) {
+						distances.remove(distances.get(temp));
+						temp = 0;
+						break;
+					}else {
+						temp++;
+					}
+				}
+			}
+			
 	    	for(int i =0; i<3; i++) {
 	    		result[i] = new DistanceVO();
-	    			//입력받은 출발지를 ArrayList에서 찾아 제거합니다.
-	    			for(int j =0; j<keys.length;j++) {
-	    				//입력받은 출발지의 이름과 추천받을 도착지의 이름이 같으면 ArrayList에서 제거합니다.
-	    				if(keys[j].equals(distances.get(temp).getHp().getH_name())) {
-	    					distances.remove(distances.get(temp));
-	    				}else {
-	    					temp=0;
-	    				}
-	    			}
-	    			result[i] = distances.get(temp);
-	    			System.out.println(result[i]);
-	    			distances.remove(distances.get(temp));
-	    			temp=0;
+    			result[i] = distances.get(0);
+    			System.out.println(result[i]);
+    			distances.remove(distances.get(0));
 	    		if(result[2]!=null) {
 	    			break;
 	    		}
 	    	}
-	    	
-	    	
 	    	//print(result);
 	    	ArrayList<HotPlaceVO> result_list = new ArrayList<HotPlaceVO>();
 	    	for(int i=0;i<3;i++) {
