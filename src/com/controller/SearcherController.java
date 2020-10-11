@@ -20,6 +20,7 @@ import com.vo.ReviewVO;
 import com.vo.SearcherVO;
 import com.vo.ShopVO;
 
+
 @Controller
 public class SearcherController {
 
@@ -44,12 +45,12 @@ public class SearcherController {
                 ModelAndView mv = new ModelAndView();
                 ArrayList<ShopVO> list = null;
                 try {
-                        list = shbiz.get();
-                } catch (Exception e) {                        
-                        e.printStackTrace();
+                    list = shbiz.get();                      
+                } catch (Exception e) {                	
+                    e.printStackTrace();
                 }        
                 mv.addObject("shoplist", list);                
-                mv.setViewName("searcher/main");
+                mv.setViewName("searcher/main");  
                 return mv;
         }
 

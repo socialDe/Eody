@@ -2,8 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- explorer_europe start  -->
+<<<<<<< HEAD
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=463b843df9cf28ea2134025d8f98ed25"></script>
+=======
+
+>>>>>>> refs/remotes/origin/master
 <div class="explorer_europe list_wrap">
 	<div class="container">
 	<div class="bradcam_text text-center">  <h1>Choose the shop</h1></br></br>  </div>
@@ -12,6 +16,7 @@
 				<div class="filter_wrap">
 					<div class="bradcam_text text-center"><h3>${hplace.h_name }</h3></div>
 					<div class="filter_main_wrap">
+<<<<<<< HEAD
 						<div class="filter_inner">
 							<div id="map" style="height: 350px;"></div>
 							<script>
@@ -38,6 +43,10 @@
 							</script>
 							</div>
 						</div>
+=======
+						<jsp:include page="map.jsp" />
+					</div>
+>>>>>>> refs/remotes/origin/master
 					
 					<!-- <div class="filter_main_wrap">
 						<div class="filter_inner">
@@ -114,7 +123,11 @@
 						<div class="col-xl-6 col-lg-6 col-md-6">
 							<div class="single_explorer">
 								<div class="thumb">
+<<<<<<< HEAD
 									<img src="img/${shop.shop_img1 }" width="250px"
+=======
+									<img src="img/shopImg/${shop.shop_img1 }" width="250px"
+>>>>>>> refs/remotes/origin/master
 										height="200px">
 								</div>
 								<div class="explorer_bottom d-flex">
@@ -159,7 +172,11 @@
 							            rgba(255, 255, 255, 0.5) 50%,
 							            rgba(255, 255, 255, 0.75) 75%,
 							            rgba(255, 255, 255, 1) 100%
+<<<<<<< HEAD
 							          ),url(/img/${shop.shop_img1 }); background-size:cover;">
+=======
+							          ),url(/img/shopImg/${shop.shop_img1 }); background-size:cover;">
+>>>>>>> refs/remotes/origin/master
 									<div class="explorer_info">
 										<h3>
 											<a href="#" id="shopinfo">${shop.shop_name }</a>
@@ -174,11 +191,19 @@
 								</div>
 										<div class="section-top-border" id = "shopimages">
 									<!-- image -->
+<<<<<<< HEAD
 										<img src="web/img/${shop.shop_img2}" width="300px"
 										height="250px">
 										<img src="web/img/${shop.shop_img3}" width="300px"
 										height="250px">
 										<img src="web/img/${shop.shop_img4}" width="300px"
+=======
+										<img src="/img/shopImg/${shop.shop_img2}" width="300px"
+										height="250px">
+										<img src="/img/shopImg/${shop.shop_img3}" width="300px"
+										height="250px">
+										<img src="/img/shopImg/${shop.shop_img4}" width="300px"
+>>>>>>> refs/remotes/origin/master
 										height="250px">
 										</div>
 										<div class="section-top-border">
@@ -259,7 +284,10 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 	</div>
+=======
+>>>>>>> refs/remotes/origin/master
 
 	<script>
 		function fn_count(name) {
@@ -270,4 +298,8 @@
 				}
 			});
 		}
+<<<<<<< HEAD
 	</script>
+=======
+	</script>
+>>>>>>> refs/remotes/origin/master

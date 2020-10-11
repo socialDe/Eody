@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.SearcherDao">
+        
+        <insert id="insert" parameterType="searcher">
+                INSERT INTO SEARCHER VALUES (#{searcher_id}, #{searcher_pwd}, #{searcher_name}, #{searcher_address}, #{searcher_phone}, #{searcher_nickname}, TO_DATE(#{searcher_birthday}), #{searcher_email}, #{searcher_gender})
+        </insert>
+        
+        <update id="update" parameterType="searcher">
+                UPDATE SEARCHER SET SEARCHER_PWD=#{searcher_pwd}, SEARCHER_NAME=#{searcher_name}, SEARCHER_ADDRESS=#{searcher_address}, SEARCHER_PHONE=#{searcher_phone}, SEARCHER_NICKNAME=#{searcher_nickname}, SEARCHER_BIRTHDAY=TO_DATE(#{searcher_birthday}), SEARCHER_EMAIL=#{searcher_email}, SEARCHER_GENDER=#{searcher_gender} WHERE SEARCHER_ID=#{searcher_id}
+        </update> 
+        
+        <delete id="delete1" parameterType="String">
+                DELETE FROM SEARCHER WHERE SEARCHER_ID=#{searcher_id}
+        </delete>
+        
+        <select id="select1" parameterType="String" resultType="searcher">
+                SELECT * FROM SEARCHER WHERE SEARCHER_ID=#{searcher_id}
+        </select>
+        
+        <select id="selectall" resultType="searcher">
+                SELECT * FROM SEARCHER
+        </select>
+        
+        
+</mapper>
+
+
+
+

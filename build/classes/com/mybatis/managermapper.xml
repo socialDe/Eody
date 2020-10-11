@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ManagerDao">
+        
+        <insert id="insert" parameterType="manager">
+                INSERT INTO MANAGER VALUES (#{manager_id}, #{manager_pwd}, #{manager_name}, #{manager_address}, #{manager_phone}, #{manager_nickname}, #{manager_birthday}, #{manager_email}, #{manager_gender})
+        </insert>
+        
+        <update id="update" parameterType="manager">
+                UPDATE MANAGER SET USER_PWD=#{manager_pwd}, USER_NAME=#{manager_name} WHERE USER_ID=#{manager_id}
+        </update> 
+        
+        <delete id="delete1" parameterType="String">
+                DELETE FROM MANAGER WHERE MANAGER_ID=#{manager_id}
+        </delete>
+        
+        <select id="select1" parameterType="String" resultType="manager">
+                SELECT * FROM MANAGER WHERE MANAGER_ID=#{manager_id}
+        </select>
+        
+        <select id="selectall" resultType="manager">
+                SELECT * FROM MANAGER
+        </select>
+        
+        
+</mapper>
+
+
+
+
+
+
+
+
+

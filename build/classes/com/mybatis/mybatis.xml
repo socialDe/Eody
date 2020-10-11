@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+        <typeAliases>
+                <typeAlias type="com.vo.SearcherVO" alias="searcher"/>
+                <typeAlias type="com.vo.ManagerVO" alias="manager"/>
+                <typeAlias type="com.vo.HotPlaceVO" alias="hot_place"/>
+                <typeAlias type="com.vo.BookingVO" alias="booking"/>
+                <typeAlias type="com.vo.ShopVO" alias="shop"/>
+                <typeAlias type="com.vo.ReviewVO" alias="review"/>
+        </typeAliases>
+        
+        <mappers>
+                <mapper resource="com/mybatis/searchermapper.xml"/>
+                <mapper resource="com/mybatis/managermapper.xml"/>
+                <mapper resource="com/mybatis/hotplacemapper.xml"/>
+                <mapper resource="com/mybatis/bookingmapper.xml"/>
+                <mapper resource="com/mybatis/shopmapper.xml"/>
+				<mapper resource="com/mybatis/reviewmapper.xml"/>
+        </mappers>
+        
+        
+</configuration>

@@ -50,7 +50,7 @@ function shopChange(){
                 $(".select2").append(option);
             };*/
 $('.final').empty();
- var option = "<select id='select2' name='shop'>";
+ var option = "<select class='nice-select' id='select2' name='shop'>";
  var shoptype = 0;
 
  //첫번째 카테고리(업종)에 따라 정의된 shoptype numbering입니다.

@@ -1,25 +1,47 @@
 package com.controller;
 
 import java.io.FileOutputStream;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class Util {
-        // ¹Ş¾Æ¿Â µ¥ÀÌÅÍ¸¦ ¼­¹ö¿¡ ÀÌ¹ÌÁö¸¦ ¿Ã¸°´Ù.
-        public static void saveFile(MultipartFile mf, String review_name) {
-        	//µğ·ºÅä¸® ¾îµğ·Î¹Ş¾Æ¾ßÇÒ°ÍÀÎÁö ¼±ÅÃÇØ¾ßÇÔ.
-        	//Shopadd, Reviewadd¿¡¼­ »ç¿ëµÇ°í ÀÖÀ½. ÃßÈÄ ºĞ±âÃ³¸®
-                String dir = "C:\\new_eody\\Eody\\web\\img\\";
+        // ë°›ì•„ì˜¨ ë°ì´í„°ë¥¼ ì„œë²„ì— ì´ë¯¸ì§€ë¥¼ ì˜¬ë¦°ë‹¤.
+        public static void saveShopFile(HttpServletRequest request, MultipartFile mf, String review_name) {
+        		// ë””ë ‰í† ë¦¬ ì–´ë””ë¡œë°›ì•„ì•¼í• ê²ƒì¸ì§€ ì„ íƒí•´ì•¼í•¨.   
+        		// ìƒëŒ€ê²½ë¡œì´ì§€ë§Œ ì´í´ë¦½ìŠ¤ì—ì„œ í…ŒìŠ¤íŠ¸í•˜ê¸° ì–´ë ¤ì›€
+        		//String uploadPath = request.getSession().getServletContext().getRealPath("/img/shopImg/"); 
+        		String dir = "C:\\java\\Eody\\web\\img\\shopImg\\";
         		byte [] data;
         		String imgname = mf.getOriginalFilename();
         		try {
         			data = mf.getBytes();
         			FileOutputStream fo = 
-        					new FileOutputStream(dir+review_name+imgname);
+        					new FileOutputStream(dir+imgname);
         			
         			fo.write(data);
         			fo.close();
         		}catch(Exception e) {
         			e.printStackTrace();
         		}
-        	}
-        }
+       	}
+        
+
+		public static void saveReviewFile(MultipartFile mf, String review_name) {
+			//ë””ë ‰í† ë¦¬ ì–´ë””ë¡œë°›ì•„ì•¼í• ê²ƒì¸ì§€ ì„ íƒí•´ì•¼í•¨.        	
+		        String dir = "C:\\java\\Eody\\web\\img\\reviewImg\\";
+				byte [] data;
+				String imgname = mf.getOriginalFilename();
+				try {
+					data = mf.getBytes();
+					FileOutputStream fo = 
+							new FileOutputStream(dir+imgname);
+					
+					fo.write(data);
+					fo.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+		}
+}

@@ -176,7 +176,7 @@
 
 					<div class="single_explorer">
 						<div class="thumb">
-							<img src="img/${shop.shop_img1 }" width="250px"
+							<img src="img/shopImg/${shop.shop_img1 }" width="250px"
 								height="200px">
 						</div>
 						<div class="explorer_bottom d-flex">
@@ -218,7 +218,7 @@
 							            rgba(255, 255, 255, 0.5) 50%,
 							            rgba(255, 255, 255, 0.75) 75%,
 							            rgba(255, 255, 255, 1) 100%
-							          ),url(view/manager/img/${shop.shop_img1 }); background-size:cover;">
+							          ),url(img/shopImg/${shop.shop_img1 }); background-size:cover;">
 									<div class="explorer_info">
 										<h3>
 											<a href="#" id="shopinfo">${shop.shop_name }</a>
@@ -233,11 +233,11 @@
 								</div>
 								<div class="section-top-border" id = "shopimages">
 									<!-- image -->
-										<img src="view/manager/img/${shop.shop_img2 }" width="300px"
+										<img src="img/shopImg/${shop.shop_img2 }" width="300px"
 										height="250px">
-										<img src="view/manager/img/${shop.shop_img3 }" width="300px"
+										<img src="img/shopImg/${shop.shop_img3 }" width="300px"
 										height="250px">
-										<img src="view/manager/img/${shop.shop_img4 }" width="300px"
+										<img src="img/shopImg/${shop.shop_img4 }" width="300px"
 										height="250px">
 								</div>
 								<div class="section-top-border">

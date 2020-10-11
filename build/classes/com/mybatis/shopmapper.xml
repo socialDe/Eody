@@ -57,8 +57,8 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         </select>
         
         <select id="selectall" resultType="shop">
-                SELECT * FROM SHOP
-        </select>
+                                SELECT * FROM SHOP
+                </select>
         <select id="shop_hotplace_select" parameterType="String" resultType="shop">
                 SELECT * FROM SHOP WHERE H_NAME = #{h_name}
         </select>
