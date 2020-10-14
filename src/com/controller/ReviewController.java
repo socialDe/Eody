@@ -21,13 +21,16 @@ import org.springframework.web.servlet.ModelAndView;
 import com.frame.Biz;
 import com.vo.ReviewVO;
 import com.vo.SearcherVO;
+import com.vo.ShopVO;
 
 @Controller
 public class ReviewController {
 
         @Resource(name = "rbiz")
         Biz<String, Integer, ReviewVO> rbiz;
-
+        @Resource(name = "shopbiz")
+        Biz<String,Integer, ShopVO> shopbiz;
+        
         // ∏Æ∫‰ µÓ∑œ º≠∫Ì∏¥
         @RequestMapping("/reviewadd.mc")
         public ModelAndView reviewadd(ModelAndView mv, ReviewVO review, SearcherVO searcher,
@@ -69,7 +72,8 @@ public class ReviewController {
                                 }
                                 Util.saveReviewFile(f, review.getReview_name());
                         }
-
+                        // ªÛ¡° ∆Ú±’ ∆Ú¡° ºˆ¡§
+                        shopbiz.shop_score_avg(review.getShop_name());
                 } catch (Exception e) {
                         e.printStackTrace();
                 }

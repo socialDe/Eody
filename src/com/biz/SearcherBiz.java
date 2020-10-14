@@ -103,5 +103,11 @@ public class SearcherBiz implements Biz<String, Integer, SearcherVO> {
 					return null;
 				}
 
+				@Override
+				public ArrayList<SearcherVO> bookingupdate_reviewstat(String k) throws Exception {
+					// TODO Auto-generated method stub
+					return null;
+				}
+
 
 }
