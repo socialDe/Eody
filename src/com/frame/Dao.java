@@ -13,6 +13,7 @@ public interface Dao<K1, K2, V> { //K1: STRING, K2: INTEGER
         public ArrayList<V> shop_select(K1 k) throws Exception;
         public ArrayList<V> bookingselect_shop(K1 k) throws Exception;          // 가게 이름 중심으로 예약리슽트 출력 
         public ArrayList<V> bookingget_searcher(K1 k) throws Exception;			//searcher id로 예약 리스트 출력 
+        public ArrayList<V> bookingupdate_reviewstat(K1 k) throws Exception;
         public ArrayList<V> review_select(K1 k) throws Exception;
         public ArrayList<V> shop_hotplace_select(K1 k) throws Exception;        //핫플 기준으로 가게 출력
         public void shop_hitcnt(K1 k) throws Exception;                         //가게 조회수

@@ -26,6 +26,9 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         <select id="bookingget_searcher" parameterType="String" resultType="booking">
                 SELECT * FROM BOOKING WHERE SEARCHER_ID=#{searcher_id}
         </select>
+        <select id="bookingupdate_reviewstat" parameterType="String">
+                UPDATE BOOKING SET REVIEW_STAT='1' WHERE SEARCHER_ID=#{searcher_id}
+        </select>
 </mapper>
 
 
