@@ -1,4 +1,4 @@
-d<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
@@ -30,17 +30,15 @@ d<%@ page language="java" contentType="text/html; charset=UTF-8"
 </head>
 <script>
 
-	// 초기 발동 함수 //
+	// Origin Function //
 	$(document).ready(function(){
-		MakeCode1();				// 주차장 여부
-		MakeCode2();				// 예약 여부
-		StarRate();						// 별점 표시(상세)
+		MakeCode1();
+		MakeCode2();
 	});
 	// Check Box //
 	var checkpark = ${singleshop.shop_park};
 	var checkbooking = ${singleshop.shop_booking};
 	
-	// 주차장 여부 표시 //
 	function MakeCode1(){
 		if(checkpark==1){
 			var code = "<span>주차장: </span>";
@@ -54,7 +52,6 @@ d<%@ page language="java" contentType="text/html; charset=UTF-8"
 			$(".checkbox1").append(code);
 		}
 	};
-	// 예약 여부 표시 //
 	function MakeCode2(){
 		if(checkbooking==1){
 			var code = "<span>예약여부</span>";
@@ -69,43 +66,6 @@ d<%@ page language="java" contentType="text/html; charset=UTF-8"
 		}
 	};
 	
-	// 별점 표시(가게 상세) //
-	function StarRate() {
-		// 별점
-		var star_strings = '';
-        if(Number(${singleshop.shop_score_avg}) == 1){
-        	star_strings +='<span class="starR on"></span>';
-        	star_strings +='<span class="starR"></span>';
-        	star_strings +='<span class="starR"></span>';
-        	star_strings +='<span class="starR"></span>';
-        	star_strings +='<span class="starR"></span>';
-        } else if(Number(${singleshop.shop_score_avg})  == 2){
-        	star_strings +='<span class="starR on"></span>';
-        	star_strings +='<span class="starR on"></span>';
-        	star_strings +='<span class="starR"></span>';
-        	star_strings +='<span class="starR"></span>';
-        	star_strings +='<span class="starR"></span>';
-        } else if(Number(${singleshop.shop_score_avg}) == 3){
-        	star_strings +='<span class="starR on"></span>';
-        	star_strings +='<span class="starR on"></span>';
-        	star_strings +='<span class="starR on"></span>';
-        	star_strings +='<span class="starR"></span>';
-        	star_strings +='<span class="starR"></span>';
-        } else if(Number(${singleshop.shop_score_avg}) == 4){
-        	star_strings +='<span class="starR on"></span>';
-        	star_strings +='<span class="starR on"></span>';
-            star_strings +='<span class="starR on"></span>';
-            star_strings +='<span class="starR on"></span>';
-            star_strings +='<span class="starR"></span>';
-        } else if(Number(${singleshop.shop_score_avg}) == 5){
-        	star_strings +='<span class="starR on"></span>';
-        	star_strings +='<span class="starR on"></span>'; 
-        	star_strings +='<span class="starR on"></span>';
-        	star_strings +='<span class="starR on"></span>';
-        	star_strings +='<span class="starR on"></span>';
-        }
-        $(".starRate").append(star_strings);
-	}
 	
 	// Star Rating //
 	$('.starRev span').click(function() {
@@ -118,28 +78,28 @@ d<%@ page language="java" contentType="text/html; charset=UTF-8"
 	
 	 // Review //
     function getReviews(){
-	    var ashop ='';
-	    ashop='${singleshop.shop_name}';
-	
-	    //server로 해당 가게의 booking 목록을 요청하는 ajax입니다.
-	    $.ajax({
-	        url : 'getReview.mc',
-	        data : {'ashop':ashop},
-	        error : function(error) {
-	            console.log("error");
-	        },
-	        success : function(data) {
-	        	console.log("success");
-		        console.log(data);
-		        displayReviewData(data);
-	        },
-	        error:function(request, error) {
-	        	alert("fail");
-	            // error 발생 이유를 알려준다.
-	            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-	                }
-		});
-	}
+    var ashop ='';
+    ashop='${singleshop.shop_name}';
+
+    //server로 해당 가게의 booking 목록을 요청하는 ajax입니다.
+    $.ajax({
+        url : 'getReview.mc',
+        data : {'ashop':ashop},
+        error : function(error) {
+            console.log("error");
+        },
+        success : function(data) {
+        console.log("success");
+        console.log(data);
+        displayReviewData(data);
+        },
+        error:function(request, error) {
+        	alert("fail");
+            // error 발생 이유를 알려준다.
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+    });
+}
     
     function displayReviewData(reviewlist){
     //생성할 html 태그를 담을 변수(review_strings)입니다.
@@ -189,7 +149,7 @@ d<%@ page language="java" contentType="text/html; charset=UTF-8"
                          review_strings +='<span class="starR"></span>';
                  } else if(Number(reviewlist[i].shop_score) == 5){
                          review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR on"></span>'; 
+                         review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR on"></span>';
                          review_strings +='<span class="starR on"></span>';
@@ -455,11 +415,15 @@ body {
 				</div>
 				<div class="contact-form">
 					<span id="shopname"> 가게명: ${singleshop.shop_name}</span>
-		 			<div class="starRate mb-20">
-
+					<div class="starRev mb-20">
+	                        <span class="starR" value="1">별1</span> 
+	                        <span class="starR" value="2">별2</span> 
+	                        <span class="starR" value="3">별3</span> 
+	                        <span class="starR" value="4">별4</span> 
+	                        <span class="starR" value="5">별5</span>
 	                </div>
 	                <input type="hidden" name="review_score" id="review_score">
-	                <p></p> 
+	                <p></p>
 	                <table class="table1">
 	                	<tr>
 	                		<td><p>사업자 번호: </p></td>
