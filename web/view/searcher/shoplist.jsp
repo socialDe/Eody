@@ -2,52 +2,24 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- explorer_europe start  -->
-<<<<<<< HEAD
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=463b843df9cf28ea2134025d8f98ed25"></script>
-=======
 
->>>>>>> refs/remotes/origin/master
 <div class="explorer_europe list_wrap">
 	<div class="container">
-	<div class="bradcam_text text-center">  <h1>Choose the shop</h1></br></br>  </div>
-		<div class="row" >
+		<div class="bradcam_text text-center">
+			<h1>Choose the shop</h1>
+			</br>
+			</br>
+		</div>
+		<div class="row">
 			<div class="col-xl-4 col-lg-4">
 				<div class="filter_wrap">
-					<div class="bradcam_text text-center"><h3>${hplace.h_name }</h3></div>
+					<div class="bradcam_text text-center">
+						<h3>${hplace.h_name }</h3>
+					</div>
 					<div class="filter_main_wrap">
-<<<<<<< HEAD
-						<div class="filter_inner">
-							<div id="map" style="height: 350px;"></div>
-							<script>
-								var lat = ${hplace.h_lat }
-								var lng = ${hplace.h_lng }
-								var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-								var options = { //지도를 생성할 때 필요한 기본 옵션
-									center : new kakao.maps.LatLng(lat, lng), //지도의 중심좌표.
-									level : 3
-								//지도의 레벨(확대, 축소 정도)
-								};
-
-								var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-								// 마커가 표시될 위치입니다 
-								var markerPosition = new kakao.maps.LatLng(lat,lng);
-
-								// 마커를 생성합니다
-								var marker = new kakao.maps.Marker({
-									position : markerPosition
-								});
-
-								// 마커가 지도 위에 표시되도록 설정합니다
-								marker.setMap(map);
-							</script>
-							</div>
-						</div>
-=======
 						<jsp:include page="map.jsp" />
 					</div>
->>>>>>> refs/remotes/origin/master
-					
+
 					<!-- <div class="filter_main_wrap">
 						<div class="filter_inner">
 							<form action="#">
@@ -123,11 +95,7 @@
 						<div class="col-xl-6 col-lg-6 col-md-6">
 							<div class="single_explorer">
 								<div class="thumb">
-<<<<<<< HEAD
-									<img src="img/${shop.shop_img1 }" width="250px"
-=======
 									<img src="img/shopImg/${shop.shop_img1 }" width="250px"
->>>>>>> refs/remotes/origin/master
 										height="200px">
 								</div>
 								<div class="explorer_bottom d-flex">
@@ -165,109 +133,97 @@
 
 									</div>
 									<div class="modal-body">
-										<div class="col-lg-8 col-md-8"  style="background: linear-gradient(
+										<div class="col-lg-8 col-md-8"
+											style="background: linear-gradient(
 							            to right,
 							            rgba(255, 255, 255, 0) 10%,
 							            rgba(255, 255, 255, 0.25) 25%,
 							            rgba(255, 255, 255, 0.5) 50%,
 							            rgba(255, 255, 255, 0.75) 75%,
 							            rgba(255, 255, 255, 1) 100%
-<<<<<<< HEAD
-							          ),url(/img/${shop.shop_img1 }); background-size:cover;">
-=======
 							          ),url(/img/shopImg/${shop.shop_img1 }); background-size:cover;">
->>>>>>> refs/remotes/origin/master
-									<div class="explorer_info">
-										<h3>
-											<a href="#" id="shopinfo">${shop.shop_name }</a>
-										</h3>
-										<p id="shopinfo">${shop.shop_address }</p>
-										<ul id="shopinfo">
-											<li><i class="fa fa-phone"></i> ${shop.shop_phone }</li>
-											<li><i class="fa fa-star"></i>${shop.shop_score_avg }/5.0</li>
-											<li><i class="fa fa-info"></i>&emsp;${shop.shop_info }</li>
-										</ul>
-									</div>
-								</div>
-										<div class="section-top-border" id = "shopimages">
-									<!-- image -->
-<<<<<<< HEAD
-										<img src="web/img/${shop.shop_img2}" width="300px"
-										height="250px">
-										<img src="web/img/${shop.shop_img3}" width="300px"
-										height="250px">
-										<img src="web/img/${shop.shop_img4}" width="300px"
-=======
-										<img src="/img/shopImg/${shop.shop_img2}" width="300px"
-										height="250px">
-										<img src="/img/shopImg/${shop.shop_img3}" width="300px"
-										height="250px">
-										<img src="/img/shopImg/${shop.shop_img4}" width="300px"
->>>>>>> refs/remotes/origin/master
-										height="250px">
+											<div class="explorer_info">
+												<h3>
+													<a href="#" id="shopinfo">${shop.shop_name }</a>
+												</h3>
+												<p id="shopinfo">${shop.shop_address }</p>
+												<ul id="shopinfo">
+													<li><i class="fa fa-phone"></i> ${shop.shop_phone }</li>
+													<li><i class="fa fa-star"></i>${shop.shop_score_avg }/5.0</li>
+													<li><i class="fa fa-info"></i>&emsp;${shop.shop_info }</li>
+												</ul>
+											</div>
+										</div>
+										<div class="section-top-border" id="shopimages">
+											<!-- image -->
+											<img src="/img/shopImg/${shop.shop_img2}" width="300px"
+												height="250px"> <img
+												src="/img/shopImg/${shop.shop_img3}" width="300px"
+												height="250px"> <img
+												src="/img/shopImg/${shop.shop_img4}" width="300px"
+												height="250px">
 										</div>
 										<div class="section-top-border">
-											
-												<form action="bookingimpl.mc" method="post">
-													<table class="mb-20"
-														style="margin-left: auto; margin-right: auto;">
-														<tr>
-															<td>예약자 성함</td>
-															<td colspan="2"><div class="input_field mb-20">
-																	<input type="text" name="searcher_name"
-																		placeholder="name"><br>
-																</div></td>
-														</tr>
-														<tr>
-															<td><input type="hidden" name="searcher_id"
-																value="${loginuser.searcher_id }"></td>
-															<td><input type="hidden" name="shop_name"
-																value="${shop.shop_name }"></td>
-															<td><input type="hidden" name="booking_stat"
-																value="0"></td>
-															<td><input type="hidden" name="review_stat"
-																value="0"></td>
-															<td><input type="hidden" name="shop_img"
-																value="${shop.shop_img1 }"></td>
-														</tr>
-														<tr>
-															<td>인원수</td>
-															<td colspan="3"><div class="input_field mb-20">
-																	<input type="text" name="booking_pp" id="booking_pp"
-																		placeholder="number">
-																</div></td>
-														</tr>
-														<tr>
-															<td>예약일</td>
-                                                            <td colspan="3"><div class="input_field mb-20">
-                                                                <input type="datetime" name="booking_date" id="booking_date"
-                                                                    value="2020-09-01 00:00:00">
-                                                            </div></td>
-														</tr>
-														<tr>
-															<td>예약메시지</td>
-															<td colspan="3"><div class="input_field mb-20">
-																	<textarea class="single-textarea" placeholder="Message"
-																		name="booking_msg" onfocus="this.placeholder = ''"
-																		onblur="this.placeholder = 'Message'" required></textarea>
-																</div></td>
-														</tr>
-														<tr>
-															<td>예약자 연락처</td>
-															<td colspan="3"><div class="input_field mb-20">
-																	<input type="text" name="searcher_phone"
-																		placeholder="ex) 010-000-0000">
-																</div></td>
-														</tr>
-													</table>
 
-													<div class="text-center">
-														<button class="boxed-btn2 mb-30" type="submit">예약하기</button>
-													</div>
-												</form>
+											<form action="bookingimpl.mc" method="post">
+												<table class="mb-20"
+													style="margin-left: auto; margin-right: auto;">
+													<tr>
+														<td>예약자 성함</td>
+														<td colspan="2"><div class="input_field mb-20">
+																<input type="text" name="searcher_name"
+																	placeholder="name"><br>
+															</div></td>
+													</tr>
+													<tr>
+														<td><input type="hidden" name="searcher_id"
+															value="${loginuser.searcher_id }"></td>
+														<td><input type="hidden" name="shop_name"
+															value="${shop.shop_name }"></td>
+														<td><input type="hidden" name="booking_stat"
+															value="0"></td>
+														<td><input type="hidden" name="review_stat" value="0"></td>
+														<td><input type="hidden" name="shop_img"
+															value="${shop.shop_img1 }"></td>
+													</tr>
+													<tr>
+														<td>인원수</td>
+														<td colspan="3"><div class="input_field mb-20">
+																<input type="text" name="booking_pp" id="booking_pp"
+																	placeholder="number">
+															</div></td>
+													</tr>
+													<tr>
+														<td>예약일</td>
+														<td colspan="3"><div class="input_field mb-20">
+																<input type="datetime" name="booking_date"
+																	id="booking_date" value="2020-09-01 00:00:00">
+															</div></td>
+													</tr>
+													<tr>
+														<td>예약메시지</td>
+														<td colspan="3"><div class="input_field mb-20">
+																<textarea class="single-textarea" placeholder="Message"
+																	name="booking_msg" onfocus="this.placeholder = ''"
+																	onblur="this.placeholder = 'Message'" required></textarea>
+															</div></td>
+													</tr>
+													<tr>
+														<td>예약자 연락처</td>
+														<td colspan="3"><div class="input_field mb-20">
+																<input type="text" name="searcher_phone"
+																	placeholder="ex) 010-000-0000">
+															</div></td>
+													</tr>
+												</table>
 
-											</div>
-										
+												<div class="text-center">
+													<button class="boxed-btn2 mb-30" type="submit">예약하기</button>
+												</div>
+											</form>
+
+										</div>
+
 									</div>
 
 									<div class="modal-footer">
@@ -284,10 +240,6 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-	</div>
-=======
->>>>>>> refs/remotes/origin/master
 
 	<script>
 		function fn_count(name) {
@@ -298,8 +250,4 @@
 				}
 			});
 		}
-<<<<<<< HEAD
 	</script>
-=======
-	</script>
->>>>>>> refs/remotes/origin/master
