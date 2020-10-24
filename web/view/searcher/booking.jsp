@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+       
 <jsp:include page="reviewmodal.jsp" flush="false"/>
 
 <div class="section-top-border">
@@ -72,6 +73,3 @@ margin-left: 10px;
 margin-right: 10px;
 }
 </style>
-<script>
-
-</script>

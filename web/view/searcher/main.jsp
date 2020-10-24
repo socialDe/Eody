@@ -270,8 +270,8 @@
 											<tr>
 												<td>예약일</td>
 												<td colspan="3"><div class="input_field mb-20">
-														<input type="datetime" name="booking_date" id="booking_date"
-															value="2020-09-01 00:00:00">
+														<input type="date" name="booking_date" id="booking_date"
+															>
 													</div></td>
 											</tr>
 											<tr>

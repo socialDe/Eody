@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	
+
 <div style="margin-top: 20px">
                 <form action="myroom_updateimpl.mc" method="post">
                         <table class="mb-20" style="margin-left: auto; margin-right: auto;">
@@ -135,4 +135,6 @@
                         </div>
                 </form>
         </div>
+        
+
         

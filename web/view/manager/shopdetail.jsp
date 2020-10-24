@@ -338,6 +338,8 @@ body {
 }
 
 .nav-container a {
+		height: 50px;
+		line-height: 50px;
         display: block;
         margin: 0;
         padding: 0;
@@ -358,7 +360,7 @@ body {
         width: 100%;
         height: auto;
         padding: 20px;
-        border: 1px black solid;
+        border: 0px black solid;
 }
 
 .shopdetail-container {
@@ -504,7 +506,18 @@ body {
   	  <!-- SHOP DETAIL END  -->         
 	</div>
     <!-- BOOKING & REVIEW & CHART START -->
+    
      <div class="container">
+	     <!-- <div class="offcanvas-menu-wrapper">
+		    <nav class="mainmenu mobile-menu">
+		        <ul>
+		            <li class="active"><a href="./index.html">예약신청현황</a></li>
+		            <li><a href="./rooms.html">리뷰확인</a></li>
+		            <li><a href="./about-us.html">Shop현황</a></li>                
+		        </ul>
+		    </nav>
+	       	<div id="mobile-menu-wrap"></div> 
+	   	</div>-->
                 <nav id="nav-con">
                         <ul class="nav-container">
                                 <li><a class="nav-item" onclick="getBookings();">예약신청현황</a></li>
