@@ -39,7 +39,6 @@ public class ReviewController {
         		// 가게 이름은 hidden 값으로 넘겨받았음
                 // 리뷰에 매긴 평점은 hidden 값으로 넘겨받았음
                 // 리뷰를 작성한 searcher의 nickname값을 hidden으로 넘겨받았음
-
                 // 리뷰에 업로드한 사진이름 저장
                 System.out.println("size : " + files.length);
                 int len = files.length;
