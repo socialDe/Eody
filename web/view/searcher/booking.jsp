@@ -26,17 +26,23 @@
                                         
                                         <c:set var="b_stat" value="${b.booking_stat}"/>
                                                 <c:choose>
+                                                        <!-- 예약 승인이 이뤄지지 않은 상태의 경우 예약 대기 텍스트만 출력  --> 
                                                         <c:when test="${b_stat ==0 }">
                                                                 <div class="visit"><span>예약 대기</span></div>
                                                                 <div class="country" id="sp"></div>
                                                         </c:when>
+                                                        
+                                                        <!-- 예약 승인이 이뤄진 상태의 경우 예약 완료 텍스트와 리뷰 관련 버튼 출력  -->
                                                         <c:otherwise>
                                                                 <div class="visit"><span>예약 완료</span></div>
                                                                 <c:set var="r_stat" value="${b.review_stat}"/>
                                                                         <c:choose>
+                                                                                <!-- 예약 승인, 리뷰 작성하지 않은 상태는 리뷰 작성 버튼  -->
                                                                                 <c:when test="${r_stat == 0 }">
                                                                                         <div class="country" id="sp"><a href="#" data-toggle="modal" data-target="#reviewmodal" data-id="${b.shop_name}" class="genric-btn primary circle" id="writeReview">리뷰 작성하기</a></div>
                                                                                 </c:when>
+                                                                                
+                                                                                <!-- 예약 승인, 리뷰 작성한 상태는 리뷰 수정, 삭제 버튼  -->
                                                                                 <c:otherwise>
                                                                                         <div class="country" id="sp"><a href="#" class="genric-btn info circle rbtn">리뷰 수정</a>
 																														<a href="#" class="genric-btn danger circle rbtn">리뷰 삭제</a> </div>
@@ -45,7 +51,7 @@
                                                         </c:otherwise>
                                                 </c:choose>
                                 </div>
-            </c:forEach>
+          			  </c:forEach>
                 </div>
         </div>
 </div>        
