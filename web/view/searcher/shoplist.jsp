@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- explorer_europe start  -->
 
 <div class="explorer_europe list_wrap">
@@ -20,76 +21,49 @@
 						<jsp:include page="map.jsp" />
 					</div>
 
-					<!-- <div class="filter_main_wrap">
+					<div class="filter_main_wrap">
 						<div class="filter_inner">
-							<form action="#">
+							
 								<div class="input_field">
-									<input type="text" placeholder="What are you finding?">
+									<input id="keyword" type="text" placeholder="상호 검색">
 									<button class="submit_btn" type="submit">
 										<i class="fa fa-search"></i>
 									</button>
 								</div>
 								<div class="input_field">
 									<select class="wide">
-										<option data-display="Choose categories">cat 1</option>
-										<option value="1">cat 2</option>
-										<option value="2">cat 3</option>
+										<option data-display="장소 유형">식당</option>
+										<option value="1">까페</option>
+										<option value="2">스터디</option>
 										<option value="3">cat 4</option>
 									</select>
-								</div>
-								<div class="input_field">
-									<select class="wide">
-										<option data-display="Location">USA</option>
-										<option value="1">Africa</option>
-										<option value="2">canada</option>
-									</select>
-								</div>
+								</div>								
 								<div class="input_field ">
 									<div class="inner">
 										<div class="check_1">
-											<input type="checkbox" id="fruit1" name="fruit-1"
-												value="Apple"> <label for="fruit1">Open Now</label>
+											<input type="checkbox" id="carCheck" name="fruit-1"
+												value="1"> <label for="carCheck">주차장</label>
 										</div>
 										<div class="check_1">
-											<input type="checkbox" id="fruit4" name="fruit-4"
-												value="Strawberry"> <label for="fruit4">Ratings</label>
+											<input type="checkbox" id="bookCheck" name="fruit-4"
+												value="2"> <label for="bookCheck">예약가능</label>
 										</div>
 									</div>
-								</div>
-								<div class="input_field">
-									<select class="wide">
-										<option data-display="Area (km)">Area (km)</option>
-										<option value="1">1km</option>
-										<option value="2">2km</option>
-									</select>
-								</div>
-								<div class="input_field">
-									<select class="wide">
-										<option data-display="Area (km)">Area (km)</option>
-										<option value="1">1km</option>
-										<option value="2">2km</option>
-									</select>
-								</div>
-							</form>
+								</div>				
+							
 						</div>
 						<div class="last_range">
-							<label for="amount">Price range:</label>
-							<div id="slider-range"></div>
-							<p>
-								<input type="text" id="amount" readonly
-									style="border: 0; color: #f6931f; font-weight: bold;">
-							</p>
-							<button class="boxed-btn2">Reset</button>
+							<label for="amount">.</label>
 						</div>
-					</div> -->
+					</div> 
 				</div>
 			</div>
 
 			<div class="col-xl-8 col-lg-8">
 				<div class="row">
 					<c:forEach var="shop" items="${shoplist}" varStatus="vs">
-						<div class="col-xl-6 col-lg-6 col-md-6">
-							<div class="single_explorer">
+						<div class="col-xl-6 col-lg-6 col-md-6 shop_container">
+							<div class="single_explorer ${shop.shop_name }">
 								<div class="thumb">
 									<img src="img/shopImg/${shop.shop_img1 }" width="250px"
 										height="200px">
@@ -237,6 +211,35 @@
 	</div>
 
 	<script>
+		$(document).ready(function() {
+			$("#keyword").keyup(function(){
+				var k = $(this).val();
+				console.log(k);
+				$(".shop_container").hide();
+				$(".shop_container>div:contains('"+k+"')").parent().show();
+			})
+			
+			/*$("#carCheck").change(function(){
+				if($("#carCheck").is(":checked")){
+					alert("체크박스 체크했음!");
+				}else{
+					alert("체크박스 체크 해제!");
+				}
+			});
+			
+			$("#bookCheck").change(function(){
+				if($("#bookCheck").is(":checked")){
+					alert("체크박스 체크했음!");
+				}else{
+					alert("체크박스 체크 해제!");
+				}
+			});*/
+			
+		})
+	
+	
+	
+	
 		function fn_count(name) {
 			$.ajax({
 				url : 'shop_hitcnt.mc',
