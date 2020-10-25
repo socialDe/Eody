@@ -82,7 +82,7 @@ body {
 .con-container {
         width: 100%;
         padding: 20px;
-        border: 1px black solid;
+        
 }
 .starR {
         background:
@@ -147,7 +147,7 @@ body {
                                                         <div class="col-xl-6 col-lg-3 d-none d-lg-block">
                                                                 <div class="Appointment">
                                                                         <div class="book_btn d-none d-lg-block">
-                                                                                <a href="logout.mc">Logout</a> <a href="myroom.mc">${loginuser.searcher_nickname }'s Myroom</a>
+                                                                                <a href="logout.mc">Logout</a> <a href="myroom.mc">Myroom</a>
                                                                         </div>
                                                                 </div>
                                                         </div>
@@ -168,7 +168,7 @@ body {
                         <div class="row">
                                 <div class="col-xl-12">
                                         <div class="bradcam_text text-center">
-                                                <h3>Myroom</h3>
+                                                
                                         </div>
                                 </div>
                         </div>
@@ -178,40 +178,41 @@ body {
 
 
         <!-- team_area  -->
-        <div class="team_area">
-                <div class="container">
-                        <div class="row">
-                                <div class="col-xl-12">
-                                        <div class="section_title mb-40 text-center">
-
-                                                <!-- myroom start  -->
-                                                <nav id="nav-con">
-                                                        <ul class="nav-container">
-                                                                <li><a class="nav-item" href="myroom.mc">예약내역</a></li>
-                                                                <li><a class="nav-item" href="myroom_update.mc">내 정보 수정</a></li>
-                                                        </ul>
-                                                </nav>
-                                                <section>
-                                                        <div class="con-container">
-                                                                <c:choose>
-                                                                        <c:when test="${centerpage == null}">
-                                                                                <jsp:include page="booking.jsp"></jsp:include>
-                                                                        </c:when>
-                                                                        <c:otherwise>
-                                                                                <jsp:include page="${centerpage}.jsp"></jsp:include>
-                                                                        </c:otherwise>
-                                                                </c:choose>
-                                                        </div>
-                                                </section>
-                                                <jsp:include page="reviewmodal.jsp" />
-
-                                                <!-- myroom end  -->
-
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-        </div>
+        
+        <div class="explorer_europe">
+	        <div class="container">
+	            <div class="explorer_wrap">
+	                <div class="row align-items-center">
+	                    <div class="col-xl-6 col-md-4">
+	                        <h3>${loginuser.searcher_nickname }'s Myroom</h3>
+	                    </div>
+	                    <div class="col-xl-6 col-md-8">
+	                        <div class="explorer_tab">
+	                            <nav>
+	                                <div class="nav" id="nav-tab" role="tablist">
+	                                    <a class="nav-item nav-1 active" href="myroom.mc">예약내역</a>
+	                                    <a class="nav-item nav-2" href="myroom_update.mc">내 정보 수정</a>	                                    
+	                                </div>
+	                            </nav>
+	
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <section>
+ 					<div class="con-container">
+ 			            <c:choose>
+						    <c:when test="${centerpage == null}">
+          						<jsp:include page="booking.jsp"></jsp:include>          						
+    						</c:when>
+				       		<c:otherwise>
+								<jsp:include page="${centerpage}.jsp"></jsp:include>								
+                    		</c:otherwise>
+        			    </c:choose>
+            		</div>
+         		</section>
+            </div>
+        </div>            
         <!-- /team_area  -->
 
         <!-- footer start -->
@@ -328,6 +329,17 @@ body {
 
         <!-- update js -->
         <script src="view/searcher/js/functionCheck.js"></script>
+        <!-- 탭 반응형 화면 -->
+        <script> 
+        var centerpage = "${centerpage}";        
+		if (centerpage == "myroom_update"){
+			$('.nav-1').removeClass("active")
+			$('.nav-2').addClass("active")
+		} else {
+			$('.nav-2').removeClass("active")
+			$('.nav-1').addClass("active")
+		};		
+		</script>	
        
         <!-- 리뷰 쓰기 js -->
         <script type="text/javascript">

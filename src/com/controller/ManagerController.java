@@ -23,8 +23,8 @@ public class ManagerController {
         @Resource(name = "mbiz")
         Biz<String, Integer, ManagerVO> biz;
         @Resource(name = "shopbiz")                                                        
-        Biz<String, Integer, ShopVO> biz_shop;                                        // 媛�寃� �엯�땲�떎.
-        // 硫붿씤�럹�씠吏�濡� �씠�룞
+        Biz<String, Integer, ShopVO> biz_shop;                                        // �����Դϴ�. 
+        // ������������ �̵�.
         @RequestMapping("/amain.mc")
         public ModelAndView amain() {
                 ModelAndView mv = new ModelAndView();
@@ -32,21 +32,21 @@ public class ManagerController {
                 return mv;
         }
 
-        // main�럹�씠吏��쓽 login 踰꾪듉 �떎�뻾 �떆 濡쒓렇�씤 �럹�씠吏�濡� �씠�룞
+        // main�������� login ��ư ���� �� �α��� �������� �̵� 
         @RequestMapping("/alogin.mc")
         public ModelAndView alogin() {
                 ModelAndView mv = new ModelAndView();
                 mv.setViewName("manager/alogin");
                 return mv;
         }
-        // 濡쒓렇�씤 �썑�뿉 �슦痢� �긽�떒�쓽 logout 踰꾪듉 �떎�뻾 �떆 硫붿씤 �럹�씠吏�濡� �씠�룞
+        // �α��� �Ŀ� ���� ����� logout ��ư ���� �� ���� �������� �̵� 
         @RequestMapping("/alogout.mc")
         public ModelAndView alogout() {
         	ModelAndView mv = new ModelAndView();
         	mv.setViewName("manager/amain");
         	return mv;
         }
-        // center �럹�씠吏� �씠�룞: Chart
+        //  center ������ �̵�: Chart
         @RequestMapping("/chart.mc")
         public ModelAndView chart() {
         	ModelAndView mv = new ModelAndView();
@@ -63,7 +63,7 @@ public class ManagerController {
         	return mv;
         }
 
-        // 濡쒓렇�씤 踰꾪듉 �떎�뻾 �꽌釉붾┸
+        // �α��� ��ư ���� ���� 
         @RequestMapping("/aloginimpl.mc")
         public ModelAndView aloginimpl(HttpServletRequest request) {
                 ModelAndView mv = new ModelAndView();
@@ -98,25 +98,23 @@ public class ManagerController {
                     e.printStackTrace();
             }
     					
-    			
-                
 
                 return mv;
         }
 
-        // Sign Up 踰꾪듉 �떎�뻾 �떆 �쉶�썝媛��엯 �럹�씠吏�濡� �씠�룞
+        // Sign Up ��ư ���� �� ȸ������ �������� �̵�
         @RequestMapping("/manageradd.mc")
         public ModelAndView manageradd(ModelAndView mv) {
                 mv.setViewName("manager/aregister");
                 return mv;
         }
 
-        // �쉶�썝媛��엯 踰꾪듉 �떎�뻾 �꽌釉붾┸
+        //  ȸ������ ��ư ���� ����
         @RequestMapping("/manageraddimpl.mc")
         public ModelAndView manageraddimpl(ModelAndView mv, ManagerVO manager, String user_birth_year,
                         String user_birth_month, String user_birth_day) {
                 try {
-                        // search_birthday 媛� �뀑�똿
+                        // search_birthday �� ��
                         manager.setManager_birthday(user_birth_year + "-" + user_birth_month + "-" + user_birth_day);
                         biz.register(manager);
                         mv.setViewName("manager/aregisterok");
@@ -127,7 +125,7 @@ public class ManagerController {
                 return mv;
         }
 
-      
+        //���̵� �ߺ� üũ Ȯ�� 
                 @RequestMapping("/aidcheckimpl.mc")
                 public void id_check_impl(HttpServletResponse res, String id) {
                         int result = 0;

@@ -19,115 +19,110 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.frame.Biz;
-import com.frame.Dao;
-import com.vo.BookingVO;
 import com.vo.ReviewVO;
 import com.vo.SearcherVO;
+import com.vo.ShopVO;
 
 @Controller
 public class ReviewController {
 
-	@Resource(name = "bookingbiz")
-	Biz<String, Integer, BookingVO> booking_biz;
+        @Resource(name = "rbiz")
+        Biz<String, Integer, ReviewVO> rbiz;
+        @Resource(name = "shopbiz")
+        Biz<String,Integer, ShopVO> shopbiz;
+        
+        // ë¦¬ë·° ë“±ë¡ ì„œë¸”ë¦¿
+        @RequestMapping("/reviewadd.mc")
+        public ModelAndView reviewadd(ModelAndView mv, ReviewVO review, SearcherVO searcher,
+                        @RequestParam("files") MultipartFile[] files) {
+        	
+        		// ê°€ê²Œ ì´ë¦„ì€ hidden ê°’ìœ¼ë¡œ ë„˜ê²¨ë°›ì•˜ìŒ
+                // ë¦¬ë·°ì— ë§¤ê¸´ í‰ì ì€ hidden ê°’ìœ¼ë¡œ ë„˜ê²¨ë°›ì•˜ìŒ
+                // ë¦¬ë·°ë¥¼ ì‘ì„±í•œ searcherì˜ nicknameê°’ì„ hiddenìœ¼ë¡œ ë„˜ê²¨ë°›ì•˜ìŒ
+                // ë¦¬ë·°ì— ì—…ë¡œë“œí•œ ì‚¬ì§„ì´ë¦„ ì €ì¥
+                System.out.println("size : " + files.length);
+                int len = files.length;
+                System.out.println("ì‚¬ì§„ ê¸¸ì´ : " + len);
+                if(files[0].getOriginalFilename() == "") {
+                	review.setReview_image1("default.jpg");
+                    review.setReview_image2("default.jpg");
+                    review.setReview_image3("default.jpg");
+                }
+                else if (len == 1) {
+                        review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
+                        review.setReview_image2("default.jpg");
+                        review.setReview_image3("default.jpg");
+                } else if (len == 2) {
+                        review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
+                        review.setReview_image2(review.getReview_name() + files[1].getOriginalFilename());
+                        review.setReview_image3("default.jpg");
+                } else {
+                        review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
+                        review.setReview_image2(review.getReview_name() + files[1].getOriginalFilename());
+                        review.setReview_image3(review.getReview_name() + files[2].getOriginalFilename());
+                }
 
-	@Resource(name = "rbiz")
-	Biz<String, Integer, ReviewVO> rbiz;
+                try {
+                        rbiz.register(review);
+                        // ì‚¬ì§„íŒŒì¼ í´ë”ì— ì €ì¥
+                        for (MultipartFile f : files) {
+                                if (f.getOriginalFilename() == "") {
+                                        continue;
+                                }
+                                Util.saveReviewFile(f, review.getReview_name());
+                        }
+                        // ìƒì  í‰ê·  í‰ì  ìˆ˜ì •
+                        shopbiz.shop_score_avg(review.getShop_name());
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
 
-	// ¸®ºä µî·Ï ¼­ºí¸´
-	@RequestMapping("/reviewadd.mc")
-	public ModelAndView reviewadd(ModelAndView mv, ReviewVO review, SearcherVO searcher,
-			@RequestParam("files") MultipartFile[] files) {
+                // redirectìœ¼ë¡œ í•´ì•¼ submit ì¤‘ë³µì„ ë§‰ìŒ
+                mv.setViewName("redirect:myroom.mc");
+                return mv;
+        }
 
-		// °¡°Ô ÀÌ¸§Àº hidden °ªÀ¸·Î ³Ñ°Ü¹Ş¾ÒÀ½
-		// ¸®ºä¿¡ ¸Å±ä ÆòÁ¡Àº hidden °ªÀ¸·Î ³Ñ°Ü¹Ş¾ÒÀ½
-		// ¸®ºä¸¦ ÀÛ¼ºÇÑ searcherÀÇ nickname°ªÀ» hiddenÀ¸·Î ³Ñ°Ü¹Ş¾ÒÀ½
+        // ë¦¬ë·°ë¦¬ìŠ¤íŠ¸ í™”ë©´ ì²˜ë¦¬
+        @ResponseBody
+        @RequestMapping("/getReview.mc")
+        public void getReview(HttpServletResponse res, String ashop) throws IOException {
+                System.out.println("shop ì´ë¦„ : " + ashop);
+                JSONArray ja = new JSONArray();
+                ArrayList<ReviewVO> list = new ArrayList<>();
+                try {
+                        list = rbiz.review_get(ashop);
+                } catch (Exception e) {
+                        System.out.println("error");
+                        e.printStackTrace();
+                }
+                //System.out.println("list: " + list.toString());
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                System.out.println("ì‚¬ì´ì¦ˆ : " + list.size());
+                for (int i = 0; i < list.size(); i++) {
+                        JSONObject data = new JSONObject();
+                        data.put("review_date", format.format(list.get(i).getReview_date()));
+                        data.put("review_contents", list.get(i).getReview_contents());
+                        data.put("review_image1", list.get(i).getReview_image1());
+                        data.put("review_image2", list.get(i).getReview_image2());
+                        data.put("review_image3", list.get(i).getReview_image3());
+                        data.put("shop_name", list.get(i).getShop_name());
+                        data.put("review_name", list.get(i).getReview_name());
+                        data.put("shop_score", list.get(i).getShop_score()+ "");
+                        ja.add(data);
+                        //System.out.println(ja.toString());
+                        
+                }
+                //System.out.println("ja : " + ja);
+                res.setCharacterEncoding("utf-8");
+                res.setContentType("application/json");
+                PrintWriter out = res.getWriter();
 
-		// ¸®ºä¿¡ ¾÷·ÎµåÇÑ »çÁøÀÌ¸§ ÀúÀå
-		System.out.println("size : " + files.length);
-		int len = files.length;
-		System.out.println("»çÁø ±æÀÌ : " + len);
-		if (files[0].getOriginalFilename() == "") {
-			review.setReview_image1("default.jpg");
-			review.setReview_image2("default.jpg");
-			review.setReview_image3("default.jpg");
-		} else if (len == 1) {
-			review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
-			review.setReview_image2("default.jpg");
-			review.setReview_image3("default.jpg");
-		} else if (len == 2) {
-			review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
-			review.setReview_image2(review.getReview_name() + files[1].getOriginalFilename());
-			review.setReview_image3("default.jpg");
-		} else {
-			review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
-			review.setReview_image2(review.getReview_name() + files[1].getOriginalFilename());
-			review.setReview_image3(review.getReview_name() + files[2].getOriginalFilename());
-		}
+                
+                out.print(ja.toJSONString());
+                out.close();
+        }
+        
+        
 
-		try {
-			rbiz.register(review);
-			// »çÁøÆÄÀÏ Æú´õ¿¡ ÀúÀå
-			for (MultipartFile f : files) {
-				if (f.getOriginalFilename() == "") {
-					continue;
-				}
-				Util.saveReviewFile(f, review.getReview_name());
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// review_stat¸¦ 1·Î º¯°æ
-		try {
-			booking_biz.bookingupdate_reviewstat(searcher.getSearcher_id());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// redirectÀ¸·Î ÇØ¾ß submit Áßº¹À» ¸·À½
-		mv.setViewName("redirect:myroom.mc");
-		return mv;
-	}
-
-	// ¸®ºä¸®½ºÆ® È­¸é Ã³¸®
-	@ResponseBody
-	@RequestMapping("/getReview.mc")
-	public void getReview(HttpServletResponse res, String ashop) throws IOException {
-		System.out.println("shop ÀÌ¸§ : " + ashop);
-		JSONArray ja = new JSONArray();
-		ArrayList<ReviewVO> list = new ArrayList<>();
-		try {
-			list = rbiz.review_get(ashop);
-		} catch (Exception e) {
-			System.out.println("error");
-			e.printStackTrace();
-		}
-		// System.out.println("list: " + list.toString());
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		System.out.println("»çÀÌÁî : " + list.size());
-		for (int i = 0; i < list.size(); i++) {
-			JSONObject data = new JSONObject();
-			data.put("review_date", format.format(list.get(i).getReview_date()));
-			data.put("review_contents", list.get(i).getReview_contents());
-			data.put("review_image1", list.get(i).getReview_image1());
-			data.put("review_image2", list.get(i).getReview_image2());
-			data.put("review_image3", list.get(i).getReview_image3());
-			data.put("shop_name", list.get(i).getShop_name());
-			data.put("review_name", list.get(i).getReview_name());
-			data.put("shop_score", list.get(i).getShop_score() + "");
-			ja.add(data);
-			// System.out.println(ja.toString());
-
-		}
-		// System.out.println("ja : " + ja);
-		res.setCharacterEncoding("utf-8");
-		res.setContentType("application/json");
-		PrintWriter out = res.getWriter();
-
-		out.print(ja.toJSONString());
-		out.close();
-	}
 
 }

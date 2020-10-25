@@ -22,7 +22,7 @@
             </div>
             <div class="hover_overlay">
                 <div class="hover_inner">
-                    <a href="Listings.html"><h4>${region1.h_name}</h4></a>
+                    <h4>${region1.h_name}</h4>
                     <!--  <span>05 Listings</span>  -->
                 </div>
             </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="hover_overlay">
                 <div class="hover_inner">
-                    <a href="Listings.html"><h4>${region2.h_name }</h4></a>
+                    <h4>${region2.h_name }</h4>
                     <!--  <span>05 Listings</span>  -->
                 </div>
             </div>
@@ -48,7 +48,7 @@
             </div>
             <div class="hover_overlay">
                 <div class="hover_inner">
-                    <a href="Listings.html"><h4>${region3.h_name }</h4></a>
+                    <h4>${region3.h_name }</h4>
                     <!--  <span>05 Listings</span>  -->
                 </div>
             </div>

@@ -54,7 +54,8 @@ public class SearcherController {
                 return mv;
         }
 
-        // main�������� login ��ư ���� �� �α��� �������� �̵�
+
+        // main�������� login ��ư ���� �� �α��� �������� �̵� 
         @RequestMapping("/login.mc")
         public ModelAndView login() {
                 ModelAndView mv = new ModelAndView();
@@ -81,7 +82,8 @@ public class SearcherController {
                 mv.setViewName("redirect:login.mc");
                 return mv;
         }        
-        // �α��� ��ư ���� ����
+
+        // �α��� ��ư ���� ���� 
         @RequestMapping("/loginimpl.mc")
     	public ModelAndView loginimpl(HttpServletRequest request, HttpServletResponse res) {
     		ModelAndView mv = new ModelAndView();
@@ -109,20 +111,22 @@ public class SearcherController {
     		return mv;
     	}
 
-        // Sign Up ��ư ���� �� ȸ������ �������� �̵�
+        // Sign Up ��ư ���� �� ȸ������ �������� �̵� 
         @RequestMapping("/searcheradd.mc")
         public ModelAndView searcheradd(ModelAndView mv) {
                 mv.setViewName("searcher/register");
                 return mv;
         }
 
-        // ȸ������ ��ư ����
+
+        // ȸ������ ��ư ���� 
         @RequestMapping("/searcheraddimpl.mc")
         public ModelAndView searcheraddimpl(ModelAndView mv, SearcherVO searcher, String user_birth_year, String user_birth_month, String user_birth_day
         		,HttpServletResponse res) throws Exception {
 
                 try {
-                        // search_birthday �� ����
+
+                        // search_birthday �� ���� 
                         searcher.setSearcher_birthday(user_birth_year + "-" + user_birth_month + "-" + user_birth_day);
                         biz.register(searcher);
                         mv.setViewName("searcher/registerok");
@@ -133,7 +137,8 @@ public class SearcherController {
                 return mv;
         }
 
-        // ���̵� �ߺ� üũ
+
+        //  ���̵� �ߺ� üũ
         @RequestMapping("/idcheckimpl.mc")
         public void id_check_impl(HttpServletResponse res, String id) {
                 int result = 0;
@@ -158,13 +163,8 @@ public class SearcherController {
                 out.close();
         }
 
-        // myroom ���� ������Ʈ ����
-        @RequestMapping("/myroomupdate.mc")
-        public ModelAndView myroomupdate(ModelAndView mv) {
-                mv.addObject("centerpage", "myroom_update");
-                mv.setViewName("searcher/myroom");
-                return mv;
-        }
+
+
 
         // myroom���� ������Ʈ �ϱ� myroom_updateimpl.mc
         @RequestMapping("/myroom_updateimpl.mc")
@@ -198,7 +198,7 @@ public class SearcherController {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-	            mv.addObject("books", books);
+	            mv.addObject("books", books);	            
                 mv.setViewName("searcher/myroom");
                 return mv;
         }
@@ -311,12 +311,14 @@ public class SearcherController {
         Biz<String, Integer, HotPlaceVO> hbiz;        
         @RequestMapping("/specific_search.mc")
         public ModelAndView specificSearch(HttpServletRequest request,String region1, String region2, String region3, String searchType,int number_blank,String shop, String time) {
-                //searchType: Ž�����(�Ÿ��켱, ������) ����, null-> ������, DFS -> �Ÿ��켱
-                //number_blank: ��� Ž�� ȭ�鿡�� ������ ���� ����
+       
+	        	//searchType: Ž�����(�Ÿ��켱, ������) ����, null-> ������, DFS -> �Ÿ��켱
+	            //number_blank: ��� Ž�� ȭ�鿡�� ������ ���� ����
                 ModelAndView mv = new ModelAndView();
                 ArrayList<HotPlaceVO> list = new ArrayList<HotPlaceVO>();
                 
-                //������ �˻� ȭ�� 
+              //������ �˻� ȭ��  
+
                 if(searchType==null) {
                         String[] startsregion = new String[number_blank];
                 startsregion = request.getParameterValues("blanks");
@@ -333,14 +335,18 @@ public class SearcherController {
                 }
                 HttpSession session1 = request.getSession();
                                 session1.setAttribute("regions", list);//
+
                 mv.addObject("number_blank",number_blank);  //����
                 mv.addObject("shop",shop);    //��������
+                mv.addObject("time",time);     //�ð�
+                mv.addObject("number_blank",number_blank);  //����
+                mv.addObject("shop",shop);    //���� ����
                 mv.addObject("time",time);     //�ð�
                 mv.addObject("sub_regionpage","regionList");
                 
                 }
-                
-                //�Ÿ��켱 �˻� ȭ�� 
+
+                //�Ÿ��켱 �˻� ȭ��
                 else {
                         try {
                                         HotPlaceVO region1_obj =hbiz.get1(region1);
