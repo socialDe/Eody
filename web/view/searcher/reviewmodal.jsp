@@ -50,7 +50,7 @@
                                         </div>
                                         
                                         <div class="mb-20">
-                                                <button class="boxed-btn2 mb-30" type="submit">리뷰 등록하기</button>
+                                                <button class="boxed-btn2 mb-30" onclick="alert('리뷰가 등록되었습니다')" type="submit">리뷰 등록하기</button>
                                         </div>
                                         
 

@@ -70,30 +70,36 @@ public class ManagerController {
                 String id = request.getParameter("id");
                 String pwd = request.getParameter("pwd");
                 ManagerVO dbmanager = null;
+                
                 try {
-                        dbmanager = biz.get1(id);
-                        if (dbmanager.getManager_pwd().equals(pwd)) {
-                                HttpSession session = request.getSession();
-                                session.setAttribute("aloginuser", dbmanager);
-                              
-                                //濡쒓렇�씤 �넻怨쇱� �룞�떆 媛�寃� 由ъ뒪�듃 戮묒븘�궡湲�
-                                ArrayList<ShopVO> shoplist = null;                        
-                                try{
-                                        shoplist = biz_shop.shop_get(id);                                        //selectall �븿�닔�엯�땲�떎. �빐�떦 �븘�씠�뵒媛� 媛뽮퀬�엳�뒗 shop �뀒�씠釉붿쓣 �쟾遺� 媛��졇�샃�땲�떎.
-                                }catch (Exception e) {
-                                        e.printStackTrace();
-                                }
-                                mv.addObject("centerpage", "center1");                                // centerpage�뿉 center1.jsp �뙆�씪�쓣 �뼶�뒿�땲�떎. centerpage�뒗 myroom.jsp�뿉 �엳�뒿�땲�떎.
-                                session.setAttribute("shoplist", shoplist);                        // 洹� shop �뀒�씠釉붿쓣 session�뿉 �떞�븯�뒿�땲�떎.
-                                System.out.println(shoplist);
-                                mv.setViewName("manager/amyroom");                                        // myroom �럹�씠吏�濡� �씠�룞�빀�땲�떎.
-                        } else {
-                                mv.setViewName("redirect:alogin.mc");
-                        }
-                } catch (Exception e) {
-                        mv.setViewName("redirect:alogin.mc");
-                        e.printStackTrace();
-                }
+                    dbmanager = biz.get1(id);
+                    if (dbmanager.getManager_pwd().equals(pwd)) {
+                            HttpSession session = request.getSession();
+                            session.setAttribute("aloginuser", dbmanager);
+                          
+                            //濡쒓렇�씤 �넻怨쇱� �룞�떆 媛�寃� 由ъ뒪�듃 戮묒븘�궡湲�
+                            ArrayList<ShopVO> shoplist = null;                        
+                            try{
+                                    shoplist = biz_shop.shop_get(id);                                        //selectall �븿�닔�엯�땲�떎. �빐�떦 �븘�씠�뵒媛� 媛뽮퀬�엳�뒗 shop �뀒�씠釉붿쓣 �쟾遺� 媛��졇�샃�땲�떎.
+                            }catch (Exception e) {
+                                    e.printStackTrace();
+                            }
+                            mv.addObject("centerpage", "center1");                                // centerpage�뿉 center1.jsp �뙆�씪�쓣 �뼶�뒿�땲�떎. centerpage�뒗 myroom.jsp�뿉 �엳�뒿�땲�떎.
+                            session.setAttribute("shoplist", shoplist);                        // 洹� shop �뀒�씠釉붿쓣 session�뿉 �떞�븯�뒿�땲�떎.
+                            System.out.println(shoplist);
+                            mv.setViewName("manager/amyroom");                                        // myroom �럹�씠吏�濡� �씠�룞�빀�땲�떎.
+                    } else {
+                    		mv.addObject("msg", "비밀번호가 틀렸습니다.");
+                            mv.setViewName("manager/alogin");
+                    }
+            } catch (Exception e) {
+            		mv.addObject("msg", "아이디가 틀렸습니다.");
+            		mv.setViewName("manager/alogin");
+                    e.printStackTrace();
+            }
+    					
+    			
+                
 
                 return mv;
         }

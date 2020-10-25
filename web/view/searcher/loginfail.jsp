@@ -6,7 +6,11 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
+<script>
+alert('아이디와 비밀번호를 확인해주세요.');
+location.href='login.mc';
+</script>
 <body>
-<h1>login fail</h1>
+
 </body>
 </html>
