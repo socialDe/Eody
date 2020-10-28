@@ -39,7 +39,7 @@ public class SearcherController {
         @Resource(name = "rbiz")
         Biz<String, Integer, ReviewVO> reviewbiz;
 
-        // ����
+        // 메
         @RequestMapping("/main.mc")
         public ModelAndView main() {
                 ModelAndView mv = new ModelAndView();
@@ -55,7 +55,7 @@ public class SearcherController {
         }
 
 
-        // main�������� login ��ư ���� �� �α��� �������� �̵� 
+        // main페이지의 login 버튼 실행 시 로그인 페이지로 이동 
         @RequestMapping("/login.mc")
         public ModelAndView login() {
                 ModelAndView mv = new ModelAndView();
@@ -83,7 +83,7 @@ public class SearcherController {
                 return mv;
         }        
 
-        // �α��� ��ư ���� ���� 
+        // 로그인 버튼 실행 서블릿 
         @RequestMapping("/loginimpl.mc")
     	public ModelAndView loginimpl(HttpServletRequest request, HttpServletResponse res) {
     		ModelAndView mv = new ModelAndView();
@@ -111,7 +111,7 @@ public class SearcherController {
     		return mv;
     	}
 
-        // Sign Up ��ư ���� �� ȸ������ �������� �̵� 
+        // Sign Up 버튼 실행 시 회원가입 페이지로 이동 
         @RequestMapping("/searcheradd.mc")
         public ModelAndView searcheradd(ModelAndView mv) {
                 mv.setViewName("searcher/register");
@@ -119,14 +119,14 @@ public class SearcherController {
         }
 
 
-        // ȸ������ ��ư ���� 
+        // 회원가입 버튼 서블릿 
         @RequestMapping("/searcheraddimpl.mc")
         public ModelAndView searcheraddimpl(ModelAndView mv, SearcherVO searcher, String user_birth_year, String user_birth_month, String user_birth_day
         		,HttpServletResponse res) throws Exception {
 
                 try {
 
-                        // search_birthday �� ���� 
+                        // search_birthday 값 셋팅 
                         searcher.setSearcher_birthday(user_birth_year + "-" + user_birth_month + "-" + user_birth_day);
                         biz.register(searcher);
                         mv.setViewName("searcher/registerok");
@@ -138,7 +138,7 @@ public class SearcherController {
         }
 
 
-        //  ���̵� �ߺ� üũ
+        // 아이디 중복 체크
         @RequestMapping("/idcheckimpl.mc")
         public void id_check_impl(HttpServletResponse res, String id) {
                 int result = 0;
@@ -166,11 +166,11 @@ public class SearcherController {
 
 
 
-        // myroom���� ������Ʈ �ϱ� myroom_updateimpl.mc
+        // myroom에서 업데이트 하기 myroom_updateimpl.mc
         @RequestMapping("/myroom_updateimpl.mc")
         public ModelAndView myroomupdateimpl(ModelAndView mv, SearcherVO searcher, String user_birth_year,
                         String user_birth_month, String user_birth_day) {                
-                // search_birthday �� ����
+                // search_birthday 값 셋팅
                 searcher.setSearcher_birthday(user_birth_year + "-" + user_birth_month + "-" + user_birth_day);
                 try {        
                         biz.modify(searcher);
@@ -184,7 +184,7 @@ public class SearcherController {
                 return mv;
         }
 
-        // myroom �������� �̵�
+        //  myroom 페이지로 이동
         @RequestMapping("/myroom.mc")
         public ModelAndView myroom(ModelAndView mv,HttpServletRequest request) {
 	        	HttpSession session = request.getSession(false);
@@ -203,7 +203,7 @@ public class SearcherController {
                 return mv;
         }
         
-        // myroom�� �� ���� ���� ������ ����
+        // myroom의 내 정보 수정 페이지 전송
         @RequestMapping("myroom_update.mc")
         public ModelAndView myroom_update() {
                 ModelAndView mv = new ModelAndView();
@@ -211,7 +211,7 @@ public class SearcherController {
                 mv.setViewName("searcher/myroom");
                 return mv;
         }
-	     // myroom�� ������Ȳ ������ ����
+	     // myroom의 예약현황 페이지 전송
 	    @RequestMapping("/booking.mc")
 	    public ModelAndView one() {
 	            ModelAndView mv = new ModelAndView();
@@ -221,7 +221,7 @@ public class SearcherController {
 	    }
 	    
 
-        // �����ϱ�
+        // 예약하기
          @RequestMapping("/bookingimpl.mc")
          public ModelAndView bookingimpl(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, BookingVO booking) {
                  HttpSession session = request.getSession(false);
@@ -241,7 +241,7 @@ public class SearcherController {
                         PrintWriter out;
                         try {
                                 out = response.getWriter();
-                                out.println("<script>alert('�α������ʿ��մϴ�.');</script>");
+                                out.println("<script>alert('로그인이필요합니다.');</script>");
                             out.flush();
                         } catch (IOException e) {
                                 e.printStackTrace();
@@ -252,7 +252,7 @@ public class SearcherController {
          }
 
 
-        // Search ��ư ������ �����Է� �������� �̵�
+        // Search 버튼 누르면 정보입력 페이지로 이동
         @RequestMapping("/search.mc")
         public ModelAndView search() {
                 ModelAndView mv = new ModelAndView();
@@ -267,12 +267,11 @@ public class SearcherController {
                 mv.setViewName("searcher/search");
                 return mv;
         }
-      //����ġ��� Ž��: https ȯ�� ���� �� Geolocation API Ȱ���Ͽ� ����� ����
-//        @RequestMapping("/myposition.mc")
-//        public ModelAndView myposition(ModelAndView mv) {
-//                mv.addObject("centerpage", "myposition"); 
-//                mv.setViewName("searcher/search");
-//                return mv;
+      //내위치기반 탐색: https 환경 구축 후 Geolocation API 활용하여 사용할 예정
+//      @RequestMapping("/myposition.mc")
+//      public ModelAndView myposition(ModelAndView mv) {
+//              mv.addObject("centerpage", "myposition"); 
+//              return mv;
 //        }
         @RequestMapping("/areaposition.mc")
         public ModelAndView areaposition(ModelAndView mv) {
@@ -281,7 +280,7 @@ public class SearcherController {
                 return mv;
         }
         
-        //�Ÿ��켱Ž��
+        //거리우선탐색
         @RequestMapping("/searchimpl1.mc")
         public ModelAndView searchimpl_1(ModelAndView mv ,String shop, int number_blank,String time, HttpServletRequest request) {
                 String[] startsregion = new String[number_blank];
@@ -299,31 +298,31 @@ public class SearcherController {
                 
                 return mv;
         }
-        //����ġ��� Ž��: https ȯ�� ���� �� Geolocation API Ȱ���Ͽ� ����� ����
-//        @RequestMapping("/searchimpl2.mc")
-//        public ModelAndView searchimpl_2(HttpServletRequest request) {
-//                ModelAndView mv = new ModelAndView();
-//                return mv;
-//        }
+        //내위치기반 탐색: https 환경 구축 후 Geolocation API 활용하여 사용할 예정
+//      @RequestMapping("/searchimpl2.mc")
+//      public ModelAndView searchimpl_2(HttpServletRequest request) {
+//              ModelAndView mv = new ModelAndView();
+//              return mv;
+//      }
         
-        //��ü��� Ž�� ȭ�� 
+        //구체장소 탐색 화면 
         @Resource(name = "hbiz")
         Biz<String, Integer, HotPlaceVO> hbiz;        
         @RequestMapping("/specific_search.mc")
         public ModelAndView specificSearch(HttpServletRequest request,String region1, String region2, String region3, String searchType,int number_blank,String shop, String time) {
        
-	        	//searchType: Ž�����(�Ÿ��켱, ������) ����, null-> ������, DFS -> �Ÿ��켱
-	            //number_blank: ��� Ž�� ȭ�鿡�� ������ ���� ����
+	        	//searchType: 탐색방법(거리우선, 지역명) 구분, null-> 지역명, DFS -> 거리우선
+	            //number_blank: 장소 탐색 화면에서 보여줄 지역 개수
                 ModelAndView mv = new ModelAndView();
                 ArrayList<HotPlaceVO> list = new ArrayList<HotPlaceVO>();
                 
-              //������ �˻� ȭ��  
+              //지역명 검색 화면  
 
                 if(searchType==null) {
                         String[] startsregion = new String[number_blank];
                 startsregion = request.getParameterValues("blanks");
-                System.out.println("���� �Է� Test:"+shop);
-                System.out.println("�ð� �Է� Test:"+time);
+                System.out.println("업종 입력 Test:"+shop);
+                System.out.println("시간 입력 Test:"+time);
                 for(int i=0; i<startsregion.length;i++) {
                         try {
                                                 list.add(hbiz.get1(startsregion[i]));
@@ -334,19 +333,16 @@ public class SearcherController {
                                         }
                 }
                 HttpSession session1 = request.getSession();
-                                session1.setAttribute("regions", list);//
+                session1.setAttribute("regions", list);//
 
-                mv.addObject("number_blank",number_blank);  //����
-                mv.addObject("shop",shop);    //��������
-                mv.addObject("time",time);     //�ð�
-                mv.addObject("number_blank",number_blank);  //����
-                mv.addObject("shop",shop);    //���� ����
-                mv.addObject("time",time);     //�ð�
+                mv.addObject("number_blank",number_blank);  //개수
+                mv.addObject("shop",shop);    //가게 유형
+                mv.addObject("time",time);     //시간
                 mv.addObject("sub_regionpage","regionList");
                 
                 }
 
-                //�Ÿ��켱 �˻� ȭ��
+                //거리우선 검색 화면
                 else {
                         try {
                                         HotPlaceVO region1_obj =hbiz.get1(region1);
@@ -369,9 +365,9 @@ public class SearcherController {
                                 } catch (Exception e) {
                                         e.printStackTrace();
                                 }
-                    System.out.println("���� �Է� Test:"+shop);
-	                System.out.println("�ð� �Է� Test:"+time);
-	                System.out.println("���� �Է� Test:"+number_blank);
+                    System.out.println("업종 입력 Test:"+shop);
+	                System.out.println("시간 입력 Test:"+time);
+	                System.out.println("숫자 입력 Test:"+number_blank);
 	                mv.addObject("number_blank",number_blank);
 	                mv.addObject("shop",shop);
 	                mv.addObject("time",time);
@@ -383,7 +379,7 @@ public class SearcherController {
                 return mv;
         }
 
-               @RequestMapping("/shop_hitcnt.mc")  ///��ȸ�� �ø��� , ���� ��� �����ϱ�
+               @RequestMapping("/shop_hitcnt.mc")  //조회수 올리기 , 평점 평균 저장하기
                 public void shop_hitcnt(HttpServletRequest request, String shop_name) {
                         String name = request.getParameter("shop_name");
                         try {        
@@ -401,7 +397,7 @@ public class SearcherController {
 
                	@RequestMapping("/listing.mc")  
                 public ModelAndView listing(ModelAndView mv, String h_name) {
-                        HotPlaceVO hplace = null;  //������ ���÷��̽� 
+                        HotPlaceVO hplace = null;  //선택한 핫플레이스 
                         try {
                                 hplace = hbiz.get1(h_name);
                         } catch (Exception e) {
@@ -409,7 +405,7 @@ public class SearcherController {
                                 e.printStackTrace();
                         }
                         
-                        ArrayList<ShopVO> list = null;  //���÷��̽��� shop list
+                        ArrayList<ShopVO> list = null;  //핫플레이스의 shop list
                         try {
                                 list = shbiz.shop_hotplace_get(h_name);
                                 System.out.println(list.toString());

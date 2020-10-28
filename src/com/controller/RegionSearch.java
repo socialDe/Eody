@@ -36,9 +36,9 @@ public class RegionSearch {
 			}
 			
 			
-			//ÀÔ·Â¹ŞÀº Ãâ¹ßÁöÀÇ ÃÖ´ë, ÃÖ¼Ò °æµµ ÁÂÇ¥
+			//ì…ë ¥ë°›ì€ ì¶œë°œì§€ì˜ ìµœëŒ€, ìµœì†Œ ê²½ë„ ì¢Œí‘œ
 			double maxLat=0.0, minLat=9999.9;
-			//ÀÔ·Â¹ŞÀº Ãâ¹ßÁöÀÇ ÃÖ´ë, ÃÖ¼Ò À§µµ ÁÂÇ¥
+			//ì…ë ¥ë°›ì€ ì¶œë°œì§€ì˜ ìµœëŒ€, ìµœì†Œ ìœ„ë„ ì¢Œí‘œ
 			double maxLng=0.0, minLng=9999.9;
 			for(int i=0; i<keys.length; i++) {
 				HotPlaceVO hotKey = new HotPlaceVO();
@@ -61,7 +61,7 @@ public class RegionSearch {
 				}
 			}
 			
-			//Ãâ¹ßÁö¿Í °Å¸® °è»ê¿¡ ºÒÇÊ¿äÇÑ rawdata¸¦ Á¦°ÅÇÑ ArrayList
+			//ì¶œë°œì§€ì™€ ê±°ë¦¬ ê³„ì‚°ì— ë¶ˆí•„ìš”í•œ rawdataë¥¼ ì œê±°í•œ ArrayList
 			ArrayList<HotPlaceVO> filteredData = new ArrayList<>();
 			for(HotPlaceVO hp : rawdata) {
 				double lat = Double.parseDouble(hp.getH_lat());
@@ -74,56 +74,56 @@ public class RegionSearch {
 				}
 			}
 			
-			//optdata: °Å¸® ¿¬»êÀ» ½ÇÇàÇÒ µ¥ÀÌÅÍ(filter or raw)
+			//optdata: ê±°ë¦¬ ì—°ì‚°ì„ ì‹¤í–‰í•  ë°ì´í„°(filter or raw)
 			ArrayList<HotPlaceVO> optData = new ArrayList<>();
 			
-			//¿ÜÁ¢»ç°¢Çü ¿µ¿ª ³» µ¥ÀÌÅÍ°¡ Ãâ¹ßÁö Á¦¿Ü 3°³ ¹Ì¸¸ÀÏ °æ¿ì rawdata
+			//ì™¸ì ‘ì‚¬ê°í˜• ì˜ì—­ ë‚´ ë°ì´í„°ê°€ ì¶œë°œì§€ ì œì™¸ 3ê°œ ë¯¸ë§Œì¼ ê²½ìš° rawdata
 			if(filteredData.size()<keys.length+3) {
 				optData = rawdata;
-				System.out.println("rawData ºñ±³¿¬»ê ¼öÇà ");
+				System.out.println("rawData ï¿½ñ±³¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ");
 			}else {
 				optData = filteredData;
-				System.out.println("filteredData ºñ±³¿¬»ê ¼öÇà ");
+				System.out.println("filteredData ï¿½ñ±³¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ");
 			}
 			
 			for(int i=0; i<keys.length; i++) {
-				System.out.println("Ãâ¹ßÁö: " + keys[i]);
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½: " + keys[i]);
 			}
 			
-			//dists: optData, Ãâ¹ßÁö°£ °Å¸®¸¦ ´ã¾ÆµÎ±â À§ÇÑ 2Â÷¿ø ¹è¿­ 
+			//dists: optData, ì¶œë°œì§€ê°„ ê±°ë¦¬ë¥¼ ë‹´ì•„ë‘ê¸° ìœ„í•œ 2ì°¨ì› ë°°ì—´  
 	        double[][] dists = new double[keys.length][optData.size()];
 
 	        for(int j=0; j<optData.size();j++) {
-	        	/* lat_raw = rawdataÀÇ °æµµ 
-	        	 * lng_raw = rawdataÀÇ À§µµ 
-	        	 * lat_key = Ãâ¹ßÁöÀÇ °æµµ 
-	        	 * lng_key = Ãâ¹ßÁöÀÇ À§µµ 
+	        	/* lat_raw = rawdataì˜ ê²½ë„ 
+	        	 * lng_raw = rawdataì˜ ìœ„ë„ 
+	        	 * lat_key = ì¶œë°œì§€ì˜ ê²½ë„ 
+	        	 * lng_key = ì¶œë°œì§€ì˜ ìœ„ë„ 
 	        	 */
 	        	double lat_opt=0.0;
 	        	double lng_opt=0.0;
 	        	double lat_key=0.0;
 	        	double lng_key=0.0;
 
-	        	//optDataÀÇ °æµµ, À§µµ ÀÔ·Â
+	        	//optDataì˜ ê²½ë„, ìœ„ë„ ì…ë ¥
 	        	HotPlaceVO oData = optData.get(j);
 	        	lat_opt = Double.parseDouble(oData.getH_lat());
 	        	lng_opt = Double.parseDouble(oData.getH_lng());
 
-	        	//ÀÔ·Â¹ŞÀº À§Ä¡ÀÇ °³¼ö¸¸Å­ Ãâ¹ßÁö lat, lng ÀÔ·Â  
+	        	//ì…ë ¥ë°›ì€ ìœ„ì¹˜ì˜ ê°œìˆ˜ë§Œí¼ ì¶œë°œì§€ lat, lng ì…ë ¥  
 	        	for(int i=0;i<keys.length;i++) {
 	        		try {
 	        			HotPlaceVO kData = biz.get1(keys[i]);
 						lat_key = Double.parseDouble(kData.getH_lat());
 						lng_key = Double.parseDouble(kData.getH_lng());
-						//System.out.println("lat_key: "+lat_key+"ÀÔ·Â ¿Ï·á.");
-						//System.out.println("lng_key: "+lng_key+"ÀÔ·Â ¿Ï·á.");
+						//System.out.println("lat_key: "+lat_key+"ì…ë ¥ ì™„ë£Œ.");
+						//System.out.println("lng_key: "+lng_key+"ì…ë ¥ ì™„ë£Œ.");
 					} catch (NumberFormatException e) {
 						e.printStackTrace();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 	        		
-		        	//ÀÔ·Â¹ŞÀº Ãâ¹ßÁö¿Í °®°í ÀÖ´Â rawdata °Å¸® °è»ê 
+	        		//ì…ë ¥ë°›ì€ ì¶œë°œì§€ì™€ ê°–ê³  ìˆëŠ” rawdata ê±°ë¦¬ ê³„ì‚° 
 		        	double theta = lng_key - lng_opt;
 		            double dist = Math.sin(deg2rad(lat_key)) * Math.sin(deg2rad(lat_opt)) + Math.cos(deg2rad(lat_key)) * Math.cos(deg2rad(lat_opt)) * Math.cos(deg2rad(theta));
 		            try {
@@ -131,19 +131,19 @@ public class RegionSearch {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-	//	            System.out.println("dist 1Â÷ °è»ê: "+dist+"ÀÔ·Â ¿Ï·á.");
+	//	            System.out.println("dist 1ì°¨ ê³„ì‚°: "+dist+"ì…ë ¥ ì™„ë£Œ.");
 		            dist = Math.acos(dist);
-	//	            System.out.println("dist 2Â÷ °è»ê: "+dist+"ÀÔ·Â ¿Ï·á.");
+	//	            System.out.println("dist 2ì°¨ ê³„ì‚°: "+dist+"ì…ë ¥ ì™„ë£Œ.");
 		            dist = rad2deg(dist);
-	//	            System.out.println("dist 3Â÷ °è»ê: "+dist+"ÀÔ·Â ¿Ï·á.");
+	//	            System.out.println("dist 3ì°¨ ê³„ì‚°: "+dist+"ì…ë ¥ ì™„ë£Œ.");
 		            dist = dist * 60 * 1.1515;
 		            
-		            //killometer ´ÜÀ§ º¯È¯ 
+		            //killometer ë‹¨ìœ„ ë³€í™˜  
 		            dist = dist * 1.609344;
 		            dists[i][j] = dist;
 	        	}
 	        }
-	        //°Å¸® °á°ú °ªÀÌ NaN°ª ³ª¿À´Â ¿À·ù(ÀÚ±â À§Ä¡¿¡¼­ ÀÚ±â À§Ä¡ °Å¸® °è»ê ÄÉÀÌ½º) 0À¸·Î Ã³¸®
+	       //ê±°ë¦¬ ê²°ê³¼ ê°’ì´ NaNê°’ ë‚˜ì˜¤ëŠ” ì˜¤ë¥˜(ìê¸° ìœ„ì¹˜ì—ì„œ ìê¸° ìœ„ì¹˜ ê±°ë¦¬ ê³„ì‚° ì¼€ì´ìŠ¤) 0ìœ¼ë¡œ ì²˜ë¦¬
 	        for(int j=0; j<optData.size();j++) {
 	        	for(int i=0;i<keys.length;i++) {
 	        		if(Double.isNaN(dists[i][j])) {
@@ -152,7 +152,7 @@ public class RegionSearch {
 	        	}
 	        }
 	        
-	        //dist ¹è¿­(Ãâ¹ßÁöº° rawdata °Å¸®) ÀÔ·Â °ª È®ÀÎ 
+	        //dist ë°°ì—´(ì¶œë°œì§€ë³„ rawdata ê±°ë¦¬) ì…ë ¥ ê°’ í™•ì¸  
 //	        for(int i=0;i<keys.length;i++) {
 //	        	for(int j=0;j<optData.size(); j++) {
 //	        		System.out.print(dists[i][j]+ " ");
@@ -160,12 +160,12 @@ public class RegionSearch {
 //	        	System.out.println();
 //	        }
 	        
-	    	//optData ¿ä¼Òº° °¢ Ãâ¹ßÁö¿Í °Å¸® °è»ê
+	        //optData ìš”ì†Œë³„ ê° ì¶œë°œì§€ì™€ ê±°ë¦¬ ê³„ì‚°
 	        ArrayList<DistanceVO> distances = new ArrayList<>();
 	        
 	        double[] sumarr = new double[optData.size()];
 	        
-	        //System.out.println("optDataº° avg distance");
+	        //System.out.println("optDataë³„ avg distance");
 	    	for(int i =0; i<optData.size();i++) {
 	    		double sum=0.0;
 	    		for(int j=0; j<keys.length;j++) {
@@ -181,7 +181,7 @@ public class RegionSearch {
 	    	}
 	    
 	    	
-	    	//Á¤·Ä
+	    	//ì •ë ¬
 	    	System.out.println("@@@@@@@@@@@@@@@@@@@@Before sort@@@@@@@@@@@@@@@@@@@@@@@");
 	    	print(distances);
 	    	System.out.println("");
@@ -190,15 +190,15 @@ public class RegionSearch {
 	    	print(distances);
 	    	System.out.println("");
 	    	
-	    	//¹İÈ¯ÇÒ 3°³ °´Ã¼ ´ãÀ» ¹è¿­ ¼±¾ğ 
+	    	//ë°˜í™˜í•  3ê°œ ê°ì²´ ë‹´ì„ ë°°ì—´ ì„ ì–¸ 
 	    	DistanceVO[] result = new DistanceVO[3];
-	    	System.out.println("@@@@@@@@@@@@@@@ÃßÃµ 3Áö¿ª@@@@@@@@@@@@@@@");
+	    	System.out.println("@@@@@@@@@@@@@@@ï¿½ï¿½Ãµ 3ï¿½ï¿½ï¿½ï¿½@@@@@@@@@@@@@@@");
 	    	
-	    	//i: °á°ú ¹İÈ¯ ¹è¿­ ÀÎµ¦½º, j: Ãâ¹ßÁö ÀÎµ¦½º, temp: °Å¸®°è»ê ArrayList ÀÎµ¦½º
+	    	//i: ê²°ê³¼ ë°˜í™˜ ë°°ì—´ ì¸ë±ìŠ¤, j: ì¶œë°œì§€ ì¸ë±ìŠ¤, temp: ê±°ë¦¬ê³„ì‚° ArrayList ì¸ë±ìŠ¤
 			int temp = 0;
-			//ÀÔ·Â¹ŞÀº Ãâ¹ßÁö¸¦ ArrayList¿¡¼­ Ã£¾Æ Á¦°ÅÇÕ´Ï´Ù.
+			//ì…ë ¥ë°›ì€ ì¶œë°œì§€ë¥¼ ArrayListì—ì„œ ì°¾ì•„ ì œê±°í•©ë‹ˆë‹¤.
 			for(int i =0; i<keys.length; i++) {
-				//ÀÔ·Â¹ŞÀº Ãâ¹ßÁöÀÇ ÀÌ¸§°ú ÃßÃµ¹ŞÀ» µµÂøÁöÀÇ ÀÌ¸§ÀÌ °°À¸¸é ArrayList¿¡¼­ Á¦°ÅÇÕ´Ï´Ù.
+				//ì…ë ¥ë°›ì€ ì¶œë°œì§€ì˜ ì´ë¦„ê³¼ ì¶”ì²œë°›ì„ ë„ì°©ì§€ì˜ ì´ë¦„ì´ ê°™ìœ¼ë©´ ArrayListì—ì„œ ì œê±°í•©ë‹ˆë‹¤.
 				while(true) {
 					if(keys[i].equals(distances.get(temp).getHp().getH_name())) {
 						distances.remove(distances.get(temp));
@@ -237,7 +237,7 @@ public class RegionSearch {
 	    private static double rad2deg(double rad) {
 	        return (rad * 180 / Math.PI);
 	    }
-	    //test½Ã °´Ã¼ ArrayListÀ» printÇØÁÖ´Â ÇÔ¼öÀÔ´Ï´Ù.
+	    //testì‹œ ê°ì²´ ArrayListì„ printí•´ì£¼ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤.
 	    public static void print(ArrayList<DistanceVO> distances) {
 			for (int i = 0; i < distances.size(); i++) {
 				System.out.println(distances.get(i));

@@ -20,12 +20,12 @@ public interface Biz<K1, K2, V> { //K1: STRING, K2: INTEGER
         public V get2(K2 k) throws Exception;
         public ArrayList<V> get() throws Exception;
         public ArrayList<V> shop_get(K1 k) throws Exception;
-        public ArrayList<V> bookingget_shop(K1 k) throws Exception;             //°¡°Ô ÀÌ¸§À¸·Î ¿¹¾à¸®½ºÆ® Ãâ·Â 
-        public ArrayList<V> bookingget_searcher(K1 k) throws Exception;			//searcher id·Î ¿¹¾à ¸®½ºÆ® Ãâ·Â 
+        public ArrayList<V> bookingget_shop(K1 k) throws Exception;             //ê°€ê²Œ ì´ë¦„ìœ¼ë¡œ ì˜ˆì•½ë¦¬ìŠ¤íŠ¸ ì¶œë ¥ 
+        public ArrayList<V> bookingget_searcher(K1 k) throws Exception;			//searcher idë¡œ ì˜ˆì•½ ë¦¬ìŠ¤íŠ¸ ì¶œë ¥ 
         public ArrayList<V> bookingupdate_reviewstat(K1 k) throws Exception;	
         public ArrayList<V> review_get(K1 k) throws Exception;
-        public ArrayList<V> shop_hotplace_get(K1 k) throws Exception;           //ÇÖÇÃ ±âÁØÀ¸·Î °¡°Ô Ãâ·Â 
-        public void shop_hitcnt(K1 k) throws Exception;                         //°¡°Ô Á¶È¸¼ö 
+        public ArrayList<V> shop_hotplace_get(K1 k) throws Exception;           //í•«í”Œ ê¸°ì¤€ìœ¼ë¡œ ê°€ê²Œ ì¶œë ¥ 
+        public void shop_hitcnt(K1 k) throws Exception;                         //ê°€ê²Œ ì¡°íšŒìˆ˜ 
         public void shop_score_avg(K1 k) throws Exception;
         public ArrayList<V> review_select(K1 k) throws Exception;
         
