@@ -39,7 +39,7 @@ public class SearcherController {
         @Resource(name = "rbiz")
         Biz<String, Integer, ReviewVO> reviewbiz;
 
-        // ¸ŞÀÎ
+        // ï¿½ï¿½ï¿½ï¿½
         @RequestMapping("/main.mc")
         public ModelAndView main() {
                 ModelAndView mv = new ModelAndView();
@@ -54,7 +54,8 @@ public class SearcherController {
                 return mv;
         }
 
-        // mainÆäÀÌÁöÀÇ login ¹öÆ° ½ÇÇà ½Ã ·Î±×ÀÎ ÆäÀÌÁö·Î ÀÌµ¿ 
+
+        // mainï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ login ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ 
         @RequestMapping("/login.mc")
         public ModelAndView login() {
                 ModelAndView mv = new ModelAndView();
@@ -72,14 +73,24 @@ public class SearcherController {
                 }
                 mv.setViewName("redirect:main.mc");
                 return mv;
+        } 
+        // loginfail
+        @RequestMapping("/loginfail.mc")
+        public ModelAndView loginfail(HttpServletRequest request) {
+                ModelAndView mv = new ModelAndView();
+                
+                mv.setViewName("redirect:login.mc");
+                return mv;
         }        
-        // ·Î±×ÀÎ ¹öÆ° ½ÇÇà ¼­ºí¸´ 
+
+        // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
         @RequestMapping("/loginimpl.mc")
-    	public ModelAndView loginimpl(HttpServletRequest request) {
+    	public ModelAndView loginimpl(HttpServletRequest request, HttpServletResponse res) {
     		ModelAndView mv = new ModelAndView();
     		String id = request.getParameter("id");
     		String pwd = request.getParameter("pwd");
     		SearcherVO dbsearcher = null;
+
     		try {
     			dbsearcher = biz.get1(id);
     			if (dbsearcher.getSearcher_pwd().equals(pwd)) {
@@ -87,28 +98,35 @@ public class SearcherController {
     				session.setAttribute("loginuser", dbsearcher);
     				mv.setViewName("redirect:main.mc");
     			} else {
-    				mv.setViewName("redirect:login.mc");
+    				mv.addObject("msg", "ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.");
+    				mv.setViewName("searcher/login");
     			}
     		} catch (Exception e) {
-    			mv.setViewName("redirect:login.mc");
+    			mv.addObject("msg", "ì•„ì´ë””ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.");
+				mv.setViewName("searcher/login");
     			e.printStackTrace();
     		}
 
+    		
     		return mv;
     	}
 
-        // Sign Up ¹öÆ° ½ÇÇà ½Ã È¸¿ø°¡ÀÔ ÆäÀÌÁö·Î ÀÌµ¿ 
+        // Sign Up ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ 
         @RequestMapping("/searcheradd.mc")
         public ModelAndView searcheradd(ModelAndView mv) {
                 mv.setViewName("searcher/register");
                 return mv;
         }
 
-        // È¸¿ø°¡ÀÔ ¹öÆ° ¼­ºí¸´ 
+
+        // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ 
         @RequestMapping("/searcheraddimpl.mc")
-        public ModelAndView searcheraddimpl(ModelAndView mv, SearcherVO searcher, String user_birth_year, String user_birth_month, String user_birth_day) {
+        public ModelAndView searcheraddimpl(ModelAndView mv, SearcherVO searcher, String user_birth_year, String user_birth_month, String user_birth_day
+        		,HttpServletResponse res) throws Exception {
+
                 try {
-                        // search_birthday °ª ¼ÂÆÃ 
+
+                        // search_birthday ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
                         searcher.setSearcher_birthday(user_birth_year + "-" + user_birth_month + "-" + user_birth_day);
                         biz.register(searcher);
                         mv.setViewName("searcher/registerok");
@@ -119,7 +137,8 @@ public class SearcherController {
                 return mv;
         }
 
-        //  ¾ÆÀÌµğ Áßº¹ Ã¼Å©
+
+        //  ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½ Ã¼Å©
         @RequestMapping("/idcheckimpl.mc")
         public void id_check_impl(HttpServletResponse res, String id) {
                 int result = 0;
@@ -143,13 +162,15 @@ public class SearcherController {
                 }
                 out.close();
         }
-        
 
-        // myroom¿¡¼­ ¾÷µ¥ÀÌÆ® ÇÏ±â myroom_updateimpl.mc
+
+
+
+        // myroomï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï±ï¿½ myroom_updateimpl.mc
         @RequestMapping("/myroom_updateimpl.mc")
         public ModelAndView myroomupdateimpl(ModelAndView mv, SearcherVO searcher, String user_birth_year,
                         String user_birth_month, String user_birth_day) {                
-                // search_birthday °ª ¼ÂÆÃ
+                // search_birthday ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 searcher.setSearcher_birthday(user_birth_year + "-" + user_birth_month + "-" + user_birth_day);
                 try {        
                         biz.modify(searcher);
@@ -163,7 +184,7 @@ public class SearcherController {
                 return mv;
         }
 
-        // myroom ÆäÀÌÁö·Î ÀÌµ¿
+        // myroom ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         @RequestMapping("/myroom.mc")
         public ModelAndView myroom(ModelAndView mv,HttpServletRequest request) {
 	        	HttpSession session = request.getSession(false);
@@ -182,7 +203,7 @@ public class SearcherController {
                 return mv;
         }
         
-        // myroomÀÇ ³» Á¤º¸ ¼öÁ¤ ÆäÀÌÁö Àü¼Û
+        // myroomï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         @RequestMapping("myroom_update.mc")
         public ModelAndView myroom_update() {
                 ModelAndView mv = new ModelAndView();
@@ -190,7 +211,7 @@ public class SearcherController {
                 mv.setViewName("searcher/myroom");
                 return mv;
         }
-	     // myroomÀÇ ¿¹¾àÇöÈ² ÆäÀÌÁö Àü¼Û
+	     // myroomï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	    @RequestMapping("/booking.mc")
 	    public ModelAndView one() {
 	            ModelAndView mv = new ModelAndView();
@@ -200,7 +221,7 @@ public class SearcherController {
 	    }
 	    
 
-        // ¿¹¾àÇÏ±â
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
          @RequestMapping("/bookingimpl.mc")
          public ModelAndView bookingimpl(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, BookingVO booking) {
                  HttpSession session = request.getSession(false);
@@ -220,7 +241,7 @@ public class SearcherController {
                         PrintWriter out;
                         try {
                                 out = response.getWriter();
-                                out.println("<script>alert('·Î±×ÀÎÀÌÇÊ¿äÇÕ´Ï´Ù.');</script>");
+                                out.println("<script>alert('ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½Õ´Ï´ï¿½.');</script>");
                             out.flush();
                         } catch (IOException e) {
                                 e.printStackTrace();
@@ -231,12 +252,12 @@ public class SearcherController {
          }
 
 
-        // Search ¹öÆ° ´©¸£¸é Á¤º¸ÀÔ·Â ÆäÀÌÁö·Î ÀÌµ¿
+        // Search ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         @RequestMapping("/search.mc")
         public ModelAndView search() {
                 ModelAndView mv = new ModelAndView();
                 mv.setViewName("searcher/search");
-                System.out.println("À¥ ÀÌµ¿ ¼º°ø");
+                System.out.println("ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½");
                 return mv;
         }
         
@@ -246,7 +267,7 @@ public class SearcherController {
                 mv.setViewName("searcher/search");
                 return mv;
         }
-      //³»À§Ä¡±â¹İ Å½»ö: https È¯°æ ±¸Ãà ÈÄ Geolocation API È°¿ëÇÏ¿© »ç¿ëÇÒ ¿¹Á¤
+      //ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ Å½ï¿½ï¿½: https È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Geolocation API È°ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //        @RequestMapping("/myposition.mc")
 //        public ModelAndView myposition(ModelAndView mv) {
 //                mv.addObject("centerpage", "myposition"); 
@@ -260,7 +281,7 @@ public class SearcherController {
                 return mv;
         }
         
-        //°Å¸®¿ì¼±Å½»ö
+        //ï¿½Å¸ï¿½ï¿½ì¼±Å½ï¿½ï¿½
         @RequestMapping("/searchimpl1.mc")
         public ModelAndView searchimpl_1(ModelAndView mv ,String shop, int number_blank,String time, HttpServletRequest request) {
                 String[] startsregion = new String[number_blank];
@@ -278,29 +299,31 @@ public class SearcherController {
                 
                 return mv;
         }
-        //³»À§Ä¡±â¹İ Å½»ö: https È¯°æ ±¸Ãà ÈÄ Geolocation API È°¿ëÇÏ¿© »ç¿ëÇÒ ¿¹Á¤
+        //ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ Å½ï¿½ï¿½: https È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Geolocation API È°ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //        @RequestMapping("/searchimpl2.mc")
 //        public ModelAndView searchimpl_2(HttpServletRequest request) {
 //                ModelAndView mv = new ModelAndView();
 //                return mv;
 //        }
         
-        //±¸Ã¼Àå¼Ò Å½»ö È­¸é 
+        //ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ Å½ï¿½ï¿½ È­ï¿½ï¿½ 
         @Resource(name = "hbiz")
         Biz<String, Integer, HotPlaceVO> hbiz;        
         @RequestMapping("/specific_search.mc")
         public ModelAndView specificSearch(HttpServletRequest request,String region1, String region2, String region3, String searchType,int number_blank,String shop, String time) {
-	        	//searchType: Å½»ö¹æ¹ı(°Å¸®¿ì¼±, Áö¿ª¸í) ±¸ºĞ, null-> Áö¿ª¸í, DFS -> °Å¸®¿ì¼±
-	            //number_blank: Àå¼Ò Å½»ö È­¸é¿¡¼­ º¸¿©ÁÙ Áö¿ª °³¼ö
+       
+	        	//searchType: Å½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Å¸ï¿½ï¿½ì¼±, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½, null-> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, DFS -> ï¿½Å¸ï¿½ï¿½ì¼±
+	            //number_blank: ï¿½ï¿½ï¿½ Å½ï¿½ï¿½ È­ï¿½é¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 ModelAndView mv = new ModelAndView();
                 ArrayList<HotPlaceVO> list = new ArrayList<HotPlaceVO>();
                 
-              //Áö¿ª¸í °Ë»ö È­¸é  
+              //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ È­ï¿½ï¿½  
+
                 if(searchType==null) {
                         String[] startsregion = new String[number_blank];
                 startsregion = request.getParameterValues("blanks");
-                System.out.println("¾÷Á¾ ÀÔ·Â Test:"+shop);
-                System.out.println("½Ã°£ ÀÔ·Â Test:"+time);
+                System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ Test:"+shop);
+                System.out.println("ï¿½Ã°ï¿½ ï¿½Ô·ï¿½ Test:"+time);
                 for(int i=0; i<startsregion.length;i++) {
                         try {
                                                 list.add(hbiz.get1(startsregion[i]));
@@ -312,14 +335,18 @@ public class SearcherController {
                 }
                 HttpSession session1 = request.getSession();
                                 session1.setAttribute("regions", list);//
-                mv.addObject("number_blank",number_blank);  //°³¼ö
-                mv.addObject("shop",shop);    //°¡°Ô À¯Çü
-                mv.addObject("time",time);     //½Ã°£
+
+                mv.addObject("number_blank",number_blank);  //ï¿½ï¿½ï¿½ï¿½
+                mv.addObject("shop",shop);    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                mv.addObject("time",time);     //ï¿½Ã°ï¿½
+                mv.addObject("number_blank",number_blank);  //ï¿½ï¿½ï¿½ï¿½
+                mv.addObject("shop",shop);    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                mv.addObject("time",time);     //ï¿½Ã°ï¿½
                 mv.addObject("sub_regionpage","regionList");
                 
                 }
-                
-                //°Å¸®¿ì¼± °Ë»ö È­¸é
+
+                //ï¿½Å¸ï¿½ï¿½ì¼± ï¿½Ë»ï¿½ È­ï¿½ï¿½
                 else {
                         try {
                                         HotPlaceVO region1_obj =hbiz.get1(region1);
@@ -342,9 +369,9 @@ public class SearcherController {
                                 } catch (Exception e) {
                                         e.printStackTrace();
                                 }
-                    System.out.println("¾÷Á¾ ÀÔ·Â Test:"+shop);
-	                System.out.println("½Ã°£ ÀÔ·Â Test:"+time);
-	                System.out.println("¼ıÀÚ ÀÔ·Â Test:"+number_blank);
+                    System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ Test:"+shop);
+	                System.out.println("ï¿½Ã°ï¿½ ï¿½Ô·ï¿½ Test:"+time);
+	                System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ Test:"+number_blank);
 	                mv.addObject("number_blank",number_blank);
 	                mv.addObject("shop",shop);
 	                mv.addObject("time",time);
@@ -356,7 +383,7 @@ public class SearcherController {
                 return mv;
         }
 
-               @RequestMapping("/shop_hitcnt.mc")  ///Á¶È¸¼ö ¿Ã¸®±â , ÆòÁ¡ Æò±Õ ÀúÀåÇÏ±â
+               @RequestMapping("/shop_hitcnt.mc")  ///ï¿½ï¿½È¸ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
                 public void shop_hitcnt(HttpServletRequest request, String shop_name) {
                         String name = request.getParameter("shop_name");
                         try {        
@@ -374,7 +401,7 @@ public class SearcherController {
 
                	@RequestMapping("/listing.mc")  
                 public ModelAndView listing(ModelAndView mv, String h_name) {
-                        HotPlaceVO hplace = null;  //¼±ÅÃÇÑ ÇÖÇÃ·¹ÀÌ½º 
+                        HotPlaceVO hplace = null;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì½ï¿½ 
                         try {
                                 hplace = hbiz.get1(h_name);
                         } catch (Exception e) {
@@ -382,7 +409,7 @@ public class SearcherController {
                                 e.printStackTrace();
                         }
                         
-                        ArrayList<ShopVO> list = null;  //ÇÖÇÃ·¹ÀÌ½ºÀÇ shop list
+                        ArrayList<ShopVO> list = null;  //ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ shop list
                         try {
                                 list = shbiz.shop_hotplace_get(h_name);
                                 System.out.println(list.toString());

@@ -63,9 +63,7 @@ table tbody tr {
 	text-align: center;
 }
 </style>
-<script type="text/javascript">
-	getSelectToLayer($('.custom'), 100, '');
-</script>
+
 </head>
 
 <body>
@@ -295,9 +293,11 @@ table tbody tr {
 									</tr>
 									<!-- <tr><td></td><td></td></tr> -->
 								</table>
-
+								<div>
+									<input type="hidden" id="msg" value="${msg}"/>
+								</div>
 								<div style="margin-top: 30px">
-									<button class="boxed-btn2 mb-30" type="submit">Register</button>
+									<button class="boxed-btn2 mb-30" type="submit" onclick="return regiFormCheck();">Register</button>
 								</div>
 							</form>
 							
@@ -417,6 +417,7 @@ table tbody tr {
 	<script src="view/manager/js/main.js"></script>
 	<!-- register js -->
 	<script src="view/manager/js/functionCheck.js"></script>
+	<script src="view/manager/js/formCheck.js"></script>
 </body>
 
 </html>

@@ -31,18 +31,18 @@ public class ReviewController {
         @Resource(name = "shopbiz")
         Biz<String,Integer, ShopVO> shopbiz;
         
-        // ¸®ºä µî·Ï ¼­ºí¸´
+        // ë¦¬ë·° ë“±ë¡ ì„œë¸”ë¦¿
         @RequestMapping("/reviewadd.mc")
         public ModelAndView reviewadd(ModelAndView mv, ReviewVO review, SearcherVO searcher,
                         @RequestParam("files") MultipartFile[] files) {
         	
-        		// °¡°Ô ÀÌ¸§Àº hidden °ªÀ¸·Î ³Ñ°Ü¹Ş¾ÒÀ½
-                // ¸®ºä¿¡ ¸Å±ä ÆòÁ¡Àº hidden °ªÀ¸·Î ³Ñ°Ü¹Ş¾ÒÀ½
-                // ¸®ºä¸¦ ÀÛ¼ºÇÑ searcherÀÇ nickname°ªÀ» hiddenÀ¸·Î ³Ñ°Ü¹Ş¾ÒÀ½
-                // ¸®ºä¿¡ ¾÷·ÎµåÇÑ »çÁøÀÌ¸§ ÀúÀå
+        		// ê°€ê²Œ ì´ë¦„ì€ hidden ê°’ìœ¼ë¡œ ë„˜ê²¨ë°›ì•˜ìŒ
+                // ë¦¬ë·°ì— ë§¤ê¸´ í‰ì ì€ hidden ê°’ìœ¼ë¡œ ë„˜ê²¨ë°›ì•˜ìŒ
+                // ë¦¬ë·°ë¥¼ ì‘ì„±í•œ searcherì˜ nicknameê°’ì„ hiddenìœ¼ë¡œ ë„˜ê²¨ë°›ì•˜ìŒ
+                // ë¦¬ë·°ì— ì—…ë¡œë“œí•œ ì‚¬ì§„ì´ë¦„ ì €ì¥
                 System.out.println("size : " + files.length);
                 int len = files.length;
-                System.out.println("»çÁø ±æÀÌ : " + len);
+                System.out.println("ì‚¬ì§„ ê¸¸ì´ : " + len);
                 if(files[0].getOriginalFilename() == "") {
                 	review.setReview_image1("default.jpg");
                     review.setReview_image2("default.jpg");
@@ -64,29 +64,29 @@ public class ReviewController {
 
                 try {
                         rbiz.register(review);
-                        // »çÁøÆÄÀÏ Æú´õ¿¡ ÀúÀå
+                        // ì‚¬ì§„íŒŒì¼ í´ë”ì— ì €ì¥
                         for (MultipartFile f : files) {
                                 if (f.getOriginalFilename() == "") {
                                         continue;
                                 }
                                 Util.saveReviewFile(f, review.getReview_name());
                         }
-                        // »óÁ¡ Æò±Õ ÆòÁ¡ ¼öÁ¤
+                        // ìƒì  í‰ê·  í‰ì  ìˆ˜ì •
                         shopbiz.shop_score_avg(review.getShop_name());
                 } catch (Exception e) {
                         e.printStackTrace();
                 }
 
-                // redirectÀ¸·Î ÇØ¾ß submit Áßº¹À» ¸·À½
+                // redirectìœ¼ë¡œ í•´ì•¼ submit ì¤‘ë³µì„ ë§‰ìŒ
                 mv.setViewName("redirect:myroom.mc");
                 return mv;
         }
 
-        // ¸®ºä¸®½ºÆ® È­¸é Ã³¸®
+        // ë¦¬ë·°ë¦¬ìŠ¤íŠ¸ í™”ë©´ ì²˜ë¦¬
         @ResponseBody
         @RequestMapping("/getReview.mc")
         public void getReview(HttpServletResponse res, String ashop) throws IOException {
-                System.out.println("shop ÀÌ¸§ : " + ashop);
+                System.out.println("shop ì´ë¦„ : " + ashop);
                 JSONArray ja = new JSONArray();
                 ArrayList<ReviewVO> list = new ArrayList<>();
                 try {
@@ -97,7 +97,7 @@ public class ReviewController {
                 }
                 //System.out.println("list: " + list.toString());
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                System.out.println("»çÀÌÁî : " + list.size());
+                System.out.println("ì‚¬ì´ì¦ˆ : " + list.size());
                 for (int i = 0; i < list.size(); i++) {
                         JSONObject data = new JSONObject();
                         data.put("review_date", format.format(list.get(i).getReview_date()));

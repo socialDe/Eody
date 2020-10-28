@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -128,7 +129,7 @@ table tbody tr{
         <!-- register start  -->
 <div class="register_area">
 	<div class="register_div">
-        <form action="searcheraddimpl.mc" method="post" name="regi_form" onsubmit="return nullCheck();">
+        <form action="searcheraddimpl.mc" method="post" name="regi_form">
 			<table class="mb-20" style="margin-left: auto; margin-right: auto;">
 				<tr>
 					<td>ID</td>
@@ -283,9 +284,11 @@ table tbody tr{
 				</tr>
 				<!-- <tr><td></td><td></td></tr> -->
 			</table>
-
+			<div>
+				<input type="hidden" id="msg" value="${msg}"/>
+			</div>
 			<div class="text-center">
-				<button id="register_btn" class="boxed-btn2 mb-30" type="submit">Register</button>
+				<button id="register_btn" class="boxed-btn2 mb-30" type="submit" onclick="return regiFormCheck();">Register</button>
 			</div>
 		</form>
 	</div>
@@ -406,7 +409,7 @@ table tbody tr{
 
         <!-- register js -->
         <script src="view/searcher/js/functionCheck.js"></script>
-
+		<script src="view/searcher/js/formCheck.js"></script>
 
 
         <!--contact js-->
@@ -418,6 +421,9 @@ table tbody tr{
 
 
         <script src="view/searcher/js/main.js"></script>
+        <script type="text/javascript">
+       		 
+        </script>
 </body>
 
 </html>
