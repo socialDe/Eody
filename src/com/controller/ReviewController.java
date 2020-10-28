@@ -122,6 +122,17 @@ public class ReviewController {
                 out.close();
         }
         
+        @RequestMapping("/removeReviewImpl")
+        public ModelAndView removeReviewImpl(ModelAndView mv, String review_no) {
+        	try {
+				rbiz.remove1(booki);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+        	mv.setViewName("redirect:myroom.mc");
+        	return mv;
+        }
+        
         
 
 
