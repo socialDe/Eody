@@ -1,18 +1,17 @@
 package com.vo;
 
 public class BookingVO {
-        public int booking_no;                                                // sequence num
-        public String searcher_name;                                // »ç¿ëÀÚ ÀÌ¸§
-        public String searcher_id;                                        // »ç¿ëÀÚ id
-        public String shop_name;                                        // °¡°Ô ÀÌ¸§
-        public String booking_date;                                        // ¿¹¾à ³¯Â¥
-        public String booking_pp;                                        // ÀÎ¿ø ¼ö                
-        public String booking_msg;                                        // Àü´Ş ¸Ş¼¼Áö                
-        public String searcher_phone;                                // »ç¿ëÀÚ ÀüÈ­¹øÈ£
-        public String booking_stat;                                        // ¿¹¾àÇöÈ²                        
-        public String review_stat;                                        // ¸®ºäÇöÈ²                
-        public String shop_img;                                                // °¡°Ô ÀÌ¹ÌÁö        
-        
+		 public int booking_no;                                                // sequence num
+	     public String searcher_name;                                // ì‚¬ìš©ì ì´ë¦„
+	     public String searcher_id;                                        // ì‚¬ìš©ì id
+	     public String shop_name;                                        // ê°€ê²Œ ì´ë¦„
+	     public String booking_date;                                        // ì˜ˆì•½ ë‚ ì§œ
+	     public String booking_pp;                                        // ì¸ì› ìˆ˜                
+	     public String booking_msg;                                        // ì „ë‹¬ ë©”ì„¸ì§€                
+	     public String searcher_phone;                                // ì‚¬ìš©ì ì „í™”ë²ˆí˜¸
+	     public String booking_stat;                                        // ì˜ˆì•½í˜„í™©                        
+	     public String review_stat;                                        // ë¦¬ë·°í˜„í™©                
+	     public String shop_img;                                                // ê°€ê²Œ ì´ë¯¸ì§€    
          
         public BookingVO() {
         }

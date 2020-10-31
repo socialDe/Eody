@@ -2,26 +2,26 @@ package com.vo;
 
 
 public class ShopVO {
-        private int shop_no;                                                        // Àå¼Ò¹øÈ£
-        private String shop_number;                                                // »ç¾÷ÀÚ¹øÈ£
-        private String manager_id;                                                // °ü¸®ÀÚid
-        private String shop_address;                                        // Àå¼ÒÁÖ¼Ò
-        private String shop_type;                                                // Àå¼Ò À¯Çü
-        private String shop_info;                                                // ¼Ò°³±Û
-        private String shop_time;                                                // ¿î¿µ½Ã°£
-        private String h_name;                                                        // Áö¿ª ÀÌ¸§
-        private String shop_name;                                                // Àå¼Ò ÀÌ¸§
-        private String shop_img1;                                                // °¡°Ô ÀÌ¹ÌÁö
-        private String shop_img2;                                                // °¡°Ô ÀÌ¹ÌÁö
-        private String shop_img3;                                                // °¡°Ô ÀÌ¹ÌÁö
-        private String shop_img4;                                                // °¡°Ô ÀÌ¹ÌÁö
-        private int shop_booking;                                        // ¿¹¾à°¡´É¿©ºÎ
-        private double shop_score_avg;                                        // Àå¼Ò ÆòÁ¡ Æò±Õ
-        private int shop_hits;                                                        // Àå¼Ò Á¶È¸¼ö
-        private String shop_park;                                                        // ÁÖÂ÷Àå ¿©ºÎ
-        private String shop_phone;                                                // Àå¼Ò ÀüÈ­¹øÈ£
-        private String origin_shop_name;                                
-        //±âº» »ı¼ºÀÚ
+		private int shop_no;                                                        // ì¥ì†Œë²ˆí˜¸
+	    private String shop_number;                                                // ì‚¬ì—…ìë²ˆí˜¸
+	    private String manager_id;                                                // ê´€ë¦¬ìid
+	    private String shop_address;                                        // ì¥ì†Œì£¼ì†Œ
+	    private String shop_type;                                                // ì¥ì†Œ ìœ í˜•
+	    private String shop_info;                                                // ì†Œê°œê¸€
+	    private String shop_time;                                                // ìš´ì˜ì‹œê°„
+	    private String h_name;                                                        // ì§€ì—­ ì´ë¦„
+	    private String shop_name;                                                // ì¥ì†Œ ì´ë¦„
+	    private String shop_img1;                                                // ê°€ê²Œ ì´ë¯¸ì§€
+	    private String shop_img2;                                                // ê°€ê²Œ ì´ë¯¸ì§€
+	    private String shop_img3;                                                // ê°€ê²Œ ì´ë¯¸ì§€
+	    private String shop_img4;                                                // ê°€ê²Œ ì´ë¯¸ì§€
+	    private int shop_booking;                                        // ì˜ˆì•½ê°€ëŠ¥ì—¬ë¶€
+	    private double shop_score_avg;                                        // ì¥ì†Œ í‰ì  í‰ê· 
+	    private int shop_hits;                                                        // ì¥ì†Œ ì¡°íšŒìˆ˜
+	    private String shop_park;                                                        // ì£¼ì°¨ì¥ ì—¬ë¶€
+	    private String shop_phone;                                                // ì¥ì†Œ ì „í™”ë²ˆí˜¸
+	    private String origin_shop_name;                                
+	    //ê¸°ë³¸ ìƒì„±ì
         public ShopVO() {
         }
         

@@ -85,7 +85,7 @@
                                                         <div class="top-social">
                                                                 
                                                         </div>
-                                                        <a href="alogin.mc" class="bk-btn">login</a>
+                                                        <a href="amain.mc" class="bk-btn">Main</a>
                             <a href="manageradd.mc" class="bk-btn">Register Now</a>
                                                         <div class="language-option">
                                                                 
@@ -133,10 +133,11 @@
                                                                                 style="width: 300px;" value="pwd01">
                                                                 </div>
                                                         </div>
-
                                                         <div>
+															<input type="hidden" id="msg" value="${msg}"/>
+														</div>
 
-                                                                <button type="submit">Login</button>
+                                                                <button type="submit" onclick="return loginFormCheck()">Login</button>
                                                         </div>
 
                                                 </form>
@@ -252,6 +253,9 @@
         <script src="view/manager/js/jquery.slicknav.js"></script>
         <script src="view/manager/js/owl.carousel.min.js"></script>
         <script src="view/manager/js/main.js"></script>
+        
+        <!-- login js -->
+		<script src="view/manager/js/formCheck.js"></script>
 </body>
 
 </html>

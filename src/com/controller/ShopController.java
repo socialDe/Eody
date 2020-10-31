@@ -30,14 +30,14 @@ public class ShopController {
         @Resource(name = "mbiz")
         Biz<String, Integer, ManagerVO> biz;
         @Resource(name = "shopbiz")
-        Biz<String,Integer, ShopVO> biz_shop;              // °¡°ÔÀÔ´Ï´Ù.
+        Biz<String,Integer, ShopVO> biz_shop;              // ê°€ê²Œì…ë‹ˆë‹¤.
 
-        //¸®ºäÀÔ´Ï´Ù. 
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. 
         @Resource(name = "rbiz")
         Biz<String, Integer, ReviewVO> rbiz;
         
         @Resource(name = "bookingbiz")
-        Biz<String,Integer,BookingVO> booking_biz;			//¿¹¾à bizÀÔ´Ï´Ù.
+        Biz<String,Integer,BookingVO> booking_biz;			//ì˜ˆì•½ bizì…ë‹ˆë‹¤.
         
         @RequestMapping("/shopdetail.mc")
         public ModelAndView shopdetail(HttpServletRequest request) {
@@ -119,7 +119,7 @@ public class ShopController {
                                         if(f.getOriginalFilename()=="default.png") {
                                                 continue;
                                         }
-                                        Util.saveShopFile(request, f, shoplist.getH_name());                      //µÚ¿¡ H_nameÀº »ó°ü¾ø½À´Ï´Ù.
+                                        Util.saveShopFile(request, f, shoplist.getH_name());                      //ë’¤ì— H_nameì€ ìƒê´€ì—†ìŠµë‹ˆë‹¤.
                         }
                                 biz_shop.register(shoplist);
                                 System.out.println("Complete Add");
@@ -177,7 +177,7 @@ public class ShopController {
                                 if(f.getOriginalFilename()=="default.png") {
                                         continue;
                                 }
-                                Util.saveShopFile(request,f,shoplist.getH_name());                                        //µÚ¿¡ H_nameÀº »ó°ü¾ø½À´Ï´Ù.
+                                Util.saveShopFile(request,f,shoplist.getH_name());           //ë’¤ì— H_nameì€ ìƒê´€ì—†ìŠµë‹ˆë‹¤.
                         }
                         System.out.println(shoplist);
                         biz_shop.modify(shoplist);
@@ -190,7 +190,7 @@ public class ShopController {
                 return mv;
         }
         
-        //¿¹¾à¸®½ºÆ® È­¸é Ã³¸® 
+        //ì˜ˆì•½ë¦¬ìŠ¤íŠ¸ í™”ë©´ ì²˜ë¦¬ 
         @ResponseBody
         @RequestMapping("/getbooking.mc")
         public void bookinglist(HttpServletResponse res, String ashop) throws IOException {

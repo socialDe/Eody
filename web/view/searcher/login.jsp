@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -107,10 +108,13 @@
 								<div class="input_field mb-20">
 									<input type="text" name="id" placeholder="ID" value="s01"><br>
 								</div>
-								<div class="input_field mb-30">
+								<div class="input_field mb-20">
 									<input type="password" name="pwd" placeholder="Password" value="pwd01">
 								</div>
-								<button class="boxed-btn2 mb-30" type="submit">Login</button>
+								<div>
+									<input type="hidden" id="msg" value="${msg}"/>
+								</div>
+								<button class="boxed-btn2 mb-30 loginbtn" type="submit" onclick="return loginFormCheck();">Login</button>
 							</form>
 						</div>
 						<!-- login end  -->
@@ -234,6 +238,9 @@
         <script src="view/searcher/js/plugins.js"></script>
         <!-- <script src="js/gijgo.min.js"></script> -->
         <script src="view/searcher/js/slick.min.js"></script>
+        
+        <!-- login js -->
+		<script src="view/searcher/js/formCheck.js"></script>
 
 
 

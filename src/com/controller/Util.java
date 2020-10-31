@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Util {
-        // ¹Ş¾Æ¿Â µ¥ÀÌÅÍ¸¦ ¼­¹ö¿¡ ÀÌ¹ÌÁö¸¦ ¿Ã¸°´Ù.
+        // ë°›ì•„ì˜¨ ë°ì´í„°ë¥¼ ì„œë²„ì— ì´ë¯¸ì§€ë¥¼ ì˜¬ë¦°ë‹¤.
         public static void saveShopFile(HttpServletRequest request, MultipartFile mf, String review_name) {
-        	// µğ·ºÅä¸® ¾îµğ·Î¹Ş¾Æ¾ßÇÒ°ÍÀÎÁö ¼±ÅÃÇØ¾ßÇÔ.   
-    		// »ó´ë°æ·ÎÀÌÁö¸¸ ÀÌÅ¬¸³½º¿¡¼­ Å×½ºÆ®ÇÏ±â ¾î·Á¿ò
+        	// ë””ë ‰í† ë¦¬ ì–´ë””ë¡œë°›ì•„ì•¼í• ê²ƒì¸ì§€ ì„ íƒí•´ì•¼í•¨.   
+    		// ìƒëŒ€ê²½ë¡œì´ì§€ë§Œ ì´í´ë¦½ìŠ¤ì—ì„œ í…ŒìŠ¤íŠ¸í•˜ê¸° ì–´ë ¤ì›€
         		//String uploadPath = request.getSession().getServletContext().getRealPath("/img/shopImg/"); 
         		String dir = "C:\\java\\Eody\\web\\img\\shopImg\\";
         		byte [] data;
@@ -29,7 +29,7 @@ public class Util {
         
 
 		public static void saveReviewFile(MultipartFile mf, String review_name) {
-			//µğ·ºÅä¸® ¾îµğ·Î¹Ş¾Æ¾ßÇÒ°ÍÀÎÁö ¼±ÅÃÇØ¾ßÇÔ.         	
+			//ï¿½ï¿½ï¿½ä¸® ï¿½ï¿½ï¿½Î¹Ş¾Æ¾ï¿½ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½.         	
 		        String dir = "C:\\java\\Eody\\web\\img\\reviewImg\\";
 				byte [] data;
 				String imgname = mf.getOriginalFilename();
