@@ -28,8 +28,7 @@ public class Util {
        	}
         
 
-		public static void saveReviewFile(MultipartFile mf, String review_name) {
-			//���丮 ���ι޾ƾ��Ұ����� �����ؾ���.         	
+		public static void saveReviewFile(MultipartFile mf, String review_name) {			       	
 		        String dir = "C:\\java\\Eody\\web\\img\\reviewImg\\";
 				byte [] data;
 				String imgname = mf.getOriginalFilename();

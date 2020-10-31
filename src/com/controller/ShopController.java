@@ -32,7 +32,7 @@ public class ShopController {
         @Resource(name = "shopbiz")
         Biz<String,Integer, ShopVO> biz_shop;              // 가게입니다.
 
-        //�����Դϴ�. 
+        // 리뷰 biz 입니다
         @Resource(name = "rbiz")
         Biz<String, Integer, ReviewVO> rbiz;
         
