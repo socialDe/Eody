@@ -10,6 +10,7 @@ public class ReviewVO implements Serializable {
         private String review_image1;
         private String review_image2;
         private String review_image3;
+        private int booking_no;
         private String shop_name;
         private String review_name;
         private double shop_score;
@@ -47,7 +48,30 @@ public class ReviewVO implements Serializable {
                 this.shop_score = shop_score;
         }
         
-        public int getReview_no() {
+        public ReviewVO(int review_no, Date review_date, String review_contents, String review_image1,
+				String review_image2, String review_image3, int booking_no, String shop_name, String review_name,
+				double shop_score) {
+			super();
+			this.review_no = review_no;
+			this.review_date = review_date;
+			this.review_contents = review_contents;
+			this.review_image1 = review_image1;
+			this.review_image2 = review_image2;
+			this.review_image3 = review_image3;
+			this.booking_no = booking_no;
+			this.shop_name = shop_name;
+			this.review_name = review_name;
+			this.shop_score = shop_score;
+		}
+        
+        
+		public int getBooking_no() {
+			return booking_no;
+		}
+		public void setBooking_no(int booking_no) {
+			this.booking_no = booking_no;
+		}
+		public int getReview_no() {
                 return review_no;
         }
         public void setReview_no(int review_no) {
@@ -101,13 +125,14 @@ public class ReviewVO implements Serializable {
         public void setShop_score(double shop_score) {
                 this.shop_score = shop_score;
         }
-        @Override
-        public String toString() {
-                return "ReviewVO [review_no=" + review_no + ", review_date=" + review_date + ", review_contents="
-                                + review_contents + ", review_image1=" + review_image1 + ", review_image2=" + review_image2
-                                + ", review_image3=" + review_image3 + ", shop_name=" + shop_name + ", review_name=" + review_name
-                                + ", shop_score=" + shop_score + "]";
-        }
+		@Override
+		public String toString() {
+			return "ReviewVO [review_no=" + review_no + ", review_date=" + review_date + ", review_contents="
+					+ review_contents + ", review_image1=" + review_image1 + ", review_image2=" + review_image2
+					+ ", review_image3=" + review_image3 + ", booking_no=" + booking_no + ", shop_name=" + shop_name
+					+ ", review_name=" + review_name + ", shop_score=" + shop_score + "]";
+		}
+       
         
         
 

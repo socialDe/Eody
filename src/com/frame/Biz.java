@@ -28,5 +28,6 @@ public interface Biz<K1, K2, V> { //K1: STRING, K2: INTEGER
         public void shop_hitcnt(K1 k) throws Exception;                         //가게 조회수 
         public void shop_score_avg(K1 k) throws Exception;
         public ArrayList<V> review_select(K1 k) throws Exception;
+        public void update_reviewstat2(V v) throws Exception;
         
 }

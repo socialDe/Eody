@@ -4,16 +4,18 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.BookingDao">
         <insert id="insert" parameterType="booking">
-                INSERT INTO BOOKING VALUES (BOOKING_SEQ.NEXTVAL,#{searcher_name},#{searcher_id},#{shop_name},#{booking_date},#{booking_pp},#{booking_msg},#{searcher_phone},#{booking_stat},#{review_stat},#{shop_img})
+                INSERT INTO BOOKING VALUES (BOOKING_SEQ.NEXTVAL,#{searcher_name},#{searcher_id},#{shop_name},#{booking_date},#{booking_pp},#{booking_msg},#{searcher_phone},#{booking_stat},#{review_no},#{review_stat},#{shop_img})
         </insert>
         
         <update id="update" parameterType="booking">
+        		UPDATE BOOKING SET REVIEW_STAT='1', REVIEW_NO=#{review_no} WHERE BOOKING_NO=#{booking_no}
         </update> 
         
         <delete id="delete1" parameterType="String">
         </delete>
         
         <select id="select1" parameterType="String" resultType="booking">
+        		SELECT * FROM BOOKING WHERE BOOKING_NO=#{booking_no}
         </select>
         
         <select id="selectall" resultType="booking">
@@ -29,6 +31,11 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         <select id="bookingupdate_reviewstat" parameterType="String">
                 UPDATE BOOKING SET REVIEW_STAT='1' WHERE SEARCHER_ID=#{searcher_id}
         </select>
+        
+        <update id="update_reviewstat2" parameterType="booking">
+        		UPDATE BOOKING SET REVIEW_STAT='0', REVIEW_NO=NULL WHERE BOOKING_NO=#{booking_no}
+        </update> 
+        
 </mapper>
 
 

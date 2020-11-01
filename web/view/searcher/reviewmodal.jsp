@@ -21,6 +21,7 @@
                                 <div class="explorer_info">
 
                                         <form enctype="multipart/form-data" action="reviewadd.mc" method="post">
+                                        <input type="hidden" name="booking_no" value="${b.booking_no}">
                                         <input type="hidden" name="shop_name">
                                         <input type="hidden" name="review_name" value="${loginuser.searcher_nickname}">
                                         <input type="hidden" name="searcher_id" value="${loginuser.searcher_id}">

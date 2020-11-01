@@ -31,7 +31,10 @@ public class BookingBiz implements Biz<String, Integer, BookingVO> {
 
 	@Override
 	public void modify(BookingVO v) throws Exception {
-		dao.update(v);
+		int result = dao.update(v);
+		if(result ==0) {
+			throw new Exception();
+		}
 	}
 
 	@Override
@@ -107,6 +110,15 @@ public class BookingBiz implements Biz<String, Integer, BookingVO> {
 	@Override
 	public ArrayList<BookingVO> bookingupdate_reviewstat(String k) throws Exception {
 		return dao.bookingupdate_reviewstat(k);
+	}
+
+	@Override
+	public void update_reviewstat2(BookingVO v) throws Exception {
+		int result = dao.update_reviewstat2(v);
+		if(result ==0) {
+			throw new Exception();
+		}
+		
 	}
 
 }

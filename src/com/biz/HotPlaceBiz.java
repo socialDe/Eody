@@ -116,6 +116,12 @@ public class HotPlaceBiz implements Biz<String,Integer,HotPlaceVO> {
 		return null;
 	}
 
+	@Override
+	public void update_reviewstat2(HotPlaceVO v) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 }

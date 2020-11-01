@@ -18,4 +18,5 @@ public interface Dao<K1, K2, V> { //K1: STRING, K2: INTEGER
         public ArrayList<V> shop_hotplace_select(K1 k) throws Exception;        //핫플 기준으로 가게 출력
         public void shop_hitcnt(K1 k) throws Exception;                         //가게 조회수
         public int shop_score_avg(K1 k) throws Exception;
+        public int update_reviewstat2(V v) throws Exception;
 }

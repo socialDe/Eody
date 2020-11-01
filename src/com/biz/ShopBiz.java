@@ -116,4 +116,10 @@ public class ShopBiz implements Biz<String,Integer, ShopVO> {
 			return null;
 		}
 
+		@Override
+		public void update_reviewstat2(ShopVO v) throws Exception {
+			// TODO Auto-generated method stub
+			
+		}
+
 }

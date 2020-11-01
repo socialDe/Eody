@@ -109,5 +109,11 @@ public class SearcherBiz implements Biz<String, Integer, SearcherVO> {
 					return null;
 				}
 
+				@Override
+				public void update_reviewstat2(SearcherVO v) throws Exception {
+					// TODO Auto-generated method stub
+					
+				}
+
 
 }

@@ -9,7 +9,8 @@ public class BookingVO {
 	     public String booking_pp;                                        // 인원 수                
 	     public String booking_msg;                                        // 전달 메세지                
 	     public String searcher_phone;                                // 사용자 전화번호
-	     public String booking_stat;                                        // 예약현황                        
+	     public String booking_stat;                                        // 예약현황
+	     public String review_no;											//관련 예약id  
 	     public String review_stat;                                        // 리뷰현황                
 	     public String shop_img;                                                // 가게 이미지    
          
@@ -45,7 +46,33 @@ public class BookingVO {
                 this.review_stat = review_stat;
                 this.shop_img = shop_img;
         }
-        public int getBooking_no() {
+        
+        public BookingVO(int booking_no, String searcher_name, String searcher_id, String shop_name,
+				String booking_date, String booking_pp, String booking_msg, String searcher_phone, String booking_stat,
+				String review_no, String review_stat, String shop_img) {
+			super();
+			this.booking_no = booking_no;
+			this.searcher_name = searcher_name;
+			this.searcher_id = searcher_id;
+			this.shop_name = shop_name;
+			this.booking_date = booking_date;
+			this.booking_pp = booking_pp;
+			this.booking_msg = booking_msg;
+			this.searcher_phone = searcher_phone;
+			this.booking_stat = booking_stat;
+			this.review_no = review_no;
+			this.review_stat = review_stat;
+			this.shop_img = shop_img;
+		}
+        
+        
+		public String getReview_no() {
+			return review_no;
+		}
+		public void setReview_no(String review_no) {
+			this.review_no = review_no;
+		}
+		public int getBooking_no() {
                 return booking_no;
         }
         public void setBooking_no(int booking_no) {
@@ -111,13 +138,16 @@ public class BookingVO {
         public void setShop_img(String shop_img) {
                 this.shop_img = shop_img;
         }
-        @Override
-        public String toString() {
-                return "BookingVO [booking_no=" + booking_no + ", searcher_name=" + searcher_name + ", searcher_id=" + searcher_id
-                                + ", shop_name=" + shop_name + ", booking_date=" + booking_date + ", booking_pp=" + booking_pp
-                                + ", booking_msg=" + booking_msg + ", searcher_phone=" + searcher_phone + ", booking_stat=" + booking_stat
-                                + ", review_stat=" + review_stat + ", shop_img=" + shop_img + "]";
-        }
+		@Override
+		public String toString() {
+			return "BookingVO [booking_no=" + booking_no + ", searcher_name=" + searcher_name + ", searcher_id="
+					+ searcher_id + ", shop_name=" + shop_name + ", booking_date=" + booking_date + ", booking_pp="
+					+ booking_pp + ", booking_msg=" + booking_msg + ", searcher_phone=" + searcher_phone
+					+ ", booking_stat=" + booking_stat + ", review_no=" + review_no + ", review_stat=" + review_stat
+					+ ", shop_img=" + shop_img + "]";
+		}
+        
+        
         
         
 }

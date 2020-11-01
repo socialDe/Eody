@@ -110,6 +110,12 @@ public class ReviewBiz implements Biz<String,Integer,ReviewVO> {
 			return null;
 		}
 
+		@Override
+		public void update_reviewstat2(ReviewVO v) throws Exception {
+			// TODO Auto-generated method stub
+			
+		}
+
 
 
 }
