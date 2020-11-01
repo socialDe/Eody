@@ -31,11 +31,11 @@
 									</button>
 								</div>
 								<div class="input_field">
-									<select class="wide">
-										<option data-display="장소 유형">식당</option>
-										<option value="1">까페</option>
-										<option value="2">스터디</option>
-										<option value="3">cat 4</option>
+									<select class="wide" id="shopType">
+										<option data-display="장소 유형" value="000">선택하세요</option>
+										<option value="100">식당</option>
+										<option value="101">까페</option>
+										<option value="102">기타</option>
 									</select>
 								</div>								
 								<div class="input_field ">
@@ -63,7 +63,7 @@
 				<div class="row">
 					<c:forEach var="shop" items="${shoplist}" varStatus="vs">
 						<div class="col-xl-6 col-lg-6 col-md-6 shop_container">
-							<div class="single_explorer ${shop.shop_name }">
+							<div class="single_explorer ${shop.shop_name } shoptype000 shoptype${shop.shop_type} park${shop.shop_park} booking${shop.shop_booking}">
 								<div class="thumb">
 									<img src="img/shopImg/${shop.shop_img1 }" width="250px"
 										height="200px">
@@ -76,7 +76,7 @@
 												onclick="fn_count('${shop.shop_name }')">
 												${shop.shop_name }</a>
 										</h3>
-										<p>${shop.shop_address }</p>
+										<p>${shop.shop_address } </p>
 										<ul>
 											<li><i class="fa fa-phone"></i>${shop.shop_phone }</li>
 											<li><i class="fa fa-star"></i>${shop.shop_score_avg }/5.0</li>
@@ -211,35 +211,46 @@
 	</div>
 
 	<script>
+		var k1 = ''; 
+		var k2 = '000';
 		$(document).ready(function() {
 			$("#keyword").keyup(function(){
-				var k = $(this).val();
-				console.log(k);
-				$(".shop_container").hide();
-				$(".shop_container>div:contains('"+k+"')").parent().show();
+				k1 = $(this).val();				
+				word_find(k1,k2);
 			})
 			
-			/*$("#carCheck").change(function(){
-				if($("#carCheck").is(":checked")){
-					alert("체크박스 체크했음!");
-				}else{
-					alert("체크박스 체크 해제!");
+			$("#carCheck").change(function(){
+				if($("#carCheck").is(":checked")){	
+					word_find(k1,k2);
+					$(".shop_container>div:not('.park1')").hide();				
+				}else{					
+					$(".shop_container>div:not('.park1')").show();
+					word_find(k1,k2);
 				}
 			});
 			
 			$("#bookCheck").change(function(){
 				if($("#bookCheck").is(":checked")){
-					alert("체크박스 체크했음!");
-				}else{
-					alert("체크박스 체크 해제!");
+					word_find(k1,k2);
+					$(".shop_container>div:not('.booking1')").hide();
+				}else{					
+					$(".shop_container>div:not('.booking1')").show();
+					word_find(k1,k2);
 				}
-			});*/
+			});
 			
+			$("#shopType").change(function(){
+				$(".shop_container").children().show();
+				k2 = $(this).val();
+				word_find(k1,k2);
+			});	
 		})
-	
-	
-	
-	
+		function word_find(a,b){
+			$(".shop_container").hide();
+			$(".shop_container>div:contains('"+a+"')").parent().show();
+			$(".shop_container>div:not('.shoptype"+b+"')").hide();
+		}
+		
 		function fn_count(name) {
 			$.ajax({
 				url : 'shop_hitcnt.mc',
