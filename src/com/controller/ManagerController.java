@@ -46,14 +46,7 @@ public class ManagerController {
         	mv.setViewName("manager/amain");
         	return mv;
         }
-        //   center 페이지 이동: Chart
-        @RequestMapping("/chart.mc")
-        public ModelAndView chart() {
-        	ModelAndView mv = new ModelAndView();
-        	mv.addObject("centerpage", "chart");
-        	mv.setViewName("manager/shopdetail");
-        	return mv;
-        }
+
         // Center Page: Booklist//
         @RequestMapping("/booklist.mc")
         public ModelAndView booklist() {

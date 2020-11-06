@@ -32,13 +32,15 @@
 
 	// Origin Function //
 	$(document).ready(function(){
-		MakeCode1();
-		MakeCode2();
+		MakeCode1();				// 주차장 여부
+		MakeCode2();				// 예약 여부
+		StarRate();					// 별점 표시(상세)
 	});
+	
 	// Check Box //
 	var checkpark = ${singleshop.shop_park};
 	var checkbooking = ${singleshop.shop_booking};
-	
+	// 주차장 여부 표시 //
 	function MakeCode1(){
 		if(checkpark==1){
 			var code = "<span>주차장: </span>";
@@ -52,6 +54,7 @@
 			$(".checkbox1").append(code);
 		}
 	};
+	// 예약 여부 표시 //
 	function MakeCode2(){
 		if(checkbooking==1){
 			var code = "<span>예약여부</span>";
@@ -66,6 +69,43 @@
 		}
 	};
 	
+	// 별점 표시(가게 상세) //
+	function StarRate() {
+		// 별점
+		var star_strings = '';
+        if(Number(${singleshop.shop_score_avg}) == 1){
+        	star_strings +='<span class="starR on"></span>';
+        	star_strings +='<span class="starR"></span>';
+        	star_strings +='<span class="starR"></span>';
+        	star_strings +='<span class="starR"></span>';
+        	star_strings +='<span class="starR"></span>';
+        } else if(Number(${singleshop.shop_score_avg})  == 2){
+        	star_strings +='<span class="starR on"></span>';
+        	star_strings +='<span class="starR on"></span>';
+        	star_strings +='<span class="starR"></span>';
+        	star_strings +='<span class="starR"></span>';
+        	star_strings +='<span class="starR"></span>';
+        } else if(Number(${singleshop.shop_score_avg}) == 3){
+        	star_strings +='<span class="starR on"></span>';
+        	star_strings +='<span class="starR on"></span>';
+        	star_strings +='<span class="starR on"></span>';
+        	star_strings +='<span class="starR"></span>';
+        	star_strings +='<span class="starR"></span>';
+        } else if(Number(${singleshop.shop_score_avg}) == 4){
+        	star_strings +='<span class="starR on"></span>';
+        	star_strings +='<span class="starR on"></span>';
+            star_strings +='<span class="starR on"></span>';
+            star_strings +='<span class="starR on"></span>';
+            star_strings +='<span class="starR"></span>';
+        } else if(Number(${singleshop.shop_score_avg}) == 5){
+        	star_strings +='<span class="starR on"></span>';
+        	star_strings +='<span class="starR on"></span>'; 
+        	star_strings +='<span class="starR on"></span>';
+        	star_strings +='<span class="starR on"></span>';
+        	star_strings +='<span class="starR on"></span>';
+        }
+        $(".starRate").append(star_strings);
+	}
 	
 	// Star Rating //
 	$('.starRev span').click(function() {
@@ -200,7 +240,19 @@
                         
                         $(".con-container").append(booking_strings);
         }
-        
+        function getChart(){
+            $(".con-container").empty();
+                    var chart_strings='';
+                    chart_strings= '<div class="counter"><div class="container"><div class="row"><div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="employees"><p class="counter-count">';
+                   	chart_strings+= ${singleshop.shop_hits};
+                   	chart_strings+='</p><p class="employee-p">View</p></div></div>';
+                   	chart_strings+='<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="customer"><p class="counter-count">';
+                   	chart_strings+=${singleshop.shop_score_avg};
+                   	chart_strings+='</p><p class="customer-p">Star Rating</p></div></div><div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="design"><p class="counter-count">';
+                   	chart_strings+=${singleshop.shop_booking};
+                   	chart_strings+='</p><p class="design-p">Reservation</p></div></div></div></div></div>';
+                    $(".con-container").append(chart_strings);
+		}
         function OK(){
         	alert('승인되었습니다.');
 			var stat = $('#okbtn').attr('value');
@@ -212,6 +264,46 @@
         }
 </script>
 <style>
+/* Chart CSS */
+.counter
+{
+	padding-left: 120px !important;
+    background-color: #eaecf0;
+    text-align: center;
+}
+.counter>.container{
+	width:650px;
+}
+.employees,.customer,.design,.order
+{
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.counter-count
+{
+    font-size: 18px;
+    background-color: #00b3e7;
+    border-radius: 50%;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    line-height: 150px;
+    width: 150px;
+    height: 150px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: inline-block;
+}
+
+.employee-p,.customer-p,.order-p,.design-p
+{
+    font-size: 24px;
+    color: #000000;
+    line-height: 34px;
+}
+/* End Chart CSS */
 	.rd-title{
 		text-weight: bold;
 		text-align: center;
@@ -417,12 +509,7 @@ body {
 				</div>
 				<div class="contact-form">
 					<span id="shopname"> 가게명: ${singleshop.shop_name}</span>
-					<div class="starRev mb-20">
-	                        <span class="starR" value="1">별1</span> 
-	                        <span class="starR" value="2">별2</span> 
-	                        <span class="starR" value="3">별3</span> 
-	                        <span class="starR" value="4">별4</span> 
-	                        <span class="starR" value="5">별5</span>
+					<div class="starRate mb-20">
 	                </div>
 	                <input type="hidden" name="review_score" id="review_score">
 	                <p></p>
@@ -486,7 +573,7 @@ body {
                         <ul class="nav-container">
                                 <li><a class="nav-item" onclick="getBookings();">예약신청현황</a></li>
                                 <li><a class="nav-item" onclick="getReviews();">리뷰확인</a></li>
-                                <li><a class="nav-item" href="chart.mc">Shop현황</a></li>
+                                <li><a class="nav-item" onclick="getChart();">Shop현황</a></li>
                         </ul>
                 </nav>
                         <div class="con-container">
@@ -589,6 +676,6 @@ body {
     <script src="view/manager/js/jquery.slicknav.js"></script>
     <script src="view/manager/js/owl.carousel.min.js"></script>
     <script src="view/manager/js/main.js"></script>
-    <script src="view/manager/js/chart.js"></script>
+    
     </body>
 </html>

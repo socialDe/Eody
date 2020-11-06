@@ -12,7 +12,12 @@
   -ms-flex-pack: start;
   justify-content: start;
 }
-
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /* Normal desktop :1200px. */
 /* Normal desktop :992px. */
 /* Tablet desktop :768px. */
@@ -21,7 +26,7 @@
 /* 1. Theme default css */
 /* line 5, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/theme-default.scss */
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-weight: normal;
   font-style: normal;
 }
@@ -73,7 +78,7 @@ button {
 
 /* line 39, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/theme-default.scss */
 h1, h2, h3, h4, h5 {
-  font-family: "Shadows Into Light", cursive;
+  font-family: 'GmarketSansMedium';
   color: #001D38;
 }
 
@@ -105,7 +110,7 @@ p {
   line-height: 28px;
   color: #4D4D4D;
   margin-bottom: 13px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 68, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/theme-default.scss */
@@ -405,7 +410,7 @@ h3 {
   color: #131313;
   display: inline-block;
   padding: 18px 44px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 14px;
   font-weight: 400;
   border: 0;
@@ -450,7 +455,7 @@ h3 {
   color: #fff;
   display: inline-block;
   padding: 19px 41px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 15px;
   font-weight: 500;
   border: 0;
@@ -498,7 +503,7 @@ h3 {
   color: #fff;
   display: inline-block;
   padding: 13px 27px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 14px;
   font-weight: 400;
   border: 0;
@@ -544,7 +549,7 @@ h3 {
   color: #F91842 !important;
   display: inline-block;
   padding: 14px 31px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 15px;
   font-weight: 500;
   border: 0;
@@ -600,7 +605,7 @@ h3 {
   font-weight: 600;
   display: inline-block;
   padding: 12px 36px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   cursor: pointer;
 }
 
@@ -702,7 +707,7 @@ h3 {
   color: #F91842;
   margin-bottom: 0;
   font-weight: 400;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   margin-bottom: 16px;
 }
 
@@ -1051,7 +1056,7 @@ h3 {
 .header-area .main-header-area .Appointment .book_btn a {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#F91842+0,fd8e5e+100 */
   background: #F91842;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   padding: 15px 40px;
   font-size: 14px;
   font-weight: 600;
@@ -1096,7 +1101,7 @@ h3 {
   font-weight: 500;
   display: inline-block;
   padding: 0px 0px 0px 0px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   position: relative;
   text-transform: capitalize;
 }
@@ -1439,7 +1444,7 @@ h3 {
 
 /* line 44, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_slider.scss */
 .slider_area .single_slider .slider_text h3 {
-  font-family: "Shadows Into Light", cursive;
+  font-family: 'GmarketSansMedium';
   font-size: 70px;
   text-transform: capitalize;
   letter-spacing: 2px;
@@ -1482,7 +1487,7 @@ h3 {
   font-size: 30px;
   font-weight: 400;
   color: #F91842;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   margin-bottom: 24px;
 }
 
@@ -1515,7 +1520,7 @@ h3 {
   height: 30px;
   border: none;
   padding: 15px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 @media (max-width: 767px) {
@@ -1535,7 +1540,7 @@ h3 {
   font-size: 16px;
   font-weight: 400;
   color: #727272;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 108, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_slider.scss */
@@ -1623,7 +1628,7 @@ h3 {
   font-size: 14px;
   color: #fff;
   font-weight: #000;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   padding: 5px 19px;
   display: inline-block;
   margin: 0 3px;
@@ -2036,7 +2041,7 @@ h3 {
   font-weight: 400;
   color: #4D4D4D;
   line-height: 28px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 1, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_counter.scss */
@@ -2063,7 +2068,7 @@ h3 {
   font-weight: 400;
   font-size: 70px;
   margin-bottom: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   margin-bottom: 10px;
 }
 
@@ -2073,7 +2078,7 @@ h3 {
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 30, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_counter.scss */
@@ -2305,7 +2310,7 @@ h3 {
   font-weight: 400;
   color: #001D38;
   margin-bottom: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 56, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_team.scss */
@@ -2315,7 +2320,7 @@ h3 {
   color: #727272;
   margin-top: 6px;
   margin-bottom: 8px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 68, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_team.scss */
@@ -2433,7 +2438,7 @@ h3 {
   font-size: 20px;
   line-height: 32px;
   margin: 34px 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 @media (min-width: 320px) and (max-width: 991px) {
@@ -2460,7 +2465,7 @@ h3 {
   font-size: 15px;
   font-weight: 500;
   margin-bottom: 5px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 43, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_testmonial.scss */
@@ -2468,7 +2473,7 @@ h3 {
   font-size: 13px;
   font-weight: 400;
   color: #919191;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 51, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_testmonial.scss */
@@ -3285,7 +3290,7 @@ h3 {
 
 /* line 41, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_popular_catagory.scss */
 .popular_catagory_area .single_catagory .hover_overlay .hover_inner h4 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-weight: 600;
   font-size: 18px;
   color: #fff;
@@ -3294,7 +3299,7 @@ h3 {
 
 /* line 48, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_popular_catagory.scss */
 .popular_catagory_area .single_catagory .hover_overlay .hover_inner span {
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 13px;
   font-weight: 400;
   color: #FFFFFF;
@@ -3362,7 +3367,7 @@ h3 {
   font-size: 16px;
   color: #fff;
   line-height: 28px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   margin-bottom: 42px;
   margin-top: 20px;
 }
@@ -3511,7 +3516,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus {
 
 /* line 139, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_prise_slider.scss */
 .single_field.range_slider .value {
-  font-family: "Shadows Into Light", cursive;
+  font-family: 'GmarketSansMedium';
   font-size: 14px;
   color: #fff;
   font-weight: 400;
@@ -3725,13 +3730,13 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus {
   font-size: 28px;
   font-weight: 500;
   color: #001D38;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   margin-bottom: 25px;
 }
 
 /* line 25, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_description_area.scss */
 .description_area .single_des p {
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 16px;
   color: #4D4D4D;
   line-height: 28px;
@@ -3747,7 +3752,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus {
   background: transparent;
   border-radius: 5px;
   height: 50px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 42, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_description_area.scss */
@@ -3782,7 +3787,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus {
   font-size: 18px;
   color: #F91842;
   font-weight: 600;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   margin-bottom: 9px;
 }
 
@@ -3791,7 +3796,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus {
   font-size: 16px;
   font-weight: 400;
   color: #727272;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   margin-bottom: 4px;
 }
 
@@ -3800,7 +3805,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus {
   font-size: 16px;
   font-weight: 400;
   color: #727272;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   line-height: 24px;
 }
 
@@ -3824,7 +3829,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus {
 
 /* line 6, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_single_listings.scss */
 .listing_details .single_details h3 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   color: #001D38;
   font-size: 28px;
   font-weight: 500;
@@ -3833,7 +3838,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus {
 
 /* line 13, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_single_listings.scss */
 .listing_details .single_details p {
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 16px;
   color: #4D4D4D;
   line-height: 28px;
@@ -3851,7 +3856,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus {
   -moz-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #C7C7C7;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 29, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_single_listings.scss */
@@ -3900,12 +3905,12 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 60, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_single_listings.scss */
 .listing_details .single_details .map_Wrap .map_inner_info .explorer_info p {
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 16px;
   color: #727272;
   line-height: 26px;
@@ -3914,7 +3919,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus {
 
 /* line 68, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_single_listings.scss */
 .listing_details .single_details .map_Wrap .map_inner_info .explorer_info ul li {
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 16px;
   font-weight: 400;
   color: #727272;
@@ -3933,7 +3938,7 @@ input[type=checkbox] + label {
   margin: 0.2em;
   cursor: pointer;
   padding: 0.2em;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 9, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_check.scss */
@@ -4007,7 +4012,7 @@ input[type="checkbox"] + label {
   margin: 0.2em;
   cursor: pointer;
   padding: 0.2em;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 14px;
   color: #727272;
   font-weight: 400;
@@ -4038,7 +4043,7 @@ input[type="checkbox"] + label {
 /* line 101, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_check.scss */
 .last_range label {
   font-size: 16px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   color: #001D38;
   font-weight: 400;
 }
@@ -4047,7 +4052,7 @@ input[type="checkbox"] + label {
 p #amount {
   font-size: 14px;
   color: #919191 !important;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-weight: 400 !important;
 }
 
@@ -4224,7 +4229,7 @@ p #amount {
 /* line 103, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_gallery.scss */
 .portfolio_details_area .portfolio_details_content p {
   font-size: 16px;
-  font-family: "Shadows Into Light", cursive;
+  font-family: 'GmarketSansMedium';
   color: #727272;
   line-height: 28px;
 }
@@ -4291,7 +4296,7 @@ p #amount {
   font-size: 16px;
   font-weight: 500;
   color: #001D38;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   margin-bottom: 30px;
 }
 
@@ -4310,7 +4315,7 @@ p #amount {
 .explorer_europe.list_wrap .input_field input {
   width: 100%;
   height: 50px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   padding: 15px;
   border: 1px solid #D5D5D5;
   -webkit-border-radius: 5px;
@@ -4362,7 +4367,7 @@ p #amount {
   padding-right: 30px;
   width: auto;
   width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   color: #727272;
 }
 
@@ -4397,7 +4402,7 @@ p #amount {
 
 /* line 104, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_explorer.scss */
 .explorer_europe .explorer_wrap .nav a {
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 16px;
   color: #727272;
   font-size: 16px;
@@ -4542,7 +4547,7 @@ p #amount {
 
 /* line 194, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_explorer.scss */
 .explorer_europe .single_explorer .explorer_bottom .explorer_info h3 a {
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 0;
@@ -4557,7 +4562,7 @@ p #amount {
   color: #727272;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   margin-bottom: 0;
   margin-top: 3px;
 }
@@ -4567,7 +4572,7 @@ p #amount {
   font-size: 14px;
   color: #727272;
   line-height: 24px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 216, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_explorer.scss */
@@ -4638,7 +4643,7 @@ p #amount {
   color: #727272;
   text-align: center;
   line-height: 38px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
   display: inline-block;
   font-size: 16px;
   -webkit-transition: 0.3s;
@@ -5277,7 +5282,7 @@ p #amount {
 
 /* line 7, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_footer.scss */
 .footer p {
-  font-family: "Raleway", sans-serif !important;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 10, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_footer.scss */
@@ -5315,7 +5320,7 @@ p #amount {
   color: #fff;
   text-transform: capitalize;
   margin-bottom: 40px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 @media (max-width: 767px) {
@@ -5408,7 +5413,7 @@ p #amount {
 .footer .footer_top .footer_widget ul li a {
   color: #919191;
   font-weight: 400;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 98, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_footer.scss */
@@ -5433,7 +5438,7 @@ p #amount {
   border: none;
   border: 1px solid #334A60;
   border-radius: 5px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 118, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_footer.scss */
@@ -5465,7 +5470,7 @@ p #amount {
   right: 5px;
   font-size: 13px;
   font-weight: 500;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 146, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_footer.scss */
@@ -5710,7 +5715,7 @@ p #amount {
   color: #fff;
   font-size: 16px;
   font-weight: 400;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 1, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_department.scss */
@@ -8184,7 +8189,7 @@ h6 {
 /* line 537, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_blog.scss */
 .blog_details p {
   margin-bottom: 30px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 542, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_blog.scss */
@@ -8622,7 +8627,7 @@ h6 {
   background: #fff;
   padding: 15px 15px 15px 20px;
   border-left: 2px solid;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 @media (min-width: 768px) {
@@ -8936,7 +8941,7 @@ h6 {
   margin-bottom: 10px;
   color: #777777;
   font-size: 15px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /* line 1393, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_blog.scss */
