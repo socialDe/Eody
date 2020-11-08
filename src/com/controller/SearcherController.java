@@ -230,18 +230,18 @@ public class SearcherController {
                  System.out.println(dbsearcher);
                  if (dbsearcher != null) {
                         try {
-                                 bbiz.register(booking);
-                                 mv.setViewName("redirect:main.mc");
+                             bbiz.register(booking);
+                             mv.setViewName("redirect:main.mc");
                          } catch (Exception e) {
-                                 mv.setViewName("redirect:register.mc");
-                                 e.printStackTrace();
+                             mv.setViewName("redirect:register.mc");
+                             e.printStackTrace();
                          }
                 } else {
                         response.setContentType("text/html; charset=UTF-8");
                         PrintWriter out;
                         try {
-                                out = response.getWriter();
-                                out.println("<script>alert('로그인이필요합니다.');</script>");
+                            out = response.getWriter();
+                            out.println("<script>alert('로그인이필요합니다.');</script>");
                             out.flush();
                         } catch (IOException e) {
                                 e.printStackTrace();
@@ -401,7 +401,6 @@ public class SearcherController {
                         try {
                                 hplace = hbiz.get1(h_name);
                         } catch (Exception e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                         }
                         
@@ -419,6 +418,6 @@ public class SearcherController {
                         System.out.println(list);
                         mv.addObject("centerpage", "shoplist");
                         mv.setViewName("searcher/region_n_shop");        
-                return mv;        
+                        return mv;        
                 }
 }

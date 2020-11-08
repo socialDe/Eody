@@ -20,7 +20,7 @@ public class BookingBiz implements Biz<String, Integer, BookingVO> {
 	public void register(BookingVO v) throws Exception {
 		dao.insert(v);
 	}
-
+	
 	@Override
 	public void remove1(String k) throws Exception {
 		int result = dao.delete1(k);
@@ -79,31 +79,25 @@ public class BookingBiz implements Biz<String, Integer, BookingVO> {
 
 	@Override
 	public ArrayList<BookingVO> review_get(String k) throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ArrayList<BookingVO> shop_hotplace_get(String k) throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void shop_hitcnt(String k) throws Exception {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void shop_score_avg(String k) throws Exception {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public ArrayList<BookingVO> review_select(String k) throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

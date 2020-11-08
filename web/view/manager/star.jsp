@@ -33,12 +33,12 @@ $('.starRev span').click(function() {
 </script>
 </head>
 <body>
-<div class="starRev mb-20">
-                        <span class="starR" value="1">별1</span> 
-                        <span class="starR" value="2">별2</span> 
-                        <span class="starR" value="3">별3</span> 
-                        <span class="starR" value="4">별4</span> 
-                        <span class="starR" value="5">별5</span>
-                    </div>
+	<div class="starRev mb-20">
+	    <span class="starR" value="1">별1</span> 
+	    <span class="starR" value="2">별2</span> 
+	    <span class="starR" value="3">별3</span> 
+	    <span class="starR" value="4">별4</span> 
+	    <span class="starR" value="5">별5</span>
+	</div>
 </body>
 </html>

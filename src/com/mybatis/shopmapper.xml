@@ -64,10 +64,10 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         </select>
         
         <update id="shop_hitcnt" parameterType="String">
-                        UPDATE SHOP SET SHOP_HITS = SHOP_HITS+1 WHERE SHOP_NAME=#{shop_name}
+                UPDATE SHOP SET SHOP_HITS = SHOP_HITS+1 WHERE SHOP_NAME=#{shop_name}
         </update>
         <update id="shop_score_avg" parameterType="String">
-                        UPDATE SHOP SET SHOP_SCORE_AVG=(SELECT ROUND()AVG(SHOP_SCORE)) FROM REVIEW WHERE SHOP_NAME=#{shop_name}) WHERE SHOP_NAME=#{shop_name}
+                UPDATE SHOP SET SHOP_SCORE_AVG=(SELECT ROUND(AVG(SHOP_SCORE)) FROM REVIEW WHERE SHOP_NAME=#{shop_name}) WHERE SHOP_NAME=#{shop_name}
         </update>
         
 </mapper>

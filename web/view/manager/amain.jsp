@@ -3,7 +3,6 @@
         
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
 <meta charset="UTF-8">
 <meta name="description" content="Sona Template">
@@ -13,44 +12,34 @@
 <title>Eody</title>
 
 <!-- Google Font -->
-<link
-        href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap"
-        rel="stylesheet">
-<link
-        href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap"
-        rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap">
 
 <!-- Css Styles -->
-<link rel="stylesheet" href="view/manager/css/bootstrap.min.css"
-        type="text/css">
-<link rel="stylesheet" href="view/manager/css/font-awesome.min.css"
-        type="text/css">
-<link rel="stylesheet" href="view/manager/css/elegant-icons.css"
-        type="text/css">
-<link rel="stylesheet" href="view/manager/css/flaticon.css"
-        type="text/css">
-<link rel="stylesheet" href="view/manager/css/owl.carousel.min.css"
-        type="text/css">
-<link rel="stylesheet" href="view/manager/css/nice-select.css"
-        type="text/css">
-<link rel="stylesheet" href="view/manager/css/jquery-ui.min.css"
-        type="text/css">
-<link rel="stylesheet" href="view/manager/css/magnific-popup.css"
-        type="text/css">
-<link rel="stylesheet" href="view/manager/css/slicknav.min.css"
-        type="text/css">
-<link rel="stylesheet" href="view/manager/css/style.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/elegant-icons.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/flaticon.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/owl.carousel.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/nice-select.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/magnific-popup.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/slicknav.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/style.css">
+
 <style type="text/css">
+.container{
+	margin: 0 auto;
+	text-align: center;
+}
 table tbody tr td{
         margin: 0 auto;
         padding-left:10px;
         padding-right:10px;
-        
 }
 
 table tbody tr{
         margin: 0 auto;
-        
 }
 .aa{
         width: 200px;
@@ -60,66 +49,60 @@ table tbody tr{
 }
 .logo> a{
 	margin-top: 10px;
+	width: 125px !important;
 }
-
 </style>
-<script type="text/javascript">
-getSelectToLayer($('.custom'),100,'');
-</script>
 </head>
 
 <body>
-        <!-- Page Preloder -->
-        <div id="preloder">
-                <div class="loader"></div>
-        </div>
-		<!-- Offcanvas Menu Section Begin -->
-	    <div class="offcanvas-menu-wrapper">
-	        <div class="header-configure-area">
-	            <a href="alogin.mc" class="bk-btn">Login</a>
-	            <a href="aregister.mc" class="bk-btn">Register Now</a>
-	        </div>
-	        <div id="mobile-menu-wrap"></div>
-	        <div class="top-social">
-	            <a href="#"><i class="fa fa-facebook"></i></a>
-	            <a href="#"><i class="fa fa-twitter"></i></a>
-	            <a href="#"><i class="fa fa-tripadvisor"></i></a>
-	            <a href="#"><i class="fa fa-instagram"></i></a>
-	        </div>
-	        <ul class="top-widget">
-	            <li><i class="fa fa-phone"></i> (12) 345 67890</li>
-	            <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
-	        </ul>
-	    </div>
-        <!-- Header Section Begin -->
-        <header class="header-section header-normal">
-                <div class="top-nav">
-                        <div class="container">
-                                <div class="row">
-                                        <div class="col-lg-6">
-                                                <div class="logo">
-                                                        <a href="admin.html"> <img src="img/logo/m_blacklogo.png" alt="">
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                                <div class="tn-right">
-                                                        <div class="top-social">
-                                                                
-                                                        </div>
-                                                        <a href="alogin.mc" class="bk-btn">login</a>
-                          							 	<a href="manageradd.mc" class="bk-btn">Register Now</a>
-                          							 	<div class="language-option">
-                                							<img src="img/Taegeukgi.jpg" alt="">
-                                						</div>
-                                                </div>
-                                        </div>
-                                </div>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+	<!-- Offcanvas Menu Section Begin -->
+	 <div class="offcanvas-menu-wrapper">
+	     <div class="header-configure-area">
+	         <a href="alogin.mc" class="bk-btn">Login</a>
+	         <a href="aregister.mc" class="bk-btn">Register Now</a>
+	     </div>
+	     <div id="mobile-menu-wrap"></div>
+	     <div class="top-social">
+	         <a href="#"><i class="fa fa-facebook"></i></a>
+	         <a href="#"><i class="fa fa-twitter"></i></a>
+	         <a href="#"><i class="fa fa-tripadvisor"></i></a>
+	         <a href="#"><i class="fa fa-instagram"></i></a>
+	     </div>
+	     <ul class="top-widget">
+	         <li><i class="fa fa-phone"></i> (12) 345 67890</li>
+	         <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+	     </ul>
+	 </div>
+    <!-- Header Section Begin -->
+    <header class="header-section header-normal">
+        <div class="top-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="logo">
+                            <a href="admin.html"><img src="img/logo/m_blacklogo.png" alt="">
+                            </a>
+                    	</div>
+           			</div>
+            		<div class="col-lg-6">
+                   		<div class="tn-right">
+                        	<div class="top-social"></div>
+                           	<a href="alogin.mc" class="bk-btn">login</a>
+						 	<a href="manageradd.mc" class="bk-btn">Register Now</a>
+						 	<div class="language-option">
+   								<img src="view/manager/img/pointer.png" alt="">
+    						</div>
                         </div>
+                    </div>
                 </div>
-                
-        </header>
-        <!-- Header End -->
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
 
     <!-- Hero Section Begin -->
     <section class="hero-section">
@@ -267,10 +250,10 @@ getSelectToLayer($('.custom'),100,'');
                         <div class="ft-about">
                             <div class="logo">
                                 <a href="#">
-                                    <img src='img/m_blacklogo.png' alt="">
+                                    <img src="view/manager/img/m_blacklogo.png">
                                 </a>
                             </div>
-                            <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
+                            <p>We inspire and reach millions of travelers<br> across 90 local websites</p>
                             <div class="fa-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -284,21 +267,15 @@ getSelectToLayer($('.custom'),100,'');
                         <div class="ft-contact">
                             <h6>Contact Us</h6>
                             <ul>
-                                <li>(12) 345 67890</li>
-                                <li>info.colorlib@gmail.com</li>
-                                <li>856 Cordia Extension Apt. 356, Lake, United State</li>
+                                <li>https://github.com/socialDe</li>
+                                <li>https://github.com/hunman89</li>
+                                <li>https://github.com/cijbest</li>
+                                <li>https://github.com/oshsage</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
-                        <div class="ft-newslatter">
-                            <h6>New latest</h6>
-                            <p>Get the latest updates and offers.</p>
-                            <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
-                            </form>
-                        </div>
+                  		<!-- Footer 오른쪽 파트 채우는 곳  -->
                     </div>
                 </div>
             </div>
@@ -307,12 +284,6 @@ getSelectToLayer($('.custom'),100,'');
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
-                        <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Environmental Policy</a></li>
-                        </ul>
                     </div>
                     <div class="col-lg-5">
                         <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

@@ -4,29 +4,29 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<title>Eody</title>
-	<meta charset="UTF-8">
-    <meta name="description" content="Sona Template">
-    <meta name="keywords" content="Sona, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<title>Eody</title>
+<meta charset="UTF-8">
+<meta name="description" content="Sona Template">
+<meta name="keywords" content="Sona, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="view/manager/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/style.css" type="text/css">
+<!-- Css Styles -->
+<link rel="stylesheet" type="text/css" href="view/manager/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/elegant-icons.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/flaticon.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/owl.carousel.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/nice-select.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/magnific-popup.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/slicknav.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/style.css">
 </head>
 <script>
 
@@ -54,6 +54,7 @@
 			$(".checkbox1").append(code);
 		}
 	};
+	
 	// 예약 여부 표시 //
 	function MakeCode2(){
 		if(checkbooking==1){
@@ -73,36 +74,42 @@
 	function StarRate() {
 		// 별점
 		var star_strings = '';
-        if(Number(${singleshop.shop_score_avg}) == 1){
+        if(Number('${singleshop.shop_score_avg}')== 1){
         	star_strings +='<span class="starR on"></span>';
         	star_strings +='<span class="starR"></span>';
         	star_strings +='<span class="starR"></span>';
         	star_strings +='<span class="starR"></span>';
         	star_strings +='<span class="starR"></span>';
-        } else if(Number(${singleshop.shop_score_avg})  == 2){
+        }else if(Number('${singleshop.shop_score_avg}')  == 2){
         	star_strings +='<span class="starR on"></span>';
         	star_strings +='<span class="starR on"></span>';
         	star_strings +='<span class="starR"></span>';
         	star_strings +='<span class="starR"></span>';
         	star_strings +='<span class="starR"></span>';
-        } else if(Number(${singleshop.shop_score_avg}) == 3){
+        }else if(Number('${singleshop.shop_score_avg}') == 3){
         	star_strings +='<span class="starR on"></span>';
         	star_strings +='<span class="starR on"></span>';
         	star_strings +='<span class="starR on"></span>';
         	star_strings +='<span class="starR"></span>';
         	star_strings +='<span class="starR"></span>';
-        } else if(Number(${singleshop.shop_score_avg}) == 4){
+        }else if(Number('${singleshop.shop_score_avg}') == 4){
         	star_strings +='<span class="starR on"></span>';
         	star_strings +='<span class="starR on"></span>';
             star_strings +='<span class="starR on"></span>';
             star_strings +='<span class="starR on"></span>';
             star_strings +='<span class="starR"></span>';
-        } else if(Number(${singleshop.shop_score_avg}) == 5){
+        }else if(Number('${singleshop.shop_score_avg}') == 5){
         	star_strings +='<span class="starR on"></span>';
         	star_strings +='<span class="starR on"></span>'; 
         	star_strings +='<span class="starR on"></span>';
         	star_strings +='<span class="starR on"></span>';
         	star_strings +='<span class="starR on"></span>';
+        }else if(Number('${singleshop.shop_score_avg}') == 0){
+        	star_strings +='<span class="starR"></span>';
+        	star_strings +='<span class="starR"></span>';
+        	star_strings +='<span class="starR"></span>';
+        	star_strings +='<span class="starR"></span>';
+        	star_strings +='<span class="starR"></span>';
         }
         $(".starRate").append(star_strings);
 	}
@@ -115,153 +122,147 @@
 	    $('#review_score').val(rate);
 	    return false;
 	});
-	
-	 // Review //
-    function getReviews(){
-    var ashop ='';
-    ashop='${singleshop.shop_name}';
 
-    //server로 해당 가게의 booking 목록을 요청하는 ajax입니다.
-    $.ajax({
-        url : 'getReview.mc',
-        data : {'ashop':ashop},
-        error : function(error) {
-            console.log("error");
-        },
-        success : function(data) {
-        console.log("success");
-        console.log(data);
-        displayReviewData(data);
-        },
-        error:function(request, error) {
-        	alert("fail");
-            // error 발생 이유를 알려준다.
-            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-                }
-    });
-}
+	// Review //
+    function getReviews(){
+	    var ashop ='';
+	    ashop='${singleshop.shop_name}';
+	
+	    //server로 해당 가게의 booking 목록을 요청하는 ajax입니다.
+	    $.ajax({
+	        url : 'getReview.mc',
+	        data : {'ashop':ashop},
+	        error : function(error) {
+	            console.log("error");
+	        },
+	        success : function(data) {
+	        console.log("success");
+	        console.log(data);
+	        displayReviewData(data);
+	        },
+	        error:function(request, error) {
+	        	alert("fail");
+	            // error 발생 이유를 알려준다.
+	            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	        }
+	    });
+	}
     
     function displayReviewData(reviewlist){
     //생성할 html 태그를 담을 변수(review_strings)입니다.
-    var review_strings = '';
-         review_strings += '<div class="box" style="overflow-y: scroll;">';
-         for(var i in reviewlist){
-                 
-                 review_strings += '<div class="review-item">';
-                 
-                 // 사진
-                 review_strings += '<div class="img-container">';
-                 if(reviewlist[i].review_image1 != 'default.jpg'){
-                	 review_strings += '<img src="./img/'+reviewlist[i].review_image1+'" style="width:120px; height:120px; border-radius:10px;">';
-                 }
-                 if(reviewlist[i].review_image2 != 'default.jpg'){
-                	 review_strings += '<img src="./img/'+reviewlist[i].review_image2 +'" style="width:120px; height:120px; border-radius:10px;">';
-                 }
-                 if(reviewlist[i].review_image3 != 'default.jpg'){
-                 	review_strings += '<img src="./img/'+reviewlist[i].review_image3 +'" style="width:120px; height:120px; border-radius:10px;">';
-                 }
-                 review_strings += '</div>';
-                	 
-                 // 별점
-                 if(Number(reviewlist[i].review_score)  == 1){
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR"></span>';
-                         review_strings +='<span class="starR"></span>';
-                         review_strings +='<span class="starR"></span>';
-                         review_strings +='<span class="starR"></span>';
-                 } else if(Number(reviewlist[i].shop_score)  == 2){
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR"></span>';
-                         review_strings +='<span class="starR"></span>';
-                         review_strings +='<span class="starR"></span>';
-                 } else if(Number(reviewlist[i].shop_score) == 3){
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR"></span>';
-                         review_strings +='<span class="starR"></span>';
-                 } else if(Number(reviewlist[i].shop_score) == 4){
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR"></span>';
-                 } else if(Number(reviewlist[i].shop_score) == 5){
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR on"></span>';
-                         review_strings +='<span class="starR on"></span>';
-                 }
-                          
-                 // 날짜
-                 review_strings += '<div class="ri-text"><span>'+reviewlist[i].review_date+'</span>';
-                 
-                 // 내용
-                 review_strings += '<h5>'+reviewlist[i].review_name+'</h5><p>'+reviewlist[i].review_contents+'</p></div></div>';
-                 review_strings += '<hr style="border: solid 1px #dfa974;">';
-    }
-    review_strings += '</div>';
-            $(".con-container").empty();
-    $(".con-container").append(review_strings);
-}
+	    var review_strings = '';
+	    review_strings += '<div class="box" style="overflow-y: scroll;">';
+        for(var i in reviewlist){
+             review_strings += '<div class="review-item">';
+             // 사진
+             review_strings += '<div class="img-container">';
+             if(reviewlist[i].review_image1 != 'default.jpg'){
+            	 review_strings += '<img src="./img/'+reviewlist[i].review_image1+'" style="width:120px; height:120px; border-radius:10px;">';
+             }
+             if(reviewlist[i].review_image2 != 'default.jpg'){
+            	 review_strings += '<img src="./img/'+reviewlist[i].review_image2 +'" style="width:120px; height:120px; border-radius:10px;">';
+             }
+             if(reviewlist[i].review_image3 != 'default.jpg'){
+             	review_strings += '<img src="./img/'+reviewlist[i].review_image3 +'" style="width:120px; height:120px; border-radius:10px;">';
+             }
+             review_strings += '</div>';
+             // 별점
+             if(Number(reviewlist[i].review_score)  == 1){
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR"></span>';
+                 review_strings +='<span class="starR"></span>';
+                 review_strings +='<span class="starR"></span>';
+                 review_strings +='<span class="starR"></span>';
+             } else if(Number(reviewlist[i].shop_score)  == 2){
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR"></span>';
+                 review_strings +='<span class="starR"></span>';
+                 review_strings +='<span class="starR"></span>';
+             } else if(Number(reviewlist[i].shop_score) == 3){
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR"></span>';
+                 review_strings +='<span class="starR"></span>';
+             } else if(Number(reviewlist[i].shop_score) == 4){
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR"></span>';
+             } else if(Number(reviewlist[i].shop_score) == 5){
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR on"></span>';
+                 review_strings +='<span class="starR on"></span>';
+             }
+             // 날짜
+             review_strings += '<div class="ri-text"><span>'+reviewlist[i].review_date+'</span>';
+             // 내용
+             review_strings += '<h5>'+reviewlist[i].review_name+'</h5><p>'+reviewlist[i].review_contents+'</p></div></div>';
+             review_strings += '<hr style="border: solid 1px #dfa974;">';
+   		}
+	    review_strings += '</div>';
+	            $(".con-container").empty();
+	    $(".con-container").append(review_strings);
+	}
         
-       //Booking //
-       //예약목록 Ajax
-       function getBookings(){
-             var ashop ='';
-             ashop='${singleshop.shop_name}';
-             alert(typeof(ashop));
-                        
-             //server로 해당 가게의 booking 목록을 요청하는 ajax입니다.
-             $.ajax({
-             	url : 'getbooking.mc',
-                data : {'ashop':ashop},
-                error : function(error) {
-                	console.log("error");
-                },
-                success : function(data) {
-                	console.log("success");
-                	displayBookingData(data);
-                }
-             });
-        }
-        function displayBookingData(bookinglist){
-                $(".con-container").empty();
-                //생성할 html 태그를 담을 변수(booking_strings)입니다.
-                        var booking_strings='';
-                        booking_strings= '<div class="row"><div class="col-lg-8"><div class="room-details-item"><div class="rd-text"><div class="rd-title">' +'${singleshop.shop_name}'+'의 예약 목록 </div><table><tbody><tr><td class="r-o">예약번호</td><td class="r-o">고객ID</td><td class="r-o">인원수</td><td class="r-o">예약 날짜</td><td class="r-o">연락처</td><td class="r-o">상태</td><td class="r-o">관리</td></tr>';
-                        for(var i in bookinglist){
-                                booking_strings+='<tr><td>'+bookinglist[i].booking_no+'</td><td>'+bookinglist[i].searcher_id+'</td><td>'+bookinglist[i].booking_pp+'</td><td>'+bookinglist[i].booking_date+'</td><td>'+bookinglist[i].booking_searcher_phone+'</td><td>'+bookinglist[i].booking_stat+'</td><td><button id = "okbtn" value = "'+bookinglist[i].booking_stat+'" onclick="OK();">승인</button></td></tr>';
-                                booking_strings+='<tr><td colspan="7">'+bookinglist[i].booking_msg+'<td></tr><hr class="my-4">';
-                        }
-                        booking_strings+='</tbody></table></div></div></div></div>';
-                        
-                        $(".con-container").append(booking_strings);
-        }
-        function getChart(){
-            $(".con-container").empty();
-                    var chart_strings='';
-                    chart_strings= '<div class="counter"><div class="container"><div class="row"><div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="employees"><p class="counter-count">';
-                   	chart_strings+= ${singleshop.shop_hits};
-                   	chart_strings+='</p><p class="employee-p">View</p></div></div>';
-                   	chart_strings+='<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="customer"><p class="counter-count">';
-                   	chart_strings+=${singleshop.shop_score_avg};
-                   	chart_strings+='</p><p class="customer-p">Star Rating</p></div></div><div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="design"><p class="counter-count">';
-                   	chart_strings+=${singleshop.shop_booking};
-                   	chart_strings+='</p><p class="design-p">Reservation</p></div></div></div></div></div>';
-                    $(".con-container").append(chart_strings);
+     //Booking //
+     //예약목록 Ajax
+    function getBookings(){
+	    var ashop ='';
+	    ashop='${singleshop.shop_name}';
+	    alert(typeof(ashop));
+	               
+	    //server로 해당 가게의 booking 목록을 요청하는 ajax입니다.
+	    $.ajax({
+	    	url : 'getbooking.mc',
+	       data : {'ashop':ashop},
+	       error : function(error) {
+	       	console.log("error");
+	       },
+	       success : function(data) {
+	       	console.log("success");
+	       	displayBookingData(data);
+	       }
+	    });
+	}
+    function displayBookingData(bookinglist){
+	    $(".con-container").empty();
+	    //생성할 html 태그를 담을 변수(booking_strings)입니다.
+		var booking_strings='';
+		booking_strings= '<div class="row"><div class="col-lg-8"><div class="room-details-item"><div class="rd-text"><div class="rd-title">' +'${singleshop.shop_name}'+'의 예약 목록 </div><table><tbody><tr><td class="r-o">예약번호</td><td class="r-o">고객ID</td><td class="r-o">인원수</td><td class="r-o">예약 날짜</td><td class="r-o">연락처</td><td class="r-o">상태</td><td class="r-o">관리</td></tr>';
+		for(var i in bookinglist){
+	        booking_strings+='<tr><td>'+bookinglist[i].booking_no+'</td><td>'+bookinglist[i].searcher_id+'</td><td>'+bookinglist[i].booking_pp+'</td><td>'+bookinglist[i].booking_date+'</td><td>'+bookinglist[i].booking_searcher_phone+'</td><td>'+bookinglist[i].booking_stat+'</td><td><button id = "okbtn" value = "'+bookinglist[i].booking_stat+'" onclick="OK();">승인</button></td></tr>';
+	        booking_strings+='<tr><td colspan="7">'+bookinglist[i].booking_msg+'<td></tr><hr class="my-4">';
 		}
-        function OK(){
-        	alert('승인되었습니다.');
-			var stat = $('#okbtn').attr('value');
-			if(stat == '0'){
-				stat.replace('1');
-			}else if(stat == '1'){
-				stat.replace('0');
-			}
-        }
+		booking_strings+='</tbody></table></div></div></div></div>';
+		$(".con-container").append(booking_strings);
+      }
+    function getChart(){
+	    $(".con-container").empty();
+        var chart_strings='';
+        chart_strings= '<div class="counter"><div class="container"><div class="row"><div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="employees"><p class="counter-count">';
+		chart_strings+= ${singleshop.shop_hits};
+		chart_strings+='</p><p class="employee-p">View</p></div></div>';
+		chart_strings+='<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="customer"><p class="counter-count">';
+		chart_strings+=${singleshop.shop_score_avg};
+		chart_strings+='</p><p class="customer-p">Star Rating</p></div></div><div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="design"><p class="counter-count">';
+		chart_strings+=${singleshop.shop_booking};
+		chart_strings+='</p><p class="design-p">Reservation</p></div></div></div></div></div>';
+        $(".con-container").append(chart_strings);
+	}
+    function OK(){
+	 	alert('승인되었습니다.');
+		var stat = $('#okbtn').attr('value');
+		if(stat == '0'){
+			stat.replace('1');
+		}else if(stat == '1'){
+			stat.replace('0');
+		}
+	}
 </script>
 <style>
 /* Chart CSS */
@@ -304,47 +305,51 @@
     line-height: 34px;
 }
 /* End Chart CSS */
-	.rd-title{
-		text-weight: bold;
-		text-align: center;
-		margin: 0 auto;
-	}
-	.con-container>.row>.col-lg-8{
-		margin: 0 auto;
-		width: 800 px !important;
-	}
+.container{
+	margin: 0 auto;
+	text-align: center;
+}
+.rd-title{
+	text-weight: bold;
+	text-align: center;
+	margin: 0 auto;
+}
+.con-container>.row>.col-lg-8{
+	margin: 0 auto;
+	width: 800 px !important;
+}
 
 
-	.container{
-		height: auto;
-	}
-	.container>.image{
-		width: 450px;
-		height: 600px;
-		float: left;
-	}
-	.container>.image> img{
-		width: 450px;
-		height: 500px;
-	}
-	.container>.contact-form{
-		margin: 0 auto;
-		text-align: center;
-		float: right;
-		width: 450px;
-		height: 600px;
-	}
-	.checkbox1 input{
-		width: 15px;
-		height: 15px;
-		margin: 10px;
-	}
-	.checkbox2 input{
-		width: 15px;
-		height: 15px;
-		margin: 10px;
-	}
-	.starR {
+.container{
+	height: auto;
+}
+.container>.image{
+	width: 450px;
+	height: 600px;
+	float: left;
+}
+.container>.image> img{
+	width: 450px;
+	height: 500px;
+}
+.container>.contact-form{
+	margin: 0 auto;
+	text-align: center;
+	float: right;
+	width: 450px;
+	height: 600px;
+}
+.checkbox1 input{
+	width: 15px;
+	height: 15px;
+	margin: 10px;
+}
+.checkbox2 input{
+	width: 15px;
+	height: 15px;
+	margin: 10px;
+}
+.starR {
     background:
         url('http://miuu227.godohosting.com/images/icon/ico_review.png')
         no-repeat right 0;
@@ -359,6 +364,7 @@
 .starR.on {
     background-position: 0 0;
 }
+
 body {
         margin: 0;
         padding: 0;
@@ -465,41 +471,56 @@ body {
 
 </style>
 <body>
-        <!-- Page Preloder -->
-        <div id="preloder">
-                <div class="loader"></div>
-        </div>
-
-        <!-- Header Section Begin -->
-        <header class="header-section header-normal">
-                <div class="top-nav">
-                        <div class="container">
-                                <div class="row">
-                                        <div class="col-lg-6">
-                                                <div class="logo">
-                                                        <a href="admin.html"> <img src='img/logo/m_blacklogo.png' alt="">
-                                                        </a>
-                                                </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                                <div class="tn-right">
-                                                        <div class="top-social">
-                                                                
-                                                        </div>
-                                                        <a href="admin.html" class="bk-btn">Logout</a>
-                                                        <div class="language-option">
-                                                                
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+	<!-- Offcanvas Menu Section Begin -->
+	 <div class="offcanvas-menu-wrapper">
+	     <div class="header-configure-area">
+	         <a href="alogin.mc" class="bk-btn">Login</a>
+	         <a href="aregister.mc" class="bk-btn">Register Now</a>
+	     </div>
+	     <div id="mobile-menu-wrap"></div>
+	     <div class="top-social">
+	         <a href="#"><i class="fa fa-facebook"></i></a>
+	         <a href="#"><i class="fa fa-twitter"></i></a>
+	         <a href="#"><i class="fa fa-tripadvisor"></i></a>
+	         <a href="#"><i class="fa fa-instagram"></i></a>
+	     </div>
+	     <ul class="top-widget">
+	         <li><i class="fa fa-phone"></i> (12) 345 67890</li>
+	         <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+	     </ul>
+	 </div>
+    <!-- Header Section Begin -->
+    <header class="header-section header-normal">
+        <div class="top-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="logo">
+                            <a href="admin.html"><img src="img/logo/m_blacklogo.png" alt="">
+                            </a>
+                    	</div>
+           			</div>
+            		<div class="col-lg-6">
+                   		<div class="tn-right">
+                        	<div class="top-social"></div>
+                           	<a href="alogin.mc" class="bk-btn">login</a>
+						 	<a href="manageradd.mc" class="bk-btn">Register Now</a>
+						 	<div class="language-option">
+   								<img src="view/manager/img/pointer.png" alt="">
+    						</div>
                         </div>
+                    </div>
                 </div>
-                
-        </header>
-        <!-- Header End -->
-
-	    <h2> ${aloginuser.manager_id}님의 SHOP</h2>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+    
+    <h2> ${aloginuser.manager_id}님의 SHOP</h2>
 	<div class="shopdetail-container mb-20">
         <!-- SHOP DETAIL START  -->
 	    <div class="jumbotron jumbotron-fluid">
@@ -547,8 +568,9 @@ body {
 	                		<td><p class="checkbox2"></p></td>
 	                	</tr>
 	                	<tr>
-	                		<td><p> 장소 소개 </p><td>
+	                		<td><p> 장소 소개 </p></td>
 	                		<td><p>${singleshop.shop_info}</p></td>
+	                	</tr>
 	                </table>
 					<a href="shopupdate.mc"><button type="button" class="btn btn-link">가게 정보 수정</button></a>
 				</div>
@@ -558,7 +580,7 @@ body {
 	</div>
     <!-- BOOKING & REVIEW & CHART START -->
     
-     <div class="container">
+    <div class="container">
 	     <!-- <div class="offcanvas-menu-wrapper">
 		    <nav class="mainmenu mobile-menu">
 		        <ul>
@@ -569,24 +591,24 @@ body {
 		    </nav>
 	       	<div id="mobile-menu-wrap"></div> 
 	   	</div>-->
-                <nav id="nav-con">
-                        <ul class="nav-container">
-                                <li><a class="nav-item" onclick="getBookings();">예약신청현황</a></li>
-                                <li><a class="nav-item" onclick="getReviews();">리뷰확인</a></li>
-                                <li><a class="nav-item" onclick="getChart();">Shop현황</a></li>
-                        </ul>
-                </nav>
-                        <div class="con-container">
-                                <c:choose>
-                                        <c:when test="${centerpage == null}">
-                                                <jsp:include page="booklist.jsp"></jsp:include>
-                                        </c:when>
-                                        <c:otherwise>
-                                                <jsp:include page="${centerpage}.jsp"></jsp:include>
-                                        </c:otherwise>
-                                </c:choose>
-							</div>
-              </div>
+		<nav id="nav-con">
+	        <ul class="nav-container">
+	            <li><a class="nav-item" onclick="getBookings();">예약신청현황</a></li>
+	            <li><a class="nav-item" onclick="getReviews();">리뷰확인</a></li>
+	            <li><a class="nav-item" onclick="getChart();">Shop현황</a></li>
+	        </ul>
+        </nav>
+        <div class="con-container">
+	        <c:choose>
+				<c:when test="${centerpage == null}">
+					<jsp:include page="booklist.jsp"></jsp:include>
+				</c:when>
+				<c:otherwise>
+					<jsp:include page="${centerpage}.jsp"></jsp:include>
+				</c:otherwise>
+	        </c:choose>
+		</div>
+    </div>
     <!-- Footer Section Begin -->
     <footer class="footer-section">
         <div class="container">
@@ -596,10 +618,10 @@ body {
                         <div class="ft-about">
                             <div class="logo">
                                 <a href="#">
-                                    <img src='img/m_blacklogo.png' alt="">
+                                    <img src="view/manager/img/m_blacklogo.png">
                                 </a>
                             </div>
-                            <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
+                            <p>We inspire and reach millions of travelers<br> across 90 local websites</p>
                             <div class="fa-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -613,21 +635,15 @@ body {
                         <div class="ft-contact">
                             <h6>Contact Us</h6>
                             <ul>
-                                <li>(12) 345 67890</li>
-                                <li>info.colorlib@gmail.com</li>
-                                <li>856 Cordia Extension Apt. 356, Lake, United State</li>
+                                <li>https://github.com/socialDe</li>
+                                <li>https://github.com/hunman89</li>
+                                <li>https://github.com/cijbest</li>
+                                <li>https://github.com/oshsage</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
-                        <div class="ft-newslatter">
-                            <h6>New latest</h6>
-                            <p>Get the latest updates and offers.</p>
-                            <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
-                            </form>
-                        </div>
+                  		<!-- Footer 오른쪽 파트 채우는 곳  -->
                     </div>
                 </div>
             </div>
@@ -636,12 +652,6 @@ body {
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
-                        <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Environmental Policy</a></li>
-                        </ul>
                     </div>
                     <div class="col-lg-5">
                         <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -663,7 +673,7 @@ body {
             </form>
         </div>
     </div>
-    <!-- Search model end -->    
+    <!-- Search model end -->
 
     
      <!-- Js Plugins -->
@@ -677,5 +687,5 @@ body {
     <script src="view/manager/js/owl.carousel.min.js"></script>
     <script src="view/manager/js/main.js"></script>
     
-    </body>
+</body>
 </html>

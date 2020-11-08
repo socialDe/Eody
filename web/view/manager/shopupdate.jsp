@@ -8,26 +8,26 @@
 <meta charset="UTF-8">
 <title>Eody</title>
 <meta name="description" content="Sona Template">
-    <meta name="keywords" content="Sona, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<meta name="keywords" content="Sona, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="view/manager/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="view/manager/css/style.css" type="text/css">
+<!-- Css Styles -->
+<link rel="stylesheet" type="text/css" href="view/manager/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/elegant-icons.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/flaticon.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/owl.carousel.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/nice-select.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/magnific-popup.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/slicknav.min.css">
+<link rel="stylesheet" type="text/css" href="view/manager/css/style.css">
 
 <script>
 	var checkpark = ${singleshop.shop_park};
@@ -84,8 +84,8 @@
             }
         }
     };
-    
  //-------------------------   
+ 
     var imgarr = [];
     
     // 사진 삭제하기
@@ -96,18 +96,15 @@
             // 이미지 삭제
             var img_id = "#img_id_" + index;
             $(img_id).remove();
-            
     }        
-    
-    
     
     // 사진 미리보기
     $("input[type='file']").on("change", function(e) {
 
         var files = e.target.files;
         var arr = Array.prototype.slice.call(files);
-
         var index = 0;
+        
         arr.forEach(function(f){
         
             //파일명이 길면 파일명...으로 처리
@@ -115,10 +112,8 @@
             if(fileName.length > 10){
                       fileName = fileName.substring(0,7)+"...";
             }
-        
             //div에 이미지 추가
                     var str = '';
-
             //이미지 파일 미리보기
             if(f.type.match('image.*')){
                       imgarr.push(f);
@@ -132,87 +127,70 @@
                       } 
                       reader.readAsDataURL(f);
             }
-
           });//forEach
-});
+	});
 </script>
 <style>
-	.container{
-		margin: 0 auto;
-		text-align: center;
-	}
+.container{
+	margin: 0 auto;
+	text-align: center;
+}
 
-	.table1{
-		text-align: center;
-		margin: 0 auto;
+.table1{
+	text-align: center;
+	margin: 0 auto;
+}
+.jumbotron jumbotron-fluid> .btn btn-light{
+	margin-left: 50%;
 	}
-	.jumbotron jumbotron-fluid> .btn btn-light{
-		margin-left: 50%;
-		}
-	#title_h{
-		font-weight: bold;
-		font-size: 21px;
-	}
+#title_h{
+	font-weight: bold;
+	font-size: 21px;
+}
 </style>
 </head>
-
-
-
 <body>
-<!-- Page Preloder -->
+    <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
-
-
-     <!-- Header Section Begin -->
-    <header class="header-section">
+	<!-- Offcanvas Menu Section Begin -->
+	 <div class="offcanvas-menu-wrapper">
+	     <div class="header-configure-area">
+	         <a href="alogin.mc" class="bk-btn">Login</a>
+	         <a href="aregister.mc" class="bk-btn">Register Now</a>
+	     </div>
+	     <div id="mobile-menu-wrap"></div>
+	     <div class="top-social">
+	         <a href="#"><i class="fa fa-facebook"></i></a>
+	         <a href="#"><i class="fa fa-twitter"></i></a>
+	         <a href="#"><i class="fa fa-tripadvisor"></i></a>
+	         <a href="#"><i class="fa fa-instagram"></i></a>
+	     </div>
+	     <ul class="top-widget">
+	         <li><i class="fa fa-phone"></i> (12) 345 67890</li>
+	         <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+	     </ul>
+	 </div>
+    <!-- Header Section Begin -->
+    <header class="header-section header-normal">
         <div class="top-nav">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="tn-right">
-                            <a href="admin.html" class="bk-btn">Logout</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2">
                         <div class="logo">
-                            <a href="./index.html">
-                                <img src='view/img/logo/m_blacklogo.png' alt="">
+                            <a href="admin.html"><img src="img/logo/m_blacklogo.png" alt="">
                             </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="nav-menu">
-                            <nav class="mainmenu">
-                                <ul>
-                                    <li class="active"><a href="./index.html">Home</a></li>
-                                    <li><a href="./rooms.html">Rooms</a></li>
-                                    <li><a href="./about-us.html">About Us</a></li>
-                                    <li><a href="./pages.html">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./room-details.html">Room Details</a></li>
-                                            <li><a href="./blog-details.html">Blog Details</a></li>
-                                            <li><a href="#">Family Room</a></li>
-                                            <li><a href="#">Premium Room</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="./blog.html">News</a></li>
-                                    <li><a href="./contact.html">Contact</a></li>
-                                </ul>
-                            </nav>
-                            <div class="nav-right search-switch">
-                                <i class="icon_search"></i>
-                            </div>
+                    	</div>
+           			</div>
+            		<div class="col-lg-6">
+                   		<div class="tn-right">
+                        	<div class="top-social"></div>
+                           	<a href="alogin.mc" class="bk-btn">login</a>
+						 	<a href="manageradd.mc" class="bk-btn">Register Now</a>
+						 	<div class="language-option">
+   								<img src="view/manager/img/pointer.png" alt="">
+    						</div>
                         </div>
                     </div>
                 </div>
@@ -220,64 +198,63 @@
         </div>
     </header>
     <!-- Header End -->
-<div class="jumbotron jumbotron-fluid">
-	<div class="container">
-		<form action="shopupdateimpl.mc" enctype="multipart/form-data" method="post">
-			<p id="title_h" align="center"> 가게 정보 수정 </p>
-			<table class="table1">
-				<tr>
-					<td><span>가게명:</span></td>
-					<td><input type="text" name="shop_name" value = "${singleshop.shop_name}"></td>
-				</tr>
-				<tr>
-					<td><span>사업자 번호:</span></td>
-					<td><input type="text" name="shop_number" value = "${singleshop.shop_number}"></td>
-				</tr>
-				<tr>
-					<td><span>주소:</span></td>
-					<td><input type="text" name="shop_address" value = "${singleshop.shop_address}"></td>
-				</tr>
-				<tr>
-					<td><span>운영시간:</span></td>
-					<td><input type="text" name="shop_time" value = "${singleshop.shop_time}"></td>
-				</tr>
-				<tr>
-					<td><span>전화번호:</span></td>
-					<td><input type="text" name="shop_phone" value = "${singleshop.shop_phone}"></td>
-				</tr>
-				<tr>
-					<td><span>헤당지역:</span></td>
-					<td><input type="text" name="h_name" value = "${singleshop.h_name}"></td>
-				</tr>
-				<tr>
-					<td><span>장소유형:</span></td>
-					<td><input type="text" name="shop_type" value = "${singleshop.shop_type}"></td>
-				</tr>
-				<tr>
-					<td><span>주차장:</span></td>
-					<td><p align="center" class="checkbox1"></p></td>
-				</tr>
-				<tr>
-					<td><span>예약여부:</span></td>
-					<td><p align="center" class="checkbox2"></p></td>
-				</tr>
-				<tr>
-					<td><span>가게 이미지:</span></td>
-					<td><input id = "filebtn" multiple="multiple" type="file" name="files"></td>
-				</tr>
-				<tr>
-					<td><span>장소소개:</span></td>
-					<td><input type="text" id="introduce" name="shop_info" value="${singleshop.shop_info }" ></td>
-				</tr>
-				
-			</table>
-			<input type="hidden" name="manager_id" value="${singleshop.manager_id}">
-			<input type="hidden" name="origin_shop_name" value="${singleshop.shop_name}">
-			<p></p>
-			<button type="submit" class="btn btn-light">수정하기</button>
-		</form>	  
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<form action="shopupdateimpl.mc" enctype="multipart/form-data" method="post">
+				<p id="title_h" align="center"> 가게 정보 수정 </p>
+				<table class="table1">
+					<tr>
+						<td><span>가게명:</span></td>
+						<td><input type="text" name="shop_name" value = "${singleshop.shop_name}"></td>
+					</tr>
+					<tr>
+						<td><span>사업자 번호:</span></td>
+						<td><input type="text" name="shop_number" value = "${singleshop.shop_number}"></td>
+					</tr>
+					<tr>
+						<td><span>주소:</span></td>
+						<td><input type="text" name="shop_address" value = "${singleshop.shop_address}"></td>
+					</tr>
+					<tr>
+						<td><span>운영시간:</span></td>
+						<td><input type="text" name="shop_time" value = "${singleshop.shop_time}"></td>
+					</tr>
+					<tr>
+						<td><span>전화번호:</span></td>
+						<td><input type="text" name="shop_phone" value = "${singleshop.shop_phone}"></td>
+					</tr>
+					<tr>
+						<td><span>헤당지역:</span></td>
+						<td><input type="text" name="h_name" value = "${singleshop.h_name}"></td>
+					</tr>
+					<tr>
+						<td><span>장소유형:</span></td>
+						<td><input type="text" name="shop_type" value = "${singleshop.shop_type}"></td>
+					</tr>
+					<tr>
+						<td><span>주차장:</span></td>
+						<td><p align="center" class="checkbox1"></p></td>
+					</tr>
+					<tr>
+						<td><span>예약여부:</span></td>
+						<td><p align="center" class="checkbox2"></p></td>
+					</tr>
+					<tr>
+						<td><span>가게 이미지:</span></td>
+						<td><input id = "filebtn" multiple="multiple" type="file" name="files"></td>
+					</tr>
+					<tr>
+						<td><span>장소소개:</span></td>
+						<td><input type="text" id="introduce" name="shop_info" value="${singleshop.shop_info }" ></td>
+					</tr>
+				</table>
+				<input type="hidden" name="manager_id" value="${singleshop.manager_id}">
+				<input type="hidden" name="origin_shop_name" value="${singleshop.shop_name}">
+				<p></p>
+				<button type="submit" class="btn btn-light">수정하기</button>
+			</form>	  
+		</div>
 	</div>
-</div>
     <!-- Footer Section Begin -->
     <footer class="footer-section">
         <div class="container">
@@ -287,10 +264,10 @@
                         <div class="ft-about">
                             <div class="logo">
                                 <a href="#">
-                                    <img src='img/logo/m_blacklogo.png' alt="">
+                                    <img src="view/manager/img/m_blacklogo.png">
                                 </a>
                             </div>
-                            <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
+                            <p>We inspire and reach millions of travelers<br> across 90 local websites</p>
                             <div class="fa-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -304,21 +281,15 @@
                         <div class="ft-contact">
                             <h6>Contact Us</h6>
                             <ul>
-                                <li>(12) 345 67890</li>
-                                <li>info.colorlib@gmail.com</li>
-                                <li>856 Cordia Extension Apt. 356, Lake, United State</li>
+                                <li>https://github.com/socialDe</li>
+                                <li>https://github.com/hunman89</li>
+                                <li>https://github.com/cijbest</li>
+                                <li>https://github.com/oshsage</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
-                        <div class="ft-newslatter">
-                            <h6>New latest</h6>
-                            <p>Get the latest updates and offers.</p>
-                            <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
-                            </form>
-                        </div>
+                  		<!-- Footer 오른쪽 파트 채우는 곳  -->
                     </div>
                 </div>
             </div>
@@ -327,12 +298,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
-                        <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Environmental Policy</a></li>
-                        </ul>
                     </div>
                     <div class="col-lg-5">
                         <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -344,7 +309,19 @@
         </div>
     </footer>
     <!-- Footer Section End -->
- <!-- Js Plugins -->
+
+    <!-- Search model Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch"><i class="icon_close"></i></div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+    
+ 	<!-- Js Plugins -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="view/manager/js/jquery-3.3.1.min.js"></script>
     <script src="view/manager/js/bootstrap.min.js"></script>

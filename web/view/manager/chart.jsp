@@ -84,7 +84,6 @@ $('.counter-count').each(function () {
                     <p class="employee-p">View</p>
                 </div>
             </div>
-
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="customer">
                     <p class="counter-count">${singleshop.shop_score_avg}</p>
@@ -97,6 +96,6 @@ $('.counter-count').each(function () {
                     <p class="design-p">Reservation</p>
                 </div>
             </div>
-                                                                   </div>
+        </div>
     </div>
 </div> 
