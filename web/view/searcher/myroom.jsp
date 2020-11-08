@@ -344,6 +344,7 @@ body {
         <!-- 리뷰 쓰기 js -->
         <script type="text/javascript">
         var imgarr = [];
+        var booking_no = 0;
         
         // 사진 삭제하기
         function deleteImageAction(index){
@@ -362,6 +363,7 @@ body {
                                 $(this).parent().children('span').removeClass('on');
                                 $(this).addClass('on').prevAll('span').addClass('on');
                                 var rate = $(this).attr("value");
+                                console.log(rate);
                                 $('#shop_score').val(rate);
                                 return false;
                         });
@@ -409,7 +411,38 @@ body {
                         	$("input[name='booking_no']").val($(this).data('booking'));
 
                         });
+                        // 리뷰 수정 모달에 shop_name, booking_no, review_contents 값 전달
+                        $('#modifyReview').click(function(){
+                        	console.log($(this).data('id'));
+                        	$("input[name='shop_name']").val($(this).data('id'));
+                        	console.log($(this).data('booking'));
+                        	$("input[name='booking_no']").val($(this).data('booking'));
+                        	
+                        	//server로부터 해당 리뷰의 정보를 받아와 유저에게 보여줍니다.
+                        	booking_no =$(this).data('booking');
+                        	console.log(booking_no);
+                        	var contents="";
+                            $.ajax({
+                            	url : 'getReview2.mc',
+                            	data : {'booking_no':booking_no},
+                            	error : function(request,status,error) {
+                               	console.log("error");
+                               	console.log(request.responseText);
+                               	console.log(" error = "+error)
+                               	alert("code= "+request.status+" message = "+ request.responseText +" error = "+error);
+                               },
+                                success : function(data) {
+                               	console.log("success");
+                               	console.log(data);
+                               	console.log(typeof(data));
+                             	$("input[name='review_contents']").val(data.review_contents);
+                               }
+                            });
+                        });
+                        
                 });
+            
+                
         </script>
 
 

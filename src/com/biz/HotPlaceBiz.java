@@ -122,6 +122,12 @@ public class HotPlaceBiz implements Biz<String,Integer,HotPlaceVO> {
 		
 	}
 
+	@Override
+	public void bookingcheck_bookstat(Integer k) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 }

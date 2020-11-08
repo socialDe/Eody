@@ -118,7 +118,12 @@ public class BookingBiz implements Biz<String, Integer, BookingVO> {
 		if(result ==0) {
 			throw new Exception();
 		}
-		
 	}
 
+	@Override
+	public void bookingcheck_bookstat(Integer k) throws Exception {
+		dao.bookingcheck_bookstat(k);
+
+	}
+		
 }

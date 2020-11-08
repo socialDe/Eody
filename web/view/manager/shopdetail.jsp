@@ -34,6 +34,8 @@
 	$(document).ready(function(){
 		MakeCode1();
 		MakeCode2();
+		getBookings();
+		
 	});
 	// Check Box //
 	var checkpark = ${singleshop.shop_park};
@@ -81,7 +83,7 @@
     var ashop ='';
     ashop='${singleshop.shop_name}';
 
-    //server로 해당 가게의 booking 목록을 요청하는 ajax입니다.
+    //server로 해당 가게의 review 목록을 요청하는 ajax입니다.
     $.ajax({
         url : 'getReview.mc',
         data : {'ashop':ashop},
@@ -172,7 +174,7 @@
        function getBookings(){
              var ashop ='';
              ashop='${singleshop.shop_name}';
-             alert(typeof(ashop));
+             
                         
              //server로 해당 가게의 booking 목록을 요청하는 ajax입니다.
              $.ajax({
@@ -183,6 +185,7 @@
                 },
                 success : function(data) {
                 	console.log("success");
+                	console.log(typeof(data));
                 	displayBookingData(data);
                 }
              });
@@ -193,7 +196,7 @@
                         var booking_strings='';
                         booking_strings= '<div class="row"><div class="col-lg-8"><div class="room-details-item"><div class="rd-text"><div class="rd-title">' +'${singleshop.shop_name}'+'의 예약 목록 </div><table><tbody><tr><td class="r-o">예약번호</td><td class="r-o">고객ID</td><td class="r-o">인원수</td><td class="r-o">예약 날짜</td><td class="r-o">연락처</td><td class="r-o">상태</td><td class="r-o">관리</td></tr>';
                         for(var i in bookinglist){
-                                booking_strings+='<tr><td>'+bookinglist[i].booking_no+'</td><td>'+bookinglist[i].searcher_id+'</td><td>'+bookinglist[i].booking_pp+'</td><td>'+bookinglist[i].booking_date+'</td><td>'+bookinglist[i].booking_searcher_phone+'</td><td>'+bookinglist[i].booking_stat+'</td><td><button id = "okbtn" value = "'+bookinglist[i].booking_stat+'" onclick="OK();">승인</button></td></tr>';
+                                booking_strings+='<tr><td>'+bookinglist[i].booking_no+'</td><td>'+bookinglist[i].searcher_id+'</td><td>'+bookinglist[i].booking_pp+'</td><td>'+bookinglist[i].booking_date+'</td><td>'+bookinglist[i].booking_searcher_phone+'</td><td>'+bookinglist[i].booking_stat+'</td><td><button id = "okbtn" value = "'+bookinglist[i].booking_stat+'" onclick="OK();"><a href="/checkBookingImpl.mc?booking_no='+bookinglist[i].booking_no+'">승인</a></button></td></tr>';
                                 booking_strings+='<tr><td colspan="7">'+bookinglist[i].booking_msg+'<td></tr><hr class="my-4">';
                         }
                         booking_strings+='</tbody></table></div></div></div></div>';

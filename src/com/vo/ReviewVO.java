@@ -16,7 +16,23 @@ public class ReviewVO implements Serializable {
         private double shop_score;
         public ReviewVO() {
         }
-        public ReviewVO(int review_no, Date review_date, String review_contents, String review_image1, String review_image2,
+
+
+		public ReviewVO(Date review_date, String review_contents, String review_image1, String review_image2,
+				String review_image3, String shop_name, String review_name, double shop_score) {
+			super();
+			this.review_date = review_date;
+			this.review_contents = review_contents;
+			this.review_image1 = review_image1;
+			this.review_image2 = review_image2;
+			this.review_image3 = review_image3;
+			this.shop_name = shop_name;
+			this.review_name = review_name;
+			this.shop_score = shop_score;
+		}
+
+
+		public ReviewVO(int review_no, Date review_date, String review_contents, String review_image1, String review_image2,
                         String review_image3, String shop_name, String review_name, double shop_score) {
                 this.review_no = review_no;
                 this.review_date = review_date;

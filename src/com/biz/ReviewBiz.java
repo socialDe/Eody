@@ -32,7 +32,10 @@ public class ReviewBiz implements Biz<String,Integer,ReviewVO> {
 
         @Override
         public void modify(ReviewVO v) throws Exception {
-                dao.update(v);
+        	int result = dao.update(v);
+            if(result == 0) {
+            	throw new Exception();
+            }
         }
 
         @Override
@@ -112,6 +115,12 @@ public class ReviewBiz implements Biz<String,Integer,ReviewVO> {
 
 		@Override
 		public void update_reviewstat2(ReviewVO v) throws Exception {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void bookingcheck_bookstat(Integer k) throws Exception {
 			// TODO Auto-generated method stub
 			
 		}

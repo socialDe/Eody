@@ -122,4 +122,10 @@ public class ShopBiz implements Biz<String,Integer, ShopVO> {
 			
 		}
 
+		@Override
+		public void bookingcheck_bookstat(Integer k) throws Exception {
+			// TODO Auto-generated method stub
+			
+		}
+
 }

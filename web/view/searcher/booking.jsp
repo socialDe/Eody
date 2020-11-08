@@ -4,6 +4,7 @@
 
        
 <jsp:include page="reviewmodal.jsp" flush="false"/>
+<jsp:include page="reviewmodal_mod.jsp" flush="false"/>
 
 <div class="section-top-border">
         <h3 class="mb-30">My Reservations</h3>
@@ -44,7 +45,7 @@
                                                                                 
                                                                                 
                                                                                 <c:otherwise>
-                                                                                        <div class="country" id="sp"><a href="#" class="genric-btn info circle rbtn">리뷰 수정</a>
+                                                                                        <div class="country" id="sp"><a href="#" data-toggle="modal" data-target="#reviewmodal_mod" data-id="${b.shop_name}" data-booking="${b.booking_no}" class="genric-btn info circle rbtn" id="modifyReview">리뷰 수정</a>
 																														<a href="/removeReviewImpl.mc?booking_no=${b.booking_no}" class="genric-btn danger circle rbtn">리뷰 삭제</a> </div>
                                                                                 </c:otherwise>
                                                                         </c:choose>

@@ -226,5 +226,24 @@ public class ShopController {
         		out.print(ja.toJSONString());
         		out.close();
         }
+        
+        // Manager 마이룸에서 예약 승인 
+        @RequestMapping("/checkBookingImpl.mc")
+        public ModelAndView checkBookingImpl(ModelAndView mv, String booking_no) {
+        	BookingVO booking = new BookingVO();
+        	try {
+        		// 해당 예약건을 가져와 booking_stat을 변경
+        		System.out.println(booking_no);
+        		booking_biz.bookingcheck_bookstat(Integer.parseInt(booking_no));
+        		booking = booking_biz.get1(booking_no);
+        		
+        		
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+        	
+        	mv.setViewName("redirect:shopdetail.mc"+"?name="+booking.getShop_name());
+        	return mv;
+        }
 
 }

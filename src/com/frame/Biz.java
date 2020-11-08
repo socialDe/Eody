@@ -29,5 +29,6 @@ public interface Biz<K1, K2, V> { //K1: STRING, K2: INTEGER
         public void shop_score_avg(K1 k) throws Exception;
         public ArrayList<V> review_select(K1 k) throws Exception;
         public void update_reviewstat2(V v) throws Exception;
+        public void bookingcheck_bookstat(K2 k) throws Exception;				//Manager 예약 승인으로 booking stat변경
         
 }
