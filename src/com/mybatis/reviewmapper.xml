@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         </insert>
         
         <update id="update" parameterType="review">
-                SELECT * FROM REVIEW
+                UPDATE REVIEW SET REVIEW_DATE=SYSDATE, REVIEW_CONTENTS=#{review_contents}, REVIEW_IMAGE1=#{review_image1}, REVIEW_IMAGE2=#{review_image2}, REVIEW_IMAGE3=#{review_image3}, SHOP_SCORE=#{shop_score} WHERE REVIEW_NO=#{review_no}
         </update> 
         
         <delete id="delete1" parameterType="String">

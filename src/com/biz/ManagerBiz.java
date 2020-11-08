@@ -116,6 +116,12 @@ public class ManagerBiz implements Biz<String, Integer, ManagerVO> {
 					
 				}
 
+				@Override
+				public void bookingcheck_bookstat(Integer k) throws Exception {
+					// TODO Auto-generated method stub
+					
+				}
+
 
 }
 

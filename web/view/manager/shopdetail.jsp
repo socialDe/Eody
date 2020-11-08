@@ -34,6 +34,7 @@
 	$(document).ready(function(){
 		MakeCode1();				// 주차장 여부
 		MakeCode2();				// 예약 여부
+		getBookings();				// 예약 리스트 출력
 		StarRate();					// 별점 표시(상세)
 	});
 	
@@ -123,6 +124,7 @@
 	    return false;
 	});
 
+<<<<<<< HEAD
 	// Review //
     function getReviews(){
 	    var ashop ='';
@@ -147,6 +149,27 @@
 	        }
 	    });
 	}
+=======
+    //server로 해당 가게의 review 목록을 요청하는 ajax입니다.
+    $.ajax({
+        url : 'getReview.mc',
+        data : {'ashop':ashop},
+        error : function(error) {
+            console.log("error");
+        },
+        success : function(data) {
+        console.log("success");
+        console.log(data);
+        displayReviewData(data);
+        },
+        error:function(request, error) {
+        	alert("fail");
+            // error 발생 이유를 알려준다.
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+    });
+}
+>>>>>>> f3c5db7cb7486c4709cb78a77fd11fb96fb5fd3b
     
     function displayReviewData(reviewlist){
     //생성할 html 태그를 담을 변수(review_strings)입니다.
@@ -209,6 +232,7 @@
 	    $(".con-container").append(review_strings);
 	}
         
+<<<<<<< HEAD
      //Booking //
      //예약목록 Ajax
     function getBookings(){
@@ -237,6 +261,54 @@
 		for(var i in bookinglist){
 	        booking_strings+='<tr><td>'+bookinglist[i].booking_no+'</td><td>'+bookinglist[i].searcher_id+'</td><td>'+bookinglist[i].booking_pp+'</td><td>'+bookinglist[i].booking_date+'</td><td>'+bookinglist[i].booking_searcher_phone+'</td><td>'+bookinglist[i].booking_stat+'</td><td><button id = "okbtn" value = "'+bookinglist[i].booking_stat+'" onclick="OK();">승인</button></td></tr>';
 	        booking_strings+='<tr><td colspan="7">'+bookinglist[i].booking_msg+'<td></tr><hr class="my-4">';
+=======
+       //Booking //
+       //예약목록 Ajax
+       function getBookings(){
+             var ashop ='';
+             ashop='${singleshop.shop_name}';
+             
+                        
+             //server로 해당 가게의 booking 목록을 요청하는 ajax입니다.
+             $.ajax({
+             	url : 'getbooking.mc',
+                data : {'ashop':ashop},
+                error : function(error) {
+                	console.log("error");
+                },
+                success : function(data) {
+                	console.log("success");
+                	console.log(typeof(data));
+                	displayBookingData(data);
+                }
+             });
+        }
+        function displayBookingData(bookinglist){
+                $(".con-container").empty();
+                //생성할 html 태그를 담을 변수(booking_strings)입니다.
+                        var booking_strings='';
+                        booking_strings= '<div class="row"><div class="col-lg-8"><div class="room-details-item"><div class="rd-text"><div class="rd-title">' +'${singleshop.shop_name}'+'의 예약 목록 </div><table><tbody><tr><td class="r-o">예약번호</td><td class="r-o">고객ID</td><td class="r-o">인원수</td><td class="r-o">예약 날짜</td><td class="r-o">연락처</td><td class="r-o">상태</td><td class="r-o">관리</td></tr>';
+                        for(var i in bookinglist){
+                                booking_strings+='<tr><td>'+bookinglist[i].booking_no+'</td><td>'+bookinglist[i].searcher_id+'</td><td>'+bookinglist[i].booking_pp+'</td><td>'+bookinglist[i].booking_date+'</td><td>'+bookinglist[i].booking_searcher_phone+'</td><td>'+bookinglist[i].booking_stat+'</td><td><button id = "okbtn" value = "'+bookinglist[i].booking_stat+'" onclick="OK();"><a href="/checkBookingImpl.mc?booking_no='+bookinglist[i].booking_no+'">승인</a></button></td></tr>';
+                                booking_strings+='<tr><td colspan="7">'+bookinglist[i].booking_msg+'<td></tr><hr class="my-4">';
+                        }
+                        booking_strings+='</tbody></table></div></div></div></div>';
+                        
+                        $(".con-container").append(booking_strings);
+        }
+        function getChart(){
+            $(".con-container").empty();
+                    var chart_strings='';
+                    chart_strings= '<div class="counter"><div class="container"><div class="row"><div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="employees"><p class="counter-count">';
+                   	chart_strings+= ${singleshop.shop_hits};
+                   	chart_strings+='</p><p class="employee-p">View</p></div></div>';
+                   	chart_strings+='<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="customer"><p class="counter-count">';
+                   	chart_strings+=${singleshop.shop_score_avg};
+                   	chart_strings+='</p><p class="customer-p">Star Rating</p></div></div><div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="design"><p class="counter-count">';
+                   	chart_strings+=${singleshop.shop_booking};
+                   	chart_strings+='</p><p class="design-p">Reservation</p></div></div></div></div></div>';
+                    $(".con-container").append(chart_strings);
+>>>>>>> f3c5db7cb7486c4709cb78a77fd11fb96fb5fd3b
 		}
 		booking_strings+='</tbody></table></div></div></div></div>';
 		$(".con-container").append(booking_strings);

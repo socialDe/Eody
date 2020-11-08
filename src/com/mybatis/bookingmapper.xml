@@ -34,7 +34,11 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         
         <update id="update_reviewstat2" parameterType="booking">
         		UPDATE BOOKING SET REVIEW_STAT='0', REVIEW_NO=NULL WHERE BOOKING_NO=#{booking_no}
-        </update> 
+        </update>
+        
+        <select id="bookingcheck_bookstat" parameterType="String">
+                UPDATE BOOKING SET BOOKING_STAT='1' WHERE BOOKING_NO=#{booking_no}
+        </select> 
         
 </mapper>
 

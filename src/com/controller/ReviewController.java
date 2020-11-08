@@ -168,6 +168,119 @@ public class ReviewController {
         	return mv;
         }
         
+        // 리뷰 수정시 기존 데이터 불러오기
+        @ResponseBody
+        @RequestMapping("/getReview2.mc")
+        public void getReview2(HttpServletResponse res, String booking_no) throws IOException {
+        		System.out.println("booking_no :"+booking_no+"의 review 로드");
+        		ReviewVO review = new ReviewVO();
+                try {
+                        review = rbiz.get1(booking_no);
+                } catch (Exception e) {
+                        System.out.println("error");
+                        e.printStackTrace();
+                }
+                JSONObject data = new JSONObject();
+                JSONArray ja = new JSONArray();
+                data.put("review_no", review.getReview_no());
+                data.put("review_date", review.getReview_date()+"");
+                data.put("review_contents", review.getReview_contents());
+                data.put("review_image1", review.getReview_image1());
+                data.put("review_image2", review.getReview_image2());
+                data.put("review_image3", review.getReview_image3());
+                data.put("booking_no", review.getBooking_no());
+                data.put("shop_name", review.getShop_name());
+                data.put("review_name", review.getReview_name());
+                data.put("shop_score", review.getShop_score()+ "");
+                ja.add(data);
+        
+                res.setCharacterEncoding("utf-8");
+                res.setContentType("application/json");
+                PrintWriter out = res.getWriter();
+                System.out.println(data.toJSONString());
+                System.out.println(ja.toJSONString());
+                
+                out.print(data.toJSONString());
+                out.close();
+        }
+        
+        // 리뷰 수정
+        @RequestMapping("/modifyReviewImpl.mc")
+        public ModelAndView modifyReviewImpl(ModelAndView mv, String booking_no, SearcherVO searcher,
+                @RequestParam("files") MultipartFile[] files,String shop_score, String review_contents) {
+        	System.out.println(booking_no);
+        	System.out.println(shop_score);
+        	System.out.println(review_contents);
+        	// 연결된 예약 번호는 hidden 값으로 넘겨받았음.
+        	// 가게 이름은 hidden 값으로 넘겨받았음
+            // 리뷰에 매긴 평점은 hidden 값으로 넘겨받았음
+            // 리뷰를 작성한 searcher의 nickname값을 hidden으로 넘겨받았음
+            // 리뷰에 업로드한 사진이름 저장
+        	ReviewVO review = null;
+        	
+        	// 기존 저장되어 있던 리뷰 load
+        	try {
+				review = rbiz.get1(booking_no);
+				
+				// 사진이 저장되어 있었다면 기존 사진 삭제
+	        	if(!review.getReview_image1().equals("default.jpg")) {
+	        		Util.deleteReviewFile(review.getReview_image1(), review.getReview_name());
+	        		if(!review.getReview_image2().equals("default.jpg")) {
+	        			Util.deleteReviewFile(review.getReview_image2(), review.getReview_name());
+	        			if(!review.getReview_image3().equals("default.jpg")) {
+	        				Util.deleteReviewFile(review.getReview_image3(), review.getReview_name());
+	        			}
+	        		}
+	        	}
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+        	review.setReview_contents(review_contents);
+        	
+        	
+        	 System.out.println("size : " + files.length);
+             int len = files.length;
+             System.out.println("사진 길이 : " + len);
+             if(files[0].getOriginalFilename() == "") {
+             	review.setReview_image1("default.jpg");
+                 review.setReview_image2("default.jpg");
+                 review.setReview_image3("default.jpg");
+             }
+             else if (len == 1) {
+                     review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
+                     review.setReview_image2("default.jpg");
+                     review.setReview_image3("default.jpg");
+             } else if (len == 2) {
+                     review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
+                     review.setReview_image2(review.getReview_name() + files[1].getOriginalFilename());
+                     review.setReview_image3("default.jpg");
+             } else {
+                     review.setReview_image1(review.getReview_name() + files[0].getOriginalFilename());
+                     review.setReview_image2(review.getReview_name() + files[1].getOriginalFilename());
+                     review.setReview_image3(review.getReview_name() + files[2].getOriginalFilename());
+             }
+
+             try {
+            	 	 System.out.println("리뷰 출력 :"+review.toString());
+                     rbiz.modify(review);
+                     // 사진파일 폴더에 저장
+                     for (MultipartFile f : files) {
+                             if (f.getOriginalFilename() == "") {
+                                     continue;
+                             }
+                             Util.saveReviewFile(f, review.getReview_name());
+                     }
+                     //상점 평균 평점 수정
+                     shopbiz.shop_score_avg(review.getShop_name());
+             } catch (Exception e) {
+                     e.printStackTrace();
+             }
+             //redirect으로 해야 submit 중복을 막음
+             mv.setViewName("redirect:myroom.mc");
+             return mv;
+        }
+       
+
         
 
 

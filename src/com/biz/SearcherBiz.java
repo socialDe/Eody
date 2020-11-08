@@ -115,5 +115,11 @@ public class SearcherBiz implements Biz<String, Integer, SearcherVO> {
 					
 				}
 
+				@Override
+				public void bookingcheck_bookstat(Integer k) throws Exception {
+					// TODO Auto-generated method stub
+					
+				}
+
 
 }

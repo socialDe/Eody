@@ -257,7 +257,7 @@ public class SearcherController {
         public ModelAndView search() {
                 ModelAndView mv = new ModelAndView();
                 mv.setViewName("searcher/search");
-                System.out.println("�� �̵� ����");
+                System.out.println("웹 이동 성공 ");
                 return mv;
         }
         
