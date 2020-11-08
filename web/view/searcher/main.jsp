@@ -58,7 +58,6 @@
 
 #shopinfo {
 	font-weight: bold;
-	color: white;
 }
 
 </style>
@@ -211,14 +210,7 @@
 
 							</div>
 							<div class="modal-body">
-								<div class="col-lg-8 col-md-8"  style="background: linear-gradient(
-							            to right,
-							            rgba(255, 255, 255, 0) 10%,
-							            rgba(255, 255, 255, 0.25) 25%,
-							            rgba(255, 255, 255, 0.5) 50%,
-							            rgba(255, 255, 255, 0.75) 75%,
-							            rgba(255, 255, 255, 1) 100%
-							          ),url(img/shopImg/${shop.shop_img1 }); background-size:cover;">
+								<div class="col-lg-8 col-md-8"  >
 									<div class="explorer_info">
 										<h3>
 											<a href="#" id="shopinfo">${shop.shop_name }</a>
@@ -233,6 +225,8 @@
 								</div>
 								<div class="section-top-border" id = "shopimages">
 									<!-- image -->
+									<img src="img/shopImg/${shop.shop_img1 }" width="300px"
+										height="250px">
 										<img src="img/shopImg/${shop.shop_img2 }" width="300px"
 										height="250px">
 										<img src="img/shopImg/${shop.shop_img3 }" width="300px"

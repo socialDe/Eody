@@ -9,7 +9,6 @@
 
 /*------------------------------------------------------------------
 [Table of contents]
-
 1.  Template default CSS
 	1.1	Variables
 	1.2	Mixins
@@ -24,17 +23,21 @@
 8.  Blog Section
 9.  Contact
 10.  Footer Style
-
 -------------------------------------------------------------------*/
 
 /*----------------------------------------*/
 
 /* Template default CSS
 /*----------------------------------------*/
-
+@font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 html, body {
 	height: 100%;
-	font-family: "Cabin", sans-serif;
+	font-family: 'RIDIBatang';
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
@@ -42,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
-	font-family: "Lora", serif;
+	font-family: 'RIDIBatang';
 }
 h1 {
 	font-size: 70px;
@@ -64,7 +67,7 @@ h6 {
 }
 p {
 	font-size: 16px;
-	font-family: "Cabin", sans-serif;
+	font-family: 'RIDIBatang';
 	color: #6b6b6b;
 	font-weight: 400;
 	line-height: 26px;
@@ -761,7 +764,7 @@ ul, ol {
 	transition: all 0.2s;
 }
 .hp-room-items .hp-room-item .hr-text h2 span {
-	font-family: "Cabin", sans-serif;
+	font-family: 'RIDIBatang';
 	font-size: 16px;
 	font-weight: 400;
 	color: #ffffff;
@@ -907,7 +910,7 @@ ul, ol {
 	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 3px;
-	font-family: "Cabin", sans-serif;
+	font-family: 'RIDIBatang';
 	margin-bottom: 20px;
 }
 .footer-section .footer-text .ft-contact ul li {
@@ -922,7 +925,7 @@ ul, ol {
 	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 3px;
-	font-family: "Cabin", sans-serif;
+	font-family: 'RIDIBatang';
 	margin-bottom: 20px;
 }
 .footer-section .footer-text .ft-newslatter p {
@@ -1180,7 +1183,7 @@ ul, ol {
 	margin-bottom: 14px;
 }
 .room-item .ri-text h3 span {
-	font-family: "Cabin", sans-serif;
+	font-family: 'RIDIBatang';
 	font-size: 14px;
 	font-weight: 400;
 	color: #19191a;
@@ -1271,7 +1274,7 @@ ul, ol {
 	margin-bottom: 25px;
 }
 .room-details-item .rd-text h2 span {
-	font-family: "Cabin", sans-serif;
+	font-family: 'RIDIBatang';
 	font-size: 16px;
 	font-weight: 400;
 	color: #19191a;
