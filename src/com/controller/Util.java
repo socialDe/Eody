@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Util {
         // 받아온 데이터를 서버에 이미지를 올린다.
-        public static void saveShopFile(HttpServletRequest request, MultipartFile mf, String review_name) {
+        public static void saveShopFile(HttpServletRequest request, MultipartFile mf) {
         	// 디렉토리 어디로받아야할것인지 선택해야함.   
     		// 상대경로이지만 이클립스에서 테스트하기 어려움
         		//String uploadPath = request.getSession().getServletContext().getRealPath("/img/shopImg/"); 
@@ -19,7 +19,7 @@ public class Util {
         		try {
         			data = mf.getBytes();
         			FileOutputStream fo = 
-        					new FileOutputStream(dir+review_name+imgname);
+        					new FileOutputStream(dir+imgname);
         			
         			fo.write(data);
         			fo.close();
