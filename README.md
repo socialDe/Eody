@@ -118,35 +118,41 @@
 
 ##### - 메인
 
-![I1](https://user-images.githubusercontent.com/24764210/93496010-b30b1c00-f949-11ea-93dc-0c8eba46d2cc.jpg)
+![main1](md-images/100033339-60644980-2e3d-11eb-91d0-f4f9f4b2ec9d.png)
+
+![main2](md-images/100033412-7e31ae80-2e3d-11eb-9fdd-c39a3d912c8f.png)
+
+![main3](md-images/100033461-999cb980-2e3d-11eb-84c1-71353604466f.png)
 
 ##### - 로그인
 
-![I2](https://user-images.githubusercontent.com/24764210/93496013-b3a3b280-f949-11ea-86f4-a4379afd6a75.jpg)
+![login](md-images/100033504-b33e0100-2e3d-11eb-9b43-6ac6fd52d848.png)
 
 ##### - 회원가입
 
-![I3](https://user-images.githubusercontent.com/24764210/93496014-b43c4900-f949-11ea-94fe-8210a5ff826c.jpg)
+![signup](md-images/100033591-d23c9300-2e3d-11eb-80bb-b7e814708f33.png)
 
 ##### - 지역 및 모임 추천을 위한 정보 입력
 
-![I4](https://user-images.githubusercontent.com/24764210/93496016-b4d4df80-f949-11ea-917b-bb10386943ce.jpg)
-
 ##### - 중간 지점으로 찾기
 
-![I5](https://user-images.githubusercontent.com/24764210/93496018-b4d4df80-f949-11ea-9e6b-382c3d44b2ef.jpg)
+![search1](md-images/100033661-fac48d00-2e3d-11eb-9385-691a68c37527.png)
 
 ##### - 지역으로 검색하기 결과
 
-![I6](https://user-images.githubusercontent.com/24764210/93496020-b56d7600-f949-11ea-9535-df7ad4132992.jpg)
+![search2](https://user-images.githubusercontent.com/24764210/93496020-b56d7600-f949-11ea-9535-df7ad4132992.jpg)
 
 ##### - 지역 추천 
 
-![I7](https://user-images.githubusercontent.com/24764210/93496023-b6060c80-f949-11ea-96fe-9cfb36be181c.png)
+![search3](md-images/100033942-7cb4b600-2e3e-11eb-8f95-c64a6eb4e912.png)
 
 ##### - 지역 내 장소 추천 
 
-![I8](https://user-images.githubusercontent.com/24764210/93496027-b69ea300-f949-11ea-8bed-2573b4dcc0b5.png)
+![search4](md-images/100034036-ad94eb00-2e3e-11eb-8bac-6e2691b9edb6.png)
+
+##### - 상호검색
+
+![search5](md-images/100034118-dae19900-2e3e-11eb-95cb-bc4eb8f952e0.png)
 
 ##### - 장소 상세 및 예약
 
@@ -154,15 +160,15 @@
 
 ##### - Myroom (예약내역 확인)
 
-![I7](https://user-images.githubusercontent.com/24764210/93496022-b56d7600-f949-11ea-8951-99a3dccf2aea.jpg)
+![Myroom1](md-images/100034319-4af01f00-2e3f-11eb-96f8-e0637741d949.png)
 
 ##### - Myroom (리뷰 쓰기)
 
-![I10](https://user-images.githubusercontent.com/24764210/93496032-b7373980-f949-11ea-96db-f7af2bdab301.png)
+![Myroom2](md-images/100034365-63603980-2e3f-11eb-873e-d8b1073b722d.png)
 
 ##### - Myroom (내 정보 수정)
 
-![I11](https://user-images.githubusercontent.com/24764210/93496033-b7373980-f949-11ea-8573-4ca408dcc01c.jpg)
+![myroom3](md-images/100034428-81c63500-2e3f-11eb-8422-7bb2a1694212.png)
 
 #### * MANAGER
 
@@ -184,15 +190,15 @@
 
 ##### - 가게 등록 후 메인
 
-![I16](https://user-images.githubusercontent.com/24764210/93496047-b900fd00-f949-11ea-9a3b-5f0ec14d767f.png)
+![I16](md-images/100034720-2779a400-2e40-11eb-9ef8-cea9dd2ff347.png)
 
 ##### - 가게 상세
 
-![I19](https://user-images.githubusercontent.com/24764210/93496048-b9999380-f949-11ea-99c8-6d17d304f5d8.JPG)
+![I19](md-images/100034821-5abc3300-2e40-11eb-8651-5c83a7535e83.png)
 
 ##### - 가게 정보 수정
 
-![I20](https://user-images.githubusercontent.com/24764210/93496052-b9999380-f949-11ea-8c14-d5d9d7ad3f77.png)
+![I20](md-images/100034896-80e1d300-2e40-11eb-8292-19d053595e8f.png)
 
 ##### - 장소 상세 화면(예약 현황)
 

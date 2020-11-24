@@ -4,7 +4,7 @@
 
        
 <jsp:include page="reviewmodal.jsp" flush="false"/>
-<jsp:include page="reviewmodal_mod.jsp" flush="false"/>
+
 
 <div class="section-top-border">
         <h3 class="mb-30">My Reservations</h3>
