@@ -1,3 +1,7 @@
+
+
+
+
 ## 프로젝트 타이틀 : Eody
 
 > 만남 장소 추천 웹 애플리케이션
@@ -44,39 +48,77 @@
 
   * 사용자(SEARCHER)의 아이디가 이미 가입되어 있다면 `이미 사용 중인 아이디입니다.`라는 문구를 표시
 
-  ![id1](https://user-images.githubusercontent.com/24764210/93498764-26625d00-f94d-11ea-92e9-a989fd977649.jpg)
+
+
+<img width="1680" alt="idcheck1" src="https://user-images.githubusercontent.com/46706670/100513764-fa682100-31b2-11eb-9e76-d723f840f924.png">
+
+
 
   * 사용자(SEARCHER)의 아이디가 가입되어 있지 않다면 `사용 가능한 아이디 입니다.`라는 문구를 표시
 
-  ![id2](https://user-images.githubusercontent.com/24764210/93498767-26faf380-f94d-11ea-88c3-fef49ece984c.jpg)
+<img width="1680" alt="idcheck2" src="https://user-images.githubusercontent.com/46706670/100513773-1370d200-31b3-11eb-88ec-6a8be553fddc.png">
 
   #### 1-2. 비밀번호 확인
 
   * 사용자(SEARCHER)의 비밀번호 입력을 이중으로 받아 두 개의 비밀번호가 같을 시 `비밀번호가 일치합니다!`라는 문구를 표시
 
-  ![p1](https://user-images.githubusercontent.com/24764210/93498768-27938a00-f94d-11ea-9914-c63131940081.jpg)
+<img width="1680" alt="pwdcheck1" src="https://user-images.githubusercontent.com/46706670/100513794-34d1be00-31b3-11eb-976f-04087fd717b3.png">
+
+
 
   * 사용자(SEARCHER)의 비밀번호 입력을 이중으로 받아 두 개의 비밀번호가 다를 시 `비밀번호가 다릅니다!`라는 문구를 표시
 
-  ![p2](https://user-images.githubusercontent.com/24764210/93498769-27938a00-f94d-11ea-999b-4ddc94d4cebb.jpg)
+<img width="1680" alt="pwdcheck2" src="https://user-images.githubusercontent.com/46706670/100513801-3dc28f80-31b3-11eb-9d0a-41cd108ef613.png">
+
+
+
+
 
 #### 2. 거리우선탐색 구현 방안
 
-> (`장소탐색 고객`) 참석자 거리 우선 탐색 알고리즘
+#### 2-1 초기 아이디어
+
+> (`장소탐색 고객`) 참석자의 출발지간 거리를 최우선으로 만남에 적합한 지역 탐색 알고리즘
 
 ![거리탐색](https://user-images.githubusercontent.com/24764210/93493568-ff089180-f946-11ea-9f43-4087d6b23d9a.png)
 
 ##### 1) 참석자들의 위도와 경도 입력
 
-##### 2) 참석자 좌표와 Rawdata 두 점의 거리 계산 반복
+##### 2) 참석자 좌표와 갖고 있는 지하철역 데이터, 두 점의 거리 계산 반복
 
-##### 3) Rawdata별 참석자 좌표들과의 평균 거리 계산
+##### 3) 지하철역 데이터마다 참석자 좌표들과의 평균 거리 계산
 
 ##### 4) 참석자들의 출발지를 제외한 상위 3개 지역 반환
 
 ![1-r](https://user-images.githubusercontent.com/24764210/93493662-20697d80-f947-11ea-944e-e0b4b6cad1ec.png)
 
 ![1](https://user-images.githubusercontent.com/24764210/93493659-1f385080-f947-11ea-8d8b-4da563442adc.png)
+
+
+
+#### 2-2 알고리즘 성능 개선
+
+<img width="1242" alt="improveidea" src="https://user-images.githubusercontent.com/46706670/100513818-53d05000-31b3-11eb-8b5e-789fb8e70572.png">
+
+
+
+* 대부분의 경우 출발지들의 `외접사각형` 내에 결과 지역이 위치한다는 특성을 활용하여, <u>출발지들의 외접사각형 내부 범위만 거리 비교 연산을 수행하도록 구현</u>
+
+* 사각형이 아닌 출발지들을 점으로 연결한 다각형으로 영역을 설정할 경우, Overfitting이 발생하여 지나치게 좁은 범위만 탐색하는 문제 야기
+
+  
+
+<img width="527" alt="codeimprove" src="https://user-images.githubusercontent.com/46706670/100513833-69de1080-31b3-11eb-87c0-723dee8adbc2.png">
+
+	* Filtered 영역(외접사각형)내 결과로 반환할 지역이 3개 미만일 경우 3개 지역을 반환할 수 없으므로, 이전 방식으로 모든 지하철역 데이터 대상 거리 비교 연산 수행하도록 구현
+
+
+
+<img width="1232" alt="test1" src="https://user-images.githubusercontent.com/46706670/100513850-7cf0e080-31b3-11eb-9b41-c309055bfeea.png">
+
+
+
+
 
 #### 3. Searcher/Myroom
 
@@ -85,7 +127,11 @@
 
 ![2-r](https://user-images.githubusercontent.com/24764210/93493669-22334100-f947-11ea-8153-f91a2cd4739f.png)
 
-![2](https://user-images.githubusercontent.com/24764210/93493667-21021400-f947-11ea-8523-bf70419a959d.png)
+<img width="1299" alt="bookingcode" src="https://user-images.githubusercontent.com/46706670/100513861-867a4880-31b3-11eb-89c2-924480094630.png">
+
+
+
+
 
 #### 4. Searcher/Review 작성
 

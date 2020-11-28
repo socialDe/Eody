@@ -408,7 +408,7 @@ table tbody tr{
         <script src="view/searcher/js/slick.min.js"></script>
 
         <!-- register js -->
-        <script src="view/searcher/js/functionCheck.js"></script>
+        <script src="view/searcher/js/functionCheck.js?ver=1"></script>
 		<script src="view/searcher/js/formCheck.js"></script>
 
 

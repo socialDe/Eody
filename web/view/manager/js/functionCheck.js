@@ -11,7 +11,8 @@ $(document).ready(function(){
                                 if(data == 1){
                                         $('#aid_check_result').text('이미 사용 중인 아이디입니다.');
                                 } else {
-                                        $('#aid_check_result').text('사용 가능한 아이디입니다.');
+                      
+                  $('#aid_check_result').text('사용 가능한 아이디입니다.');
                                 }
                   },
                 });

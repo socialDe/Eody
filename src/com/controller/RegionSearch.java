@@ -80,14 +80,14 @@ public class RegionSearch {
 			//외접사각형 영역 내 데이터가 출발지 제외 3개 미만일 경우 rawdata
 			if(filteredData.size()<keys.length+3) {
 				optData = rawdata;
-				System.out.println("rawData �񱳿��� ���� ");
+				System.out.println("rawData 비교연산 수행 ");
 			}else {
 				optData = filteredData;
-				System.out.println("filteredData �񱳿��� ���� ");
+				System.out.println("filteredData 비교연산 수행 ");
 			}
 			
 			for(int i=0; i<keys.length; i++) {
-				System.out.println("�����: " + keys[i]);
+				System.out.println("출발지: " + keys[i]);
 			}
 			
 			//dists: optData, 출발지간 거리를 담아두기 위한 2차원 배열  
@@ -192,7 +192,7 @@ public class RegionSearch {
 	    	
 	    	//반환할 3개 객체 담을 배열 선언 
 	    	DistanceVO[] result = new DistanceVO[3];
-	    	System.out.println("@@@@@@@@@@@@@@@��õ 3����@@@@@@@@@@@@@@@");
+	    	System.out.println("@@@@@@@@@@@@@@@추천 3지역@@@@@@@@@@@@@@@");
 	    	
 	    	//i: 결과 반환 배열 인덱스, j: 출발지 인덱스, temp: 거리계산 ArrayList 인덱스
 			int temp = 0;
